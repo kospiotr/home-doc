@@ -1,0 +1,869 @@
+esphome:
+  name: esp_01
+  platform: ESP32
+  board: nodemcu-32s
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  ap:
+    ssid: esp_01 Fallback Hotspot
+    password: !secret wifi_password
+captive_portal: {}
+logger: {}
+api:
+  password: !secret api_password
+ota:
+  password: !secret ota_password
+i2c:
+  scan: true
+mcp23017:
+  - id: mcp23017_hub_0
+    address: '0x20'
+  - id: mcp23017_hub_1
+    address: '0x21'
+  - id: mcp23017_hub_2
+    address: '0x22'
+  - id: mcp23017_hub_3
+    address: '0x23'
+  - id: mcp23017_hub_4
+    address: '0x24'
+  - id: mcp23017_hub_5
+    address: '0x25'
+  - id: mcp23017_hub_6
+    address: '0x26'
+  - id: mcp23017_hub_7
+    address: '0x27'
+switch:
+  - platform: gpio
+    id: OUT_1
+    name: Wyjscie 1
+    pin:
+      mcp23017: mcp23017_hub_0
+      number: 0
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_2
+    name: Wyjscie 2
+    pin:
+      mcp23017: mcp23017_hub_0
+      number: 1
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_3
+    name: Wyjscie 3
+    pin:
+      mcp23017: mcp23017_hub_0
+      number: 2
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_4
+    name: Wyjscie 4
+    pin:
+      mcp23017: mcp23017_hub_0
+      number: 3
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_5
+    name: Wyjscie 5
+    pin:
+      mcp23017: mcp23017_hub_0
+      number: 4
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_6
+    name: Wyjscie 6
+    pin:
+      mcp23017: mcp23017_hub_0
+      number: 5
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_7
+    name: Wyjscie 7
+    pin:
+      mcp23017: mcp23017_hub_0
+      number: 6
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_8
+    name: Wyjscie 8
+    pin:
+      mcp23017: mcp23017_hub_0
+      number: 7
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_9
+    name: Wyjscie 9
+    pin:
+      mcp23017: mcp23017_hub_0
+      number: 8
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_10
+    name: Wyjscie 10
+    pin:
+      mcp23017: mcp23017_hub_0
+      number: 9
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_11
+    name: Wyjscie 11
+    pin:
+      mcp23017: mcp23017_hub_0
+      number: 10
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_12
+    name: Wyjscie 12
+    pin:
+      mcp23017: mcp23017_hub_0
+      number: 11
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_13
+    name: Wyjscie 13
+    pin:
+      mcp23017: mcp23017_hub_0
+      number: 12
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_14
+    name: Wyjscie 14
+    pin:
+      mcp23017: mcp23017_hub_0
+      number: 13
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_15
+    name: Wyjscie 15
+    pin:
+      mcp23017: mcp23017_hub_0
+      number: 14
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_16
+    name: Wyjscie 16
+    pin:
+      mcp23017: mcp23017_hub_0
+      number: 15
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_17
+    name: Wyjscie 17
+    pin:
+      mcp23017: mcp23017_hub_1
+      number: 0
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_18
+    name: Wyjscie 18
+    pin:
+      mcp23017: mcp23017_hub_1
+      number: 1
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_19
+    name: Wyjscie 19
+    pin:
+      mcp23017: mcp23017_hub_1
+      number: 2
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_20
+    name: Wyjscie 20
+    pin:
+      mcp23017: mcp23017_hub_1
+      number: 3
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_21
+    name: Wyjscie 21
+    pin:
+      mcp23017: mcp23017_hub_1
+      number: 4
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_22
+    name: Wyjscie 22
+    pin:
+      mcp23017: mcp23017_hub_1
+      number: 5
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_23
+    name: Wyjscie 23
+    pin:
+      mcp23017: mcp23017_hub_1
+      number: 6
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_24
+    name: Wyjscie 24
+    pin:
+      mcp23017: mcp23017_hub_1
+      number: 7
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_25
+    name: Wyjscie 25
+    pin:
+      mcp23017: mcp23017_hub_1
+      number: 8
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_26
+    name: Wyjscie 26
+    pin:
+      mcp23017: mcp23017_hub_1
+      number: 9
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_27
+    name: Wyjscie 27
+    pin:
+      mcp23017: mcp23017_hub_1
+      number: 10
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_28
+    name: Wyjscie 28
+    pin:
+      mcp23017: mcp23017_hub_1
+      number: 11
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_29
+    name: Wyjscie 29
+    pin:
+      mcp23017: mcp23017_hub_1
+      number: 12
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_30
+    name: Wyjscie 30
+    pin:
+      mcp23017: mcp23017_hub_1
+      number: 13
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_31
+    name: Wyjscie 31
+    pin:
+      mcp23017: mcp23017_hub_1
+      number: 14
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_32
+    name: Wyjscie 32
+    pin:
+      mcp23017: mcp23017_hub_1
+      number: 15
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_33
+    name: Wyjscie 33
+    pin:
+      mcp23017: mcp23017_hub_2
+      number: 0
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_34
+    name: Wyjscie 34
+    pin:
+      mcp23017: mcp23017_hub_2
+      number: 1
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_35
+    name: Wyjscie 35
+    pin:
+      mcp23017: mcp23017_hub_2
+      number: 2
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_36
+    name: Wyjscie 36
+    pin:
+      mcp23017: mcp23017_hub_2
+      number: 3
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_37
+    name: Wyjscie 37
+    pin:
+      mcp23017: mcp23017_hub_2
+      number: 4
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_38
+    name: Wyjscie 38
+    pin:
+      mcp23017: mcp23017_hub_2
+      number: 5
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_39
+    name: Wyjscie 39
+    pin:
+      mcp23017: mcp23017_hub_2
+      number: 6
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_40
+    name: Wyjscie 40
+    pin:
+      mcp23017: mcp23017_hub_2
+      number: 7
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_41
+    name: Wyjscie 41
+    pin:
+      mcp23017: mcp23017_hub_2
+      number: 8
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_42
+    name: Wyjscie 42
+    pin:
+      mcp23017: mcp23017_hub_2
+      number: 9
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_43
+    name: Wyjscie 43
+    pin:
+      mcp23017: mcp23017_hub_2
+      number: 10
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_44
+    name: Wyjscie 44
+    pin:
+      mcp23017: mcp23017_hub_2
+      number: 11
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_45
+    name: Wyjscie 45
+    pin:
+      mcp23017: mcp23017_hub_2
+      number: 12
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_46
+    name: Wyjscie 46
+    pin:
+      mcp23017: mcp23017_hub_2
+      number: 13
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_47
+    name: Wyjscie 47
+    pin:
+      mcp23017: mcp23017_hub_2
+      number: 14
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_48
+    name: Wyjscie 48
+    pin:
+      mcp23017: mcp23017_hub_2
+      number: 15
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_49
+    name: Wyjscie 49
+    pin:
+      mcp23017: mcp23017_hub_3
+      number: 0
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_50
+    name: Wyjscie 50
+    pin:
+      mcp23017: mcp23017_hub_3
+      number: 1
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_51
+    name: Wyjscie 51
+    pin:
+      mcp23017: mcp23017_hub_3
+      number: 2
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_52
+    name: Wyjscie 52
+    pin:
+      mcp23017: mcp23017_hub_3
+      number: 3
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_53
+    name: Wyjscie 53
+    pin:
+      mcp23017: mcp23017_hub_3
+      number: 4
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_54
+    name: Wyjscie 54
+    pin:
+      mcp23017: mcp23017_hub_3
+      number: 5
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_55
+    name: Wyjscie 55
+    pin:
+      mcp23017: mcp23017_hub_3
+      number: 6
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_56
+    name: Wyjscie 56
+    pin:
+      mcp23017: mcp23017_hub_3
+      number: 7
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_57
+    name: Wyjscie 57
+    pin:
+      mcp23017: mcp23017_hub_3
+      number: 8
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_58
+    name: Wyjscie 58
+    pin:
+      mcp23017: mcp23017_hub_3
+      number: 9
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_59
+    name: Wyjscie 59
+    pin:
+      mcp23017: mcp23017_hub_3
+      number: 10
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_60
+    name: Wyjscie 60
+    pin:
+      mcp23017: mcp23017_hub_3
+      number: 11
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_61
+    name: Wyjscie 61
+    pin:
+      mcp23017: mcp23017_hub_3
+      number: 12
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_62
+    name: Wyjscie 62
+    pin:
+      mcp23017: mcp23017_hub_3
+      number: 13
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_63
+    name: Wyjscie 63
+    pin:
+      mcp23017: mcp23017_hub_3
+      number: 14
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_64
+    name: Wyjscie 64
+    pin:
+      mcp23017: mcp23017_hub_3
+      number: 15
+      mode: OUTPUT
+      inverted: false
+binary_sensor:
+  - platform: gpio
+    id: IN_65
+    name: Wejscie 65
+    pin:
+      mcp23017: mcp23017_hub_4
+      number: 0
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      switch.toggle: OUT_1
+  - platform: gpio
+    id: IN_66
+    name: Wejscie 66
+    pin:
+      mcp23017: mcp23017_hub_4
+      number: 1
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      switch.toggle: OUT_2
+  - platform: gpio
+    id: IN_67
+    name: Wejscie 67
+    pin:
+      mcp23017: mcp23017_hub_4
+      number: 2
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      switch.toggle: OUT_3
+  - platform: gpio
+    id: IN_68
+    name: Wejscie 68
+    pin:
+      mcp23017: mcp23017_hub_4
+      number: 3
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      switch.toggle: OUT_4
+  - platform: gpio
+    id: IN_69
+    name: Wejscie 69
+    pin:
+      mcp23017: mcp23017_hub_4
+      number: 4
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      switch.toggle: OUT_5
+  - platform: gpio
+    id: IN_70
+    name: Wejscie 70
+    pin:
+      mcp23017: mcp23017_hub_4
+      number: 5
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      switch.toggle: OUT_6
+  - platform: gpio
+    id: IN_71
+    name: Wejscie 71
+    pin:
+      mcp23017: mcp23017_hub_4
+      number: 6
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      switch.toggle: OUT_7
+  - platform: gpio
+    id: IN_72
+    name: Wejscie 72
+    pin:
+      mcp23017: mcp23017_hub_4
+      number: 7
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      switch.toggle: OUT_8
+  - platform: gpio
+    id: IN_73
+    name: Wejscie 73
+    pin:
+      mcp23017: mcp23017_hub_4
+      number: 8
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      switch.toggle: OUT_9
+  - platform: gpio
+    id: IN_74
+    name: Wejscie 74
+    pin:
+      mcp23017: mcp23017_hub_4
+      number: 9
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      switch.toggle: OUT_10
+  - platform: gpio
+    id: IN_75
+    name: Wejscie 75
+    pin:
+      mcp23017: mcp23017_hub_4
+      number: 10
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      switch.toggle: OUT_11
+  - platform: gpio
+    id: IN_76
+    name: Wejscie 76
+    pin:
+      mcp23017: mcp23017_hub_4
+      number: 11
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      switch.toggle: OUT_12
+  - platform: gpio
+    id: IN_77
+    name: Wejscie 77
+    pin:
+      mcp23017: mcp23017_hub_4
+      number: 12
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      switch.toggle: OUT_13
+  - platform: gpio
+    id: IN_78
+    name: Wejscie 78
+    pin:
+      mcp23017: mcp23017_hub_4
+      number: 13
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      switch.toggle: OUT_14
+  - platform: gpio
+    id: IN_79
+    name: Wejscie 79
+    pin:
+      mcp23017: mcp23017_hub_4
+      number: 14
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      switch.toggle: OUT_15
+  - platform: gpio
+    id: IN_80
+    name: Wejscie 80
+    pin:
+      mcp23017: mcp23017_hub_4
+      number: 15
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      switch.toggle: OUT_16
+  - platform: gpio
+    id: IN_81
+    name: Wejscie 81
+    pin:
+      mcp23017: mcp23017_hub_5
+      number: 0
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      switch.toggle: OUT_17
+  - platform: gpio
+    id: IN_82
+    name: Wejscie 82
+    pin:
+      mcp23017: mcp23017_hub_5
+      number: 1
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      switch.toggle: OUT_18
+  - platform: gpio
+    id: IN_83
+    name: Wejscie 83
+    pin:
+      mcp23017: mcp23017_hub_5
+      number: 2
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      switch.toggle: OUT_19
+  - platform: gpio
+    id: IN_84
+    name: Wejscie 84
+    pin:
+      mcp23017: mcp23017_hub_5
+      number: 3
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      switch.toggle: OUT_20
+  - platform: gpio
+    id: IN_85
+    name: Wejscie 85
+    pin:
+      mcp23017: mcp23017_hub_5
+      number: 4
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      switch.toggle: OUT_21
+  - platform: gpio
+    id: IN_86
+    name: Wejscie 86
+    pin:
+      mcp23017: mcp23017_hub_5
+      number: 5
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      switch.toggle: OUT_22
+  - platform: gpio
+    id: IN_87
+    name: Wejscie 87
+    pin:
+      mcp23017: mcp23017_hub_5
+      number: 6
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      switch.toggle: OUT_23
+  - platform: gpio
+    id: IN_88
+    name: Wejscie 88
+    pin:
+      mcp23017: mcp23017_hub_5
+      number: 7
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      switch.toggle: OUT_24
+  - platform: gpio
+    id: IN_89
+    name: Wejscie 89
+    pin:
+      mcp23017: mcp23017_hub_5
+      number: 8
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      switch.toggle: OUT_25
+  - platform: gpio
+    id: IN_90
+    name: Wejscie 90
+    pin:
+      mcp23017: mcp23017_hub_5
+      number: 9
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      switch.toggle: OUT_26
+  - platform: gpio
+    id: IN_91
+    name: Wejscie 91
+    pin:
+      mcp23017: mcp23017_hub_5
+      number: 10
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      switch.toggle: OUT_27
+  - platform: gpio
+    id: IN_92
+    name: Wejscie 92
+    pin:
+      mcp23017: mcp23017_hub_5
+      number: 11
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      switch.toggle: OUT_28
+  - platform: gpio
+    id: IN_93
+    name: Wejscie 93
+    pin:
+      mcp23017: mcp23017_hub_5
+      number: 12
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      switch.toggle: OUT_29
+  - platform: gpio
+    id: IN_94
+    name: Wejscie 94
+    pin:
+      mcp23017: mcp23017_hub_5
+      number: 13
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      switch.toggle: OUT_30
+  - platform: gpio
+    id: IN_95
+    name: Wejscie 95
+    pin:
+      mcp23017: mcp23017_hub_5
+      number: 14
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      switch.toggle: OUT_31
+  - platform: gpio
+    id: IN_96
+    name: Wejscie 96
+    pin:
+      mcp23017: mcp23017_hub_5
+      number: 15
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      switch.toggle: OUT_32
