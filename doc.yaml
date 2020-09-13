@@ -1,0 +1,46 @@
+---
+locations:
+  outside:
+    label: Dwór
+  entry-hall:
+    label: Wiatrołap
+    places:
+      south-wall: Przy wejściu głównym
+      celling: Sufit
+buttonActions:
+  push:
+    label: Przyciśnięcie
+  double-push:
+    label: Podwójne przyciśnięcie
+  long-push:
+    label: Długie przyciśnięcie
+outputActions:
+  toggle:
+    label: przełącza
+types:
+  button:
+    label: Przycisk
+  light:
+    label: Światło
+buttons:
+- type: button
+  location: entry-hall.south-wall.1
+  wiring:
+    wire: w1
+    vains:
+    - orange
+    - light-orange
+  actions:
+    push:
+    - toggle: A1
+out:
+- id: A1
+  type: light
+  location: entry-hall.celling
+  kind: główne
+  label: A1
+- id: A2
+  type: light
+  location: entry-hall.walls
+  kind: karnisze
+mappings: []
