@@ -44,10 +44,40 @@ buttons:
     push:
     - toggle: A1
 - type: button
-  location: entry-hall.south-wall.2
+  location: entry-hall.east-wall.2
   actions:
     push:
     - toggle: A2
+- type: button
+  location: garage.south-wall.1
+  actions:
+    push:
+    - toggle: B1
+- type: button
+  location: garage.south-wall.2
+  actions:
+    push:
+    - toggle: B2
+- type: button
+  location: garage.south-wall.3
+  actions:
+    push:
+    - toggle: B3
+- type: button
+  location: boiler-room.east-wall.1
+  actions:
+    push:
+    - toggle: C1
+- type: button
+  location: boiler-room.east-wall.2
+  actions:
+    push:
+    - toggle: C2
+- type: button
+  location: dining-room.east-wall.1
+  actions:
+    push:
+    - toggle: C2
 out:
 - id: A1
   type: light
