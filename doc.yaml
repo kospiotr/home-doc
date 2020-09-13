@@ -25,14 +25,29 @@ types:
 buttons:
 - type: button
   location: entry-hall.south-wall.1
-  wiring:
-    wire: w1
-    vains:
-    - orange
-    - light-orange
   actions:
     push:
     - toggle: A1
+- type: button
+  location: entry-hall.south-wall.2
+  actions:
+    push:
+    - toggle: Ao
+- type: button
+  location: entry-hall.south-wall.3
+  actions:
+    push:
+    - toggle: Ax
+- type: button
+  location: entry-hall.east-wall.1
+  actions:
+    push:
+    - toggle: A1
+- type: button
+  location: entry-hall.south-wall.2
+  actions:
+    push:
+    - toggle: A2
 out:
 - id: A1
   type: light
