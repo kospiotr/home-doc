@@ -1,0 +1,14 @@
+{
+  "name": "doc-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "npm run run",
+  "scripts": {
+    "start": "browser-sync start -s . -f ."
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.26.12"
+  }
+}

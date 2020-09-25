@@ -1,0 +1,1171 @@
+---
+places:
+  entrance:
+    label: Wejście
+    map: 'plan-L1.png'
+    level: 1
+  garden:
+    label: Ogród
+    map: 'plan-L1.png'
+    level: 1
+  entry-hall:
+    label: Wiatrołap
+    map: 'plan-L1.png'
+    level: 1
+  garage:
+    label: Garaż
+    map: 'plan-L1.png'
+    level: 1
+  boiler-room:
+    label: Kotłownia
+    map: 'plan-L1.png'
+    level: 1
+  toilet:
+    label: Toaleta na parterze
+    map: 'plan-L1.png'
+    level: 1
+  dining-room:
+    label: Jadalnia
+    map: 'plan-L1.png'
+    level: 1
+  living-room:
+    label: Salon
+    map: 'plan-L1.png'
+    level: 1
+  library:
+    label: Biblioteczka
+    map: 'plan-L1.png'
+    level: 1
+  kitchen:
+    label: Kuchnia
+    map: 'plan-L1.png'
+    level: 1
+  office:
+    label: Gabinet
+    map: 'plan-L1.png'
+    level: 1
+  hall:
+    label: Hol
+    map: 'plan-L2.png'
+    level: 2
+  bathroom:
+    label: Lazienka
+    map: 'plan-L2.png'
+    level: 2
+  bedroom-1:
+    label: Sypialnia 1
+    map: 'plan-L2.png'
+    level: 2
+  bedroom-2:
+    label: Sypialnia 2
+    map: 'plan-L2.png'
+    level: 2
+  bedroom-3:
+    label: Sypialnia 3
+    map: 'plan-L2.png'
+    level: 2
+  tarrace-south:
+    label: Taras południowy
+    map: 'plan-L2.png'
+    level: 2
+  tarrace-north:
+    label: Taras północny
+    map: 'plan-L2.png'
+    level: 2
+  tarrace-east:
+    label: Taras wschodni
+    map: 'plan-L2.png'
+    level: 2
+
+locations:
+#  outside
+  Ao:
+    place: entrance
+    label: "Nad wejściem i wjazdem do garażu"
+    coordinates: [{x: 817, y: 277},{x: 771, y: 169},{x: 771, y: 101}]
+  Ax:
+    place: entrance
+    label: "Wzdłuż wejścia"
+    coordinates: [{x: 818, y: 318},{x: 883, y: 318},{x: 911, y: 318},{x: 938, y: 318},{x: 964, y: 318}]
+  Do:
+    place: garden
+    label: "Oświetlenie górne tarasu"
+    coordinates: [{x: 205, y: 413},{x: 205, y: 492}]
+  Dp:
+    place: garden
+    label: "Ogród południowy"
+    coordinates: [{x: 360, y: 802}]
+  Du:
+    place: garden
+    label: "Lampy górne"
+    coordinates: [{x: 204, y: 605},{x: 309, y: 605},{x: 354, y: 605},{x: 496, y: 605},{x: 540, y: 605},{x: 585, y: 605}]
+  Dw:
+    place: garden
+    label: "Kinkiet na ogród południowy"
+    coordinates: [{x: 422, y: 590}]
+  Dx:
+    place: garden
+    label: "Stopnie"
+    coordinates: [{x: 634, y: 620},{x: 661, y: 620},{x: 390, y: 769},{x: 391, y: 796},{x: 86, y: 479},{x: 113, y: 479},{x: 314, y: 195},{x: 315, y: 168}]
+  Dy:
+    place: garden
+    label: "Ogród północny"
+    coordinates: [{x: 41, y: 195},{x: 97, y: 596}]
+  Dz:
+    place: garden
+    label: "Kinkiet na tarasie"
+    coordinates: [{x: 156, y: 336}]
+
+#  entry-hall
+  1:
+    place: entry-hall
+    label: Przy wejściu głównym
+    coordinates: [{x: 773, y: 305}]
+    slots: 4
+  2:
+    place: entry-hall
+    label: Przy garażu
+    coordinates: [{x: 728, y: 237}]
+    slots: 2
+  A1:
+    place: entry-hall
+    label: Sufit
+    coordinates: [{x: 700, y: 295}, {x: 700, y: 261}]
+  A2:
+    place: entry-hall
+    label: Ściany
+    coordinates: [{x: 737, y: 237}, {x: 737, y: 325}]
+  A3:
+    place: entry-hall
+    label: Nad siedzeniem
+    coordinates: [{x: 759, y: 304}]
+  A4:
+    place: entry-hall
+    label: Szafa
+    coordinates: [{x: 649, y: 279}]
+
+#  garage
+  3:
+    place: garage
+    label: Przy bramie
+    coordinates: [{x: 724, y: 215}]
+    slots: 3
+  4:
+    place: garage
+    label: Przy kotłowni
+    coordinates: [{x: 452, y: 114}]
+    slots: 3
+  B1:
+    place: garage
+    label: Po bokach
+    coordinates: [{x: 653, y: 53},{x: 653, y: 225}]
+  B2:
+    place: garage
+    label: Sufit
+    coordinates: [{x: 542, y: 135}]
+  B3:
+    place: garage
+    label: Pod schodami
+    coordinates: [{x: 541, y: 230}]
+
+#  boiler-room
+  5:
+    place: boiler-room
+    label: Przy wejściu
+    coordinates: [{x: 438, y: 53}]
+    slots: 2
+  C1:
+    place: boiler-room
+    label: Sufit
+    coordinates: [{x: 390, y: 93},{x: 390, y: 131},{x: 390, y: 170}]
+  C2:
+    place: boiler-room
+    label: Przy wejściu
+    coordinates: [{x: 402, y: 64}]
+
+#  toilet
+  18:
+    place: toilet
+    label: Przy wejściu
+    coordinates: [{x: 732, y: 399}]
+    slots: 4
+  I1:
+    place: toilet
+    label: Sufit
+    coordinates: [{x: 781, y: 335}]
+  I2:
+    place: toilet
+    label: ???
+    coordinates: [{x: 774, y: 370}]
+  I3:
+    place: toilet
+    label: ???
+    coordinates: [{x: 818, y: 352},{x: 818, y: 375}]
+  I4:
+    place: toilet
+    label: LEDy szafki
+    coordinates: [{x: 747, y: 408},{x: 747, y: 408},{x: 764, y: 408},{x: 780, y: 408}]
+
+  #  dining-room
+  6:
+    place: dining-room
+    label: Przy wejściu
+    coordinates: [{x: 666, y: 336}]
+    slots: 3
+  17:
+    place: dining-room
+    label: Przy toalecie
+    coordinates: [{x: 724, y: 388}]
+    slots: 3
+  19:
+    place: dining-room
+    label: Przy schodach
+    coordinates: [{x: 629, y: 329}]
+    slots: 2
+  D1:
+    place: dining-room
+    label: Sufit
+    coordinates: [{x: 557, y: 446},{x: 557, y: 491}]
+  D2:
+    place: dining-room
+    label: Przy wejściu
+    coordinates: [{x: 639, y: 347},{x: 662, y: 347}]
+  G:
+    place: kitchen
+    label: Przy podłodze
+    coordinates: [{x: 727, y: 418},{x: 779, y: 418},{x: 832, y: 418},{x: 486, y: 236},{x: 540, y: 238},{x: 590, y: 357},{x: 620, y: 356},{x: 702, y: 483},{x: 736, y: 483}]
+
+#  living-room
+  7:
+    place: living-room
+    label: Przy wyjściu na ogród
+    coordinates: [{x: 451, y: 570}]
+    slots: 4
+  8:
+    place: living-room
+    label: Przy wyjściu na taras
+    coordinates: [{x: 289, y: 390}]
+    slots: 4
+  9:
+    place: living-room
+    label: Przy biblioteczce
+    coordinates: [{x: 469, y: 295}]
+    slots: 2
+  D3:
+    place: living-room
+    label: Sufit
+    coordinates: [{x: 351, y: 430},{x: 383, y: 447}]
+  D4:
+    place: living-room
+    label: Scianka przy telewizorze
+    coordinates: [{x: 284, y: 377},{x: 383, y: 341}]
+#  library
+  10:
+    place: library
+    label: Przy salonie
+    coordinates: [{x: 385, y: 326}]
+    slots: 3
+  E1:
+    place: library
+    label: Lampa górna
+    coordinates: [{x: 377, y: 276}]
+  E2:
+    place: library
+    label: Nad szafkami
+    coordinates: [{x: 409, y: 250},{x: 426, y: 272}]
+  Eo:
+    place: library
+    label: "Kinkiety na biblioteczkę"
+    coordinates: [{x: 155, y: 317},{x: 288, y: 316}]
+
+#  kitchen
+  11:
+    place: kitchen
+    label: Wyspa
+    coordinates: [{x: 694, y: 507}]
+    slots: 3
+  12:
+    place: kitchen
+    label: Przy kuchence
+    coordinates: [{x: 641, y: 586}]
+    slots: 2
+  13:
+    place: kitchen
+    label: Przy gabinecie
+    coordinates: [{x: 735, y: 416}]
+    slots: 2
+  F1:
+    place: kitchen
+    label: Lampy górne
+    coordinates: [{x: 690, y: 492},{x: 735, y: 492}]
+  F2:
+    place: kitchen
+    label: Sufit napinany
+    coordinates: [{x: 671, y: 553},{x: 723, y: 553},{x: 785, y: 553}]
+  F3:
+    place: kitchen
+    label: Oczka na suficie
+    coordinates: [{x: 696, y: 586},{x: 728, y: 586},{x: 758, y: 586},{x: 790, y: 586},{x: 821, y: 586},{x: 821, y: 554}]
+
+#  office
+  14:
+    place: office
+    label: Przy drzwiach
+    coordinates: [{x: 849, y: 469}]
+    slots: 2
+  15:
+    place: office
+    label: Przy biurku
+    coordinates: [{x: 957, y: 519}]
+    slots: 4
+  16:
+    place: office
+    label: Przy tapczanie
+    coordinates: [{x: 850, y: 364}]
+    slots: 1
+  H1:
+    place: office
+    label: Lampa górna
+    coordinates: [{x: 904, y: 439}]
+  H2:
+    place: office
+    label: Kinkiety
+    coordinates: [{x: 958, y: 478}]
+  H3:
+    place: office
+    label: LEDy szafek
+    coordinates: [{x: 868, y: 520},{x: 903, y: 520},{x: 945, y: 520}]
+  H4:
+    place: office
+    label: LEDy przy tapczanie
+    coordinates: [{x: 868, y: 347},{x: 903, y: 347},{x: 945, y: 347}]
+
+#  office
+  20:
+    place: hall
+    label: Przy drzwiach tarasowych
+    coordinates: [{x: 84, y: 203}]
+    slots: 4
+  21:
+    place: hall
+    label: Na korytarzu
+    coordinates: [{x: 303, y: 287}]
+    slots: 2
+  22:
+    place: hall
+    label: Przy łazience
+    coordinates: [{x: 443, y: 226}]
+    slots: 3
+  J1:
+    place: hall
+    label: Lampa nad duszą
+    coordinates: [{x: 218, y: 197},{x: 255, y: 197},{x: 238, y: 188},{x: 239, y: 206}]
+  J2:
+    place: hall
+    label: Lampy nad schodami
+    coordinates: [{x: 117, y: 140},{x: 349, y: 140}]
+  J3:
+    place: hall
+    label: Lampa nastropowa
+    coordinates: [{x: 422, y: 256}]
+
+#  bathroom
+  23:
+    place: bathroom
+    label: Przy blacie
+    coordinates: [{x: 637, y: 102}]
+    slots: 3
+  K1:
+    place: bathroom
+    label: Sufit napinany - skcja słaba
+    coordinates: [{x: 534, y: 167},{x: 585, y: 207}]
+  K2:
+    place: bathroom
+    label: Sufit napinany - skcja silna
+    coordinates: [{x: 504, y: 181}]
+  K3:
+    place: bathroom
+    label: Lampy górne
+    coordinates: [{x: 530, y: 118},{x: 566, y: 118}]
+  K4:
+    place: bathroom
+    label: Halogeny
+    coordinates: [{x: 636, y: 136},{x: 636, y: 184}]
+
+#  bedroom-1
+  24:
+    place: bedroom-1
+    label: Przy wejściu
+    coordinates: [{x: 512, y: 317}]
+    slots: 3
+  25:
+    place: bedroom-1
+    label: Z lewej strony łóżka
+    coordinates: [{x: 467, y: 533}]
+    slots: 4
+  26:
+    place: bedroom-1
+    label: Z prawej strony łóżka
+    coordinates: [{x: 642, y: 533}]
+    slots: 4
+  27:
+    place: bedroom-1
+    label: W garderobie
+    coordinates: [{x: 642, y: 533}]
+    slots: 2
+  L1:
+    place: bedroom-1
+    label: Oświetlenie LED szafek nad łóżkiem
+    coordinates: [{x: 491, y: 524},{x: 556, y: 524},{x: 603, y: 524}]
+  L2:
+    place: bedroom-1
+    label: Lampa górna
+    coordinates: [{x: 575, y: 436}]
+  L3:
+    place: bedroom-1
+    label: Lampy nastropowe
+    coordinates: [{x: 481, y: 341},{x: 481, y: 390},{x: 481, y: 437},{x: 481, y: 485}]
+  L4:
+    place: bedroom-1
+    label: Lampa w garderobie
+    coordinates: [{x: 605, y: 297}]
+
+#  bedroom-2
+  28:
+    place: bedroom-2
+    label: Przy wejściu
+    coordinates: [{x: 385, y: 294}]
+    slots: 4
+  29:
+    place: bedroom-2
+    label: Przy oknie
+    coordinates: [{x: 442, y: 514}]
+    slots: 3
+  M1:
+    place: bedroom-2
+    label: Swiatło główne
+    coordinates: [{x: 356, y: 414}]
+  M2:
+    place: bedroom-2
+    label: Kinkiet
+    coordinates: [{x: 405, y: 294}]
+  M3:
+    place: bedroom-2
+    label: Lampy nastropowe
+    coordinates: [{x: 330, y: 513},{x: 371, y: 513},{x: 412, y: 513}]
+
+#  bedroom-3
+  30:
+    place: bedroom-3
+    label: Przy wejściu
+    coordinates: [{x: 156, y: 300}]
+    slots: 4
+  31:
+    place: bedroom-3
+    label: Przy oknie
+    coordinates: [{x: 86, y: 514}]
+    slots: 3
+  N1:
+    place: bedroom-3
+    label: Swiatło główne
+    coordinates: [{x: 173, y: 414}]
+  N2:
+    place: bedroom-3
+    label: Kinkiet
+    coordinates: [{x: 125, y: 310}]
+  N3:
+    place: bedroom-3
+    label: Lampy nastropowe
+    coordinates: [{x: 115, y: 513},{x: 156, y: 513},{x: 196, y: 513}]
+
+#  tarrace-south
+  Lo:
+    place: tarrace-south
+    label: Kinkiety
+    coordinates: [{x: 682, y: 405},{x: 682, y: 465}]
+
+#  tarrace-north
+  Jx:
+    place: tarrace-north
+    label: Kinkiety
+    coordinates: [{x: 58, y: 477},{x: 58, y: 419},{x: 58, y: 359},{x: 58, y: 199}]
+
+#  tarrace-east
+  Jy:
+    place: tarrace-east
+    label: Kinkiety
+    coordinates: [{x: 193, y: 76},{x: 252, y: 75}]
+
+actions:
+  push:
+    label: Przyciśnięcie
+  double-push:
+    label: Podwójne przyciśnięcie
+  long-push:
+    label: Długie przyciśnięcie
+  toggle:
+    label: Przełącza
+  activate:
+    label: Aktywuje
+
+directions:
+  input: {label: Wejście}
+  output: {label: Wyjście}
+
+types:
+  button:
+    label: Przycisk
+    direction: input
+    controllable: true
+  light:
+    label: Światło
+    direction: output
+    controllable: true
+  plug:
+    label: Gniazdo
+    direction: output
+    controllable: false
+  controllable-plug:
+    label: Gniazdo kontrolowane
+    direction: output
+    controllable: false
+  relay:
+    label: Przekaźnik
+    direction: output
+    controllable: true
+  shade:
+    label: Roleta
+    direction: output
+    controllable: true
+  motion-detector:
+    label: Czujka ruchu
+    direction: input
+    controllable: true
+  reed-switch:
+    label: Kontaktron
+    direction: input
+    controllable: true
+
+controllers:
+  - place: control-cabinet
+    label: 'A'
+    slots: 128
+    controlling:
+      - entrance
+      - garage
+      - boiler-room
+      - toilet
+      - entry-hall
+  - place: control-cabinet
+    label: 'B'
+    slots: 64
+    controlling:
+  - place: control-cabinet
+    label: 'C'
+    slots: 64
+    controlling:
+      - office
+      - kitchen
+      - dining-room
+      - living-room
+      - library
+  - place: control-cabinet
+    label: 'D'
+    slots: 32
+    controlling:
+  - place: control-cabinet
+    label: 'E'
+    slots: 32
+    controlling:
+      - dining-room
+      - living-room
+      - library
+  - place: control-cabinet
+    label: 'F'
+    slots: 32
+
+entities:
+- type: button
+  location: 1
+  slot: 1
+  actions: {push: [{toggle: A1}]}
+- type: button
+  location: 1
+  slot: 2
+  actions: {push: [{toggle: Ao}]}
+- type: button
+  location: 1
+  slot: 3
+  actions: {push: [{toggle: Ax}]}
+- type: button
+  location: 2
+  slot: 1
+  actions: {push: [{toggle: A1}]}
+- type: button
+  location: 2
+  slot: 2
+  actions: {push: [{toggle: A2}]}
+- type: button
+  location: 3
+  slot: 1
+  actions: {push: [{toggle: B1}]}
+- type: button
+  location: 3
+  slot: 2
+  actions: {push: [{toggle: B2}]}
+- type: button
+  location: 4
+  slot: 1
+  actions: {push: [{toggle: B1}]}
+- type: button
+  location: 4
+  slot: 2
+  actions: {push: [{toggle: B2}]}
+- type: button
+  location: 4
+  slot: 3
+  actions: {push: [{toggle: B3}]}
+- type: button
+  location: 5
+  slot: 1
+  actions: {push: [{toggle: C1}]}
+- type: button
+  location: 5
+  slot: 1
+  actions: {push: [{toggle: C2}]}
+- type: button
+  location: 6
+  slot: 1
+  actions: {push: [{toggle: D1}]}
+- type: button
+  location: 6
+  slot: 2
+  actions: {push: [{toggle: D2}]}
+- type: button
+  location: 6
+  slot: 3
+  actions: {push: [{toggle: D4}]}
+- type: button
+  location: 6
+  slot: 4
+  actions: {push: [{toggle: D3}]}
+- type: button
+  location: 6
+  slot: 5
+  actions: {push: [{toggle: A1}]}
+- type: button
+  location: 6
+  slot: 6
+  actions: {push: [{activate: G}]}
+- type: button
+  location: 7
+  slot: 1
+  actions: {push: [{toggle: D1}]}
+- type: button
+  location: 7
+  slot: 2
+  actions: {push: [{toggle: D2}]}
+- type: button
+  location: 7
+  slot: 3
+  actions: {push: [{toggle: Dp}]}
+- type: button
+  location: 7
+  slot: 4
+  actions: {push: [{toggle: D3}]}
+- type: button
+  location: 7
+  slot: 5
+  actions: {push: [{toggle: Dw}]}
+- type: button
+  location: 7
+  slot: 6
+  actions: {push: [{toggle: Du}]}
+- type: button
+  location: 8
+  slot: 1
+  actions: {push: [{toggle: Do}]}
+- type: button
+  location: 8
+  slot: 2
+  actions: {push: [{toggle: Dz}]}
+- type: button
+  location: 8
+  slot: 3
+  actions: {push: [{toggle: Dx}, {toggle: Dy}]}
+- type: button
+  location: 8
+  slot: 4
+  actions: {push: [{toggle: D3}]}
+- type: button
+  location: 8
+  slot: 5
+  actions: {push: [{toggle: D2}]}
+- type: button
+  location: 8
+  slot: 6
+  actions: {push: [{toggle: D4}]}
+- type: button
+  location: 9
+  slot: 1
+  actions: {push: [{toggle: D1}]}
+- type: button
+  location: 9
+  slot: 2
+  actions: {push: [{toggle: D3}]}
+- type: button
+  location: 10
+  slot: 1
+  actions: {push: [{toggle: E1}]}
+- type: button
+  location: 10
+  slot: 2
+  actions: {push: [{toggle: E2}]}
+- type: button
+  location: 10
+  slot: 3
+  actions: {push: [{toggle: Eo}]}
+- type: button
+  location: 11
+  slot: 1
+  actions: {push: [{toggle: D1}]}
+- type: button
+  location: 11
+  slot: 1
+  actions: {push: [{toggle: F1}]}
+- type: plug
+  location: 11
+  slot: 2
+- type: button
+  location: 12
+  slot: 1
+  actions: {push: [{toggle: F3}]}
+- type: button
+  location: 12
+  slot: 2
+  actions: {push: [{toggle: F2}]}
+- type: button
+  location: 13
+  slot: 1
+  actions: {push: [{toggle: F2}]}
+- type: button
+  location: 13
+  slot: 2
+  actions: {push: [{toggle: F3}]}
+- type: button
+  location: 14
+  slot: 1
+  actions: {push: [{toggle: H1}]}
+- type: button
+  location: 15
+  slot: 1
+  actions: {push: [{toggle: H2}]}
+- type: button
+  location: 15
+  slot: 2
+  actions: {push: [{toggle: H3}]}
+- type: plug
+  location: 15
+  slot: 3
+- type: plug
+  location: 15
+  slot: 4
+- type: button
+  location: 16
+  slot: 1
+  actions: {push: [{toggle: H4}]}
+- type: button
+  location: 17
+  slot: 1
+  actions: {push: [{toggle: I1},{toggle: I2}]}
+- type: button
+  location: 17
+  slot: 2
+  actions: {push: [{toggle: I3}]}
+- type: plug
+  location: 18
+  slot: 1
+- type: plug
+  location: 18
+  slot: 2
+- type: button
+  location: 18
+  slot: 3
+  actions: {push: [{toggle: I4}]}
+- type: button
+  location: 19
+  slot: 1
+  actions: {push: [{toggle: J1}]}
+- type: button
+  location: 19
+  slot: 2
+  actions: {push: [{toggle: J2}]}
+- type: button
+  location: 20
+  slot: 1
+  actions: {push: [{toggle: J1}]}
+- type: button
+  location: 20
+  slot: 2
+  actions: {push: [{toggle: J2}]}
+- type: button
+  location: 20
+  slot: 3
+  actions: {push: [{toggle: Jx}]}
+- type: button
+  location: 20
+  slot: 4
+  actions: {push: [{toggle: Jy}]}
+- type: button
+  location: 21
+  slot: 1
+  actions: {push: [{toggle: J1}]}
+- type: button
+  location: 22
+  slot: 1
+  actions: {push: [{toggle: K1},{toggle: K2}]}
+- type: button
+  location: 22
+  slot: 2
+  actions: {push: [{toggle: J3}]}
+- type: button
+  location: 22
+  slot: 3
+- type: button
+  location: 23
+  slot: 1
+  actions: {push: [{toggle: K3}]}
+- type: button
+  location: 23
+  slot: 2
+  actions: {push: [{toggle: K4}]}
+- type: plug
+  location: 23
+  slot: 3
+- type: plug
+  location: 23
+  slot: 4
+- type: button
+  location: 24
+  slot: 1
+  actions: {push: [{toggle: L1}]}
+- type: button
+  location: 24
+  slot: 2
+  actions: {push: [{toggle: L2}]}
+- type: button
+  location: 24
+  slot: 3
+  actions: {push: [{toggle: L3}]}
+- type: button
+  location: 25
+  slot: 1
+  actions: {push: [{toggle: L1}]}
+- type: button
+  location: 25
+  slot: 2
+  actions: {push: [{toggle: L2}]}
+- type: plug
+  location: 25
+  slot: 3
+- type: plug
+  location: 25
+  slot: 4
+- type: plug
+  location: 26
+  slot: 1
+- type: plug
+  location: 26
+  slot: 2
+- type: button
+  location: 26
+  slot: 3
+  actions: {push: [{toggle: L2}]}
+- type: button
+  location: 26
+  slot: 4
+  actions: {push: [{toggle: L1}]}
+- type: button
+  location: 27
+  slot: 1
+  actions: {push: [{toggle: L4}]}
+- type: button
+  location: 27
+  slot: 2
+  actions: {push: [{toggle: Lo}]}
+- type: button
+  location: 28
+  slot: 1
+  actions: {push: [{toggle: M1}]}
+- type: button
+  location: 28
+  slot: 2
+  actions: {push: [{toggle: M2}]}
+- type: plug
+  location: 28
+  slot: 3
+- type: plug
+  location: 28
+  slot: 4
+- type: button
+  location: 29
+  slot: 1
+  actions: {push: [{toggle: M3}]}
+- type: plug
+  location: 29
+  slot: 2
+- type: plug
+  location: 29
+  slot: 3
+- type: plug
+  location: 29
+  slot: 4
+- type: button
+  location: 30
+  slot: 1
+  actions: {push: [{toggle: N1}]}
+- type: button
+  location: 30
+  slot: 2
+  actions: {push: [{toggle: N2}]}
+- type: plug
+  location: 31
+  slot: 1
+- type: plug
+  location: 31
+  slot: 2
+- type: plug
+  location: 31
+  slot: 3
+- type: button
+  location: 31
+  slot: 4
+  actions: {push: [{toggle: N3}]}
+- id: A1
+  type: light
+  location: A1
+  kind: górne
+- id: A2
+  type: light
+  location: A2
+- id: A3
+  type: light
+  location: A3
+- id: A4
+  type: light
+  location: A4
+- id: Ao
+  type: light
+  location: Ao
+- id: Ax
+  type: light
+  location: Ax
+- id: B1
+  type: light
+  location: B1
+- id: B2
+  type: light
+  location: B2
+- id: B3
+  type: light
+  location: B3
+- id: C1
+  type: light
+  location: C1
+- id: C2
+  type: light
+  location: C2
+- id: D1
+  type: light
+  location: D1
+- id: D2
+  type: light
+  location: D2
+- id: D3
+  type: light
+  location: D3
+- id: D4
+  type: light
+  location: D4
+- id: Do
+  type: light
+  location: Do
+- id: Dp
+  type: light
+  location: Dp
+- id: Du
+  type: light
+  location: Du
+- id: Dw
+  type: light
+  location: Dw
+- id: Dx
+  type: light
+  location: Dx
+- id: Dy
+  type: light
+  location: Dy
+- id: Dz
+  type: light
+  location: Dz
+- id: E1
+  type: light
+  location: E1
+- id: E2
+  type: light
+  location: E2
+- id: Eo
+  type: light
+  location: Eo
+- id: F1
+  type: light
+  location: F1
+- id: F2
+  type: light
+  location: F2
+- id: F3
+  type: light
+  location: F3
+- id: G
+  type: light
+  location: G
+- id: G1
+  type: light
+  location: G1
+- id: G2
+  type: light
+  location: G2
+- id: H1
+  type: light
+  location: H1
+- id: H2
+  type: light
+  location: H2
+- id: H3
+  type: light
+  location: H3
+- id: H4
+  type: light
+  location: H4
+- id: I1
+  type: light
+  location: I1
+- id: I2
+  type: light
+  location: I2
+- id: I3
+  type: light
+  location: I3
+- id: I4
+  type: light
+  location: I4
+- id: J1
+  type: light
+  location: J1
+- id: J2
+  type: light
+  location: J2
+- id: J3
+  type: light
+  location: J3
+- id: Jx
+  type: light
+  location: Jx
+- id: Jy
+  type: light
+  location: Jy
+- id: K1
+  type: light
+  location: K1
+- id: K2
+  type: light
+  location: K2
+- id: K3
+  type: light
+  location: K3
+- id: K4
+  type: light
+  location: K4
+- id: L1
+  type: light
+  location: L1
+- id: L2
+  type: light
+  location: L2
+- id: L3
+  type: light
+  location: L3
+- id: L4
+  type: light
+  location: L4
+- id: Lo
+  type: light
+  location: Lo
+- id: M1
+  type: light
+  location: M1
+- id: M2
+  type: light
+  location: M2
+- id: M3
+  type: light
+  location: M3
+- id: N1
+  type: light
+  location: N1
+- id: N2
+  type: light
+  location: N2
+- id: N3
+  type: light
+  location: N3
+- id: Podbitka
+  type: light
+  location: Podbitka
+- id: L_Gate
+  type: light
+  location: Brama
+- id: Rezerwa1
+- id: Rezerwa2
+- id: P_Out_TarraceSecondary
+  type: plug
+- id: P_Out_TarracePrimary
+  type: plug
+- id: P_Out_Kitchen
+  type: plug
+- id: P_Out_Garage
+  type: plug
+- id: Shade_LivingRoom1
+  type: shade
+- id: Shade_LivingRoom2
+  type: shade
+- id: Shade_LivingRoom3
+  type: shade
+- id: Shade_LivingRoom4
+  type: shade
+- id: Shade_LivingRoom5
+  type: shade
+- id: Shade_Kitchen1
+  type: shade
+- id: Shade_Kitchen2
+  type: shade
+- id: Shade_Kitchen3
+  type: shade
+- id: Shade_BathroomL1
+  type: shade
+- id: Shade_Library
+  type: shade
+- id: Shade_HallWindow
+  type: shade
+- id: Shade_HallDoor
+  type: shade
+- id: Shade_BathroomL2Secondary
+  type: shade
+- id: Shade_BathroomL2Primary
+  type: shade
+- id: Shade_Bedroom1
+  type: shade
+- id: Shade_Bedroom2
+  type: shade
+- id: Shade_Bedroom3
+  type: shade
