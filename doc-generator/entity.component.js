@@ -13,6 +13,7 @@ Vue.component('entity', {
     <div v-if="entity.name">Name: {{entity.name}}</div>
     <div v-if="direction">Kierunek: {{direction.label}}</div>
     <div v-if="type">Typ: {{type.label}}</div>
+    <div>Kontrolowany: {{entity.controllable}}</div>
     </div>`
 });
 //    {{entity}}

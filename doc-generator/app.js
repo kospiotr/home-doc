@@ -85,7 +85,11 @@ const store = new Vuex.Store({
             const $direction = $type && getters.directionById($type.direction)
             const sections = [entity.type, index];
             const id = sections.join('.');
-            return Object.assign({id, $location, $place, $type, $direction},entity)
+            const $related = Object.values(entity.actions || {})
+                .flatMap(action => action)
+                .flatMap(operation => Object.values(operation))
+            const controllable = $type && $type.controllable;
+            return Object.assign({id, $location, $place, $type, $direction, $related, controllable},entity)
         })
     },
     entityById: (state,getters) => id => {
@@ -98,12 +102,22 @@ const store = new Vuex.Store({
                     const placeId = entity.$place && entity.$place.id;
                     return (controller.controlling || []).indexOf(placeId) > -1;
                  })
+                 .filter(entity => entity.controllable)
             return Object.assign({id: "controller."+index, entities},controller);
         })
     },
     controllerById: (state,getters) => id => {
         return getters.controllers.filter(value => id == value.id)[0];
     },
+    relatedEntities: (state, getters) => id => {
+        var out = [];
+        const entity = getters.entityById(id);
+        out = out.concat(entity && entity.$related || [])
+        out = out.concat(getters.entities
+            .filter(entity => (entity && entity.$related || []).indexOf(id) > -1)
+            .map(entity => entity.id))
+        return out;
+    }
   }
 })
 

@@ -48,6 +48,10 @@ places:
     label: Hol
     map: 'plan-L2.png'
     level: 2
+  hall-bathroom:
+    label: Hol przy łazience
+    map: 'plan-L2.png'
+    level: 2
   bathroom:
     label: Lazienka
     map: 'plan-L2.png'
@@ -87,6 +91,10 @@ locations:
     place: entrance
     label: "Wzdłuż wejścia"
     coordinates: [{x: 818, y: 318},{x: 883, y: 318},{x: 911, y: 318},{x: 938, y: 318},{x: 964, y: 318}]
+  A-gniazda:
+    place: entrance
+    label: "Gniazda przy wejściu do garażu"
+    coordinates: [{x: 768, y: 214}]
   Do:
     place: garden
     label: "Oświetlenie górne tarasu"
@@ -115,13 +123,23 @@ locations:
     place: garden
     label: "Kinkiet na tarasie"
     coordinates: [{x: 156, y: 336}]
-
+  D-gniazda:
+    place: garden
+    label: "Gniazda w ogrodzie"
+    coordinates: [{x: 818, y: 619},{x: 442, y: 588},{x: 135, y: 754},{x: 261, y: 392},{x: 110, y: 335},{x: 110, y: 316},{x: 269, y: 315},{x: 497, y: 31}]
 #  entry-hall
   1:
     place: entry-hall
     label: Przy wejściu głównym
     coordinates: [{x: 773, y: 305}]
     slots: 4
+    wires:
+      - buttons
+      - buttons
+      - buttons
+      - thermostat
+      - alarm
+      - domofon
   2:
     place: entry-hall
     label: Przy garażu
@@ -143,6 +161,10 @@ locations:
     place: entry-hall
     label: Szafa
     coordinates: [{x: 649, y: 279}]
+  A-kontaktron-drzwi:
+    place: entry-hall
+    label: Kontaktron
+    coordinates: [{x: 788, y: 262}]
 
 #  garage
   3:
@@ -167,7 +189,14 @@ locations:
     place: garage
     label: Pod schodami
     coordinates: [{x: 541, y: 230}]
-
+  B-kontaktron-brama:
+    place: garage
+    label: Kontaktron brama
+    coordinates: [{x: 725, y: 198}]
+  B-kontaktron-okno:
+    place: garage
+    label: Kontaktron okno
+    coordinates: [{x: 625, y: 42}]
 #  boiler-room
   5:
     place: boiler-room
@@ -182,7 +211,10 @@ locations:
     place: boiler-room
     label: Przy wejściu
     coordinates: [{x: 402, y: 64}]
-
+  C-kontaktron-okno:
+    place: boiler-room
+    label: Kontaktron okno
+    coordinates: [{x: 324, y: 119}]
 #  toilet
   18:
     place: toilet
@@ -205,17 +237,25 @@ locations:
     place: toilet
     label: LEDy szafki
     coordinates: [{x: 747, y: 408},{x: 747, y: 408},{x: 764, y: 408},{x: 780, y: 408}]
-
+  17:
+    place: toilet
+    label: Przy toalecie
+    coordinates: [{x: 724, y: 388}]
+    slots: 3
+  I-kontaktron-okno:
+    place: toilet
+    label: Kontaktron okno
+    coordinates: [{x: 759, y: 224}]
   #  dining-room
   6:
     place: dining-room
     label: Przy wejściu
     coordinates: [{x: 666, y: 336}]
     slots: 3
-  17:
-    place: dining-room
-    label: Przy toalecie
-    coordinates: [{x: 724, y: 388}]
+  6b:
+    place: entry-hall
+    label: Przy wejściu
+    coordinates: [{x: 666, y: 336}]
     slots: 3
   19:
     place: dining-room
@@ -234,7 +274,10 @@ locations:
     place: kitchen
     label: Przy podłodze
     coordinates: [{x: 727, y: 418},{x: 779, y: 418},{x: 832, y: 418},{x: 486, y: 236},{x: 540, y: 238},{x: 590, y: 357},{x: 620, y: 356},{x: 702, y: 483},{x: 736, y: 483}]
-
+  D-kontaktron-drzwi-1:
+    place: dining-room
+    label: Kontaktron drzwi
+    coordinates: [{x: 542, y: 577}]
 #  living-room
   7:
     place: living-room
@@ -259,6 +302,10 @@ locations:
     place: living-room
     label: Scianka przy telewizorze
     coordinates: [{x: 284, y: 377},{x: 383, y: 341}]
+  D-kontaktron-drzwi-2:
+    place: living-room
+    label: Kontaktron drzwi
+    coordinates: [{x: 274, y: 491}]
 #  library
   10:
     place: library
@@ -277,7 +324,10 @@ locations:
     place: library
     label: "Kinkiety na biblioteczkę"
     coordinates: [{x: 155, y: 317},{x: 288, y: 316}]
-
+  E-kontaktron-okno-1:
+    place: living-room
+    label: Kontaktron drzwi
+    coordinates: [{x: 324, y: 258}]
 #  kitchen
   11:
     place: kitchen
@@ -306,7 +356,14 @@ locations:
     place: kitchen
     label: Oczka na suficie
     coordinates: [{x: 696, y: 586},{x: 728, y: 586},{x: 758, y: 586},{x: 790, y: 586},{x: 821, y: 586},{x: 821, y: 554}]
-
+  F-kontaktron-okno-1:
+    place: kitchen
+    label: Kontaktron okno 1
+    coordinates: [{x: 844, y: 577}]
+  F-kontaktron-okno-2:
+    place: kitchen
+    label: Kontaktron okno 2
+    coordinates: [{x: 763, y: 612}]
 #  office
   14:
     place: office
@@ -339,8 +396,11 @@ locations:
     place: office
     label: LEDy przy tapczanie
     coordinates: [{x: 868, y: 347},{x: 903, y: 347},{x: 945, y: 347}]
-
-#  office
+  H-kontaktron-okno:
+    place: office
+    label: Kontaktron okno
+    coordinates: [{x: 970, y: 403}]
+#  hall
   20:
     place: hall
     label: Przy drzwiach tarasowych
@@ -352,7 +412,7 @@ locations:
     coordinates: [{x: 303, y: 287}]
     slots: 2
   22:
-    place: hall
+    place: hall-bathroom
     label: Przy łazience
     coordinates: [{x: 443, y: 226}]
     slots: 3
@@ -364,8 +424,14 @@ locations:
     place: hall
     label: Lampy nad schodami
     coordinates: [{x: 117, y: 140},{x: 349, y: 140}]
-  J3:
+  J-kontaktron-drzwi:
     place: hall
+    label: Kontaktron drzwi
+    coordinates: [{x: 71, y: 262}]
+
+# hall-bathroom
+  J3:
+    place: hall-bathroom
     label: Lampa nastropowa
     coordinates: [{x: 422, y: 256}]
 
@@ -391,6 +457,14 @@ locations:
     place: bathroom
     label: Halogeny
     coordinates: [{x: 636, y: 136},{x: 636, y: 184}]
+  K-kontaktron-okno-1:
+    place: bathroom
+    label: Kontaktron okno małe
+    coordinates: [{x: 463, y: 87}]
+  K-kontaktron-okno-2:
+    place: bathroom
+    label: Kontaktron okno
+    coordinates: [{x: 671, y: 156}]
 
 #  bedroom-1
   24:
@@ -411,7 +485,7 @@ locations:
   27:
     place: bedroom-1
     label: W garderobie
-    coordinates: [{x: 642, y: 533}]
+    coordinates: [{x: 585, y: 332}]
     slots: 2
   L1:
     place: bedroom-1
@@ -429,6 +503,10 @@ locations:
     place: bedroom-1
     label: Lampa w garderobie
     coordinates: [{x: 605, y: 297}]
+  L-kontaktron-okno:
+    place: bedroom-1
+    label: Kontaktron drzwi
+    coordinates: [{x: 670, y: 323}]
 
 #  bedroom-2
   28:
@@ -453,7 +531,10 @@ locations:
     place: bedroom-2
     label: Lampy nastropowe
     coordinates: [{x: 330, y: 513},{x: 371, y: 513},{x: 412, y: 513}]
-
+  M-kontaktron-okno:
+    place: bedroom-2
+    label: Kontaktron okno
+    coordinates: [{x: 371, y: 550}]
 #  bedroom-3
   30:
     place: bedroom-3
@@ -477,7 +558,10 @@ locations:
     place: bedroom-3
     label: Lampy nastropowe
     coordinates: [{x: 115, y: 513},{x: 156, y: 513},{x: 196, y: 513}]
-
+  N-kontaktron-okno:
+    place: bedroom-3
+    label: Kontaktron okno
+    coordinates: [{x: 156, y: 550}]
 #  tarrace-south
   Lo:
     place: tarrace-south
@@ -495,6 +579,12 @@ locations:
     place: tarrace-east
     label: Kinkiety
     coordinates: [{x: 193, y: 76},{x: 252, y: 75}]
+
+#  J-gniazda
+  J-gniazda:
+    place: tarrace-north
+    label: Gniazda tarasowe
+    coordinates: [{x: 59, y: 512},{x: 59, y: 170},{x: 159, y: 73}]
 
 actions:
   push:
@@ -548,7 +638,7 @@ types:
 
 controllers:
   - place: control-cabinet
-    label: 'A'
+    label: 'Garage + Hall + Toilet'
     slots: 128
     controlling:
       - entrance
@@ -557,32 +647,32 @@ controllers:
       - toilet
       - entry-hall
   - place: control-cabinet
-    label: 'B'
-    slots: 64
-    controlling:
-  - place: control-cabinet
-    label: 'C'
+    label: 'Office + Kichen + Dining room'
     slots: 64
     controlling:
       - office
       - kitchen
       - dining-room
+  - place: control-cabinet
+    label: 'Living room + Garden'
+    slots: 64
+    controlling:
       - living-room
       - library
+      - hall
+      - garden
+      - tarrace-north
+      - tarrace-east
   - place: control-cabinet
-    label: 'D'
+    label: 'First floor'
     slots: 32
     controlling:
-  - place: control-cabinet
-    label: 'E'
-    slots: 32
-    controlling:
-      - dining-room
-      - living-room
-      - library
-  - place: control-cabinet
-    label: 'F'
-    slots: 32
+      - hall-bathroom
+      - bathroom
+      - tarrace-south
+      - bedroom-1
+      - bedroom-2
+      - bedroom-3
 
 entities:
 - type: button
@@ -604,7 +694,7 @@ entities:
 - type: button
   location: 2
   slot: 2
-  actions: {push: [{toggle: A2}]}
+  actions: {push: [{toggle: A2},{toggle: A3}]}
 - type: button
   location: 3
   slot: 1
@@ -650,7 +740,7 @@ entities:
   slot: 4
   actions: {push: [{toggle: D3}]}
 - type: button
-  location: 6
+  location: 6b
   slot: 5
   actions: {push: [{toggle: A1}]}
 - type: button
@@ -954,6 +1044,7 @@ entities:
 - id: A4
   type: light
   location: A4
+  controllable: false
 - id: Ao
   type: light
   location: Ao
@@ -1120,21 +1211,27 @@ entities:
   type: light
   location: N3
 - id: Podbitka
-  type: light
+  type: spare-out
   location: Podbitka
 - id: L_Gate
   type: light
   location: Brama
 - id: Rezerwa1
+  type: spare-out
 - id: Rezerwa2
-- id: P_Out_TarraceSecondary
-  type: plug
-- id: P_Out_TarracePrimary
-  type: plug
-- id: P_Out_Kitchen
-  type: plug
-- id: P_Out_Garage
-  type: plug
+  type: spare-out
+- id: L-gniazda
+  type: controllable-plug
+  location: L-gniazda
+- id: J-gniazda
+  type: controllable-plug
+  location: J-gniazda
+- id: D-gniazda
+  type: controllable-plug
+  location: D-gniazda
+- id: A-gniazda
+  type: controllable-plug
+  location: A-gniazda
 - id: Shade_LivingRoom1
   type: shade
 - id: Shade_LivingRoom2
@@ -1169,3 +1266,37 @@ entities:
   type: shade
 - id: Shade_Bedroom3
   type: shade
+- type: reed-switch
+  location: A-kontaktron-drzwi
+- type: reed-switch
+  location: B-kontaktron-brama
+- type: reed-switch
+  location: B-kontaktron-okno
+- type: reed-switch
+  location: C-kontaktron-okno
+- type: reed-switch
+  location: I-kontaktron-okno
+- type: reed-switch
+  location: D-kontaktron-drzwi-1
+- type: reed-switch
+  location: D-kontaktron-drzwi-2
+- type: reed-switch
+  location: E-kontaktron-okno-1
+- type: reed-switch
+  location: F-kontaktron-okno-1
+- type: reed-switch
+  location: F-kontaktron-okno-2
+- type: reed-switch
+  location: H-kontaktron-okno
+- type: reed-switch
+  location: J-kontaktron-drzwi
+- type: reed-switch
+  location: K-kontaktron-okno-1
+- type: reed-switch
+  location: K-kontaktron-okno-2
+- type: reed-switch
+  location: L-kontaktron-okno
+- type: reed-switch
+  location: M-kontaktron-okno
+- type: reed-switch
+  location: N-kontaktron-okno
