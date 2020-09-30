@@ -78,19 +78,21 @@ const store = new Vuex.Store({
         return getters.locations.filter(value => id == value.id)[0];
     },
     entities: (state, getters) => {
-        return (state.data.entities || []).map((entity, index) => {
-            const $location =  getters.locationById(entity.location)
-            const $place = $location && getters.placeById($location.place)
-            const $type = getters.typeById(entity.type)
-            const $direction = $type && getters.directionById($type.direction)
-            const sections = [entity.type, index];
-            const id = sections.join('.');
-            const $related = Object.values(entity.actions || {})
-                .flatMap(action => action)
-                .flatMap(operation => Object.values(operation))
-            const controllable = $type && $type.controllable;
-            return Object.assign({id, $location, $place, $type, $direction, $related, controllable},entity)
-        })
+        return (state.data.entities || [])
+            .map((entity, index) => {
+                const $location =  getters.locationById(entity.location)
+                const $place = $location && getters.placeById($location.place)
+                const $type = getters.typeById(entity.type)
+                const $direction = $type && getters.directionById($type.direction)
+                const sections = [entity.type, index];
+                const id = sections.join('.');
+                const $related = Object.values(entity.actions || {})
+                    .flatMap(action => action)
+                    .flatMap(operation => Object.values(operation))
+                const controllable = $type && $type.controllable;
+                return Object.assign({id, $location, $place, $type, $direction, $related, controllable},entity)
+            }).filter(entity => entity.controllable)
+
     },
     entityById: (state,getters) => id => {
         return getters.entities.filter(value => id == value.id)[0];

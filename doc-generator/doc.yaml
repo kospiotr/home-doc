@@ -82,6 +82,7 @@ places:
     level: 2
 
 locations:
+
 #  outside
   Ao:
     place: entrance
@@ -127,6 +128,7 @@ locations:
     place: garden
     label: "Gniazda w ogrodzie"
     coordinates: [{x: 818, y: 619},{x: 442, y: 588},{x: 135, y: 754},{x: 261, y: 392},{x: 110, y: 335},{x: 110, y: 316},{x: 269, y: 315},{x: 497, y: 31}]
+
 #  entry-hall
   1:
     place: entry-hall
@@ -197,6 +199,11 @@ locations:
     place: garage
     label: Kontaktron okno
     coordinates: [{x: 625, y: 42}]
+  B-brama:
+    place: garage
+    label: Brama garażowa
+    coordinates: [{x: 735, y: 66},{x: 735, y: 106},{x: 735, y: 146},{x: 735, y: 186}]
+
 #  boiler-room
   5:
     place: boiler-room
@@ -215,6 +222,7 @@ locations:
     place: boiler-room
     label: Kontaktron okno
     coordinates: [{x: 324, y: 119}]
+
 #  toilet
   18:
     place: toilet
@@ -246,6 +254,11 @@ locations:
     place: toilet
     label: Kontaktron okno
     coordinates: [{x: 759, y: 224}]
+  I-roleta:
+    place: toilet
+    label: Roleta
+    coordinates: [{x: 818, y: 328}]
+
   #  dining-room
   6:
     place: dining-room
@@ -257,11 +270,6 @@ locations:
     label: Przy wejściu
     coordinates: [{x: 666, y: 336}]
     slots: 3
-  19:
-    place: dining-room
-    label: Przy schodach
-    coordinates: [{x: 629, y: 329}]
-    slots: 2
   D1:
     place: dining-room
     label: Sufit
@@ -270,10 +278,14 @@ locations:
     place: dining-room
     label: Przy wejściu
     coordinates: [{x: 639, y: 347},{x: 662, y: 347}]
-  G:
+  G1:
     place: kitchen
-    label: Przy podłodze
-    coordinates: [{x: 727, y: 418},{x: 779, y: 418},{x: 832, y: 418},{x: 486, y: 236},{x: 540, y: 238},{x: 590, y: 357},{x: 620, y: 356},{x: 702, y: 483},{x: 736, y: 483}]
+    label: Luminescencja
+    coordinates: [{x: 727, y: 418},{x: 779, y: 418},{x: 832, y: 418},{x: 590, y: 357},{x: 620, y: 356},{x: 702, y: 483},{x: 736, y: 483}]
+  G2:
+    place: hall
+    label: Luminescencja
+    coordinates: [{x: 193, y: 102},{x: 264, y: 102},{x: 149, y: 218},{x: 208, y: 218},{x: 283, y: 218},{x: 358, y: 218}]
   D-kontaktron-drzwi-1:
     place: dining-room
     label: Kontaktron drzwi
@@ -306,6 +318,26 @@ locations:
     place: living-room
     label: Kontaktron drzwi
     coordinates: [{x: 274, y: 491}]
+  D-roleta-1:
+    place: living-room
+    label: Roleta
+    coordinates: [{x: 594, y: 577}]
+  D-roleta-2:
+    place: living-room
+    label: Roleta
+    coordinates: [{x: 493, y: 577}]
+  D-roleta-3:
+    place: living-room
+    label: Roleta
+    coordinates: [{x: 328, y: 577}]
+  D-roleta-4:
+    place: living-room
+    label: Roleta
+    coordinates: [{x: 271, y: 544}]
+  D-roleta-5:
+    place: living-room
+    label: Roleta
+    coordinates: [{x: 271, y: 443}]
 #  library
   10:
     place: library
@@ -325,9 +357,14 @@ locations:
     label: "Kinkiety na biblioteczkę"
     coordinates: [{x: 155, y: 317},{x: 288, y: 316}]
   E-kontaktron-okno-1:
-    place: living-room
+    place: library
     label: Kontaktron drzwi
     coordinates: [{x: 324, y: 258}]
+  E-roleta:
+    place: library
+    label: Roleta
+    coordinates: [{x: 323, y: 274}]
+
 #  kitchen
   11:
     place: kitchen
@@ -364,6 +401,19 @@ locations:
     place: kitchen
     label: Kontaktron okno 2
     coordinates: [{x: 763, y: 612}]
+  F-roleta-1:
+    place: kitchen
+    label: Roleta
+    coordinates: [{x: 838, y: 563}]
+  F-roleta-2:
+    place: kitchen
+    label: Roleta
+    coordinates: [{x: 790, y: 598}]
+  F-roleta-3:
+    place: kitchen
+    label: Roleta
+    coordinates: [{x: 710, y: 598}]
+
 #  office
   14:
     place: office
@@ -400,7 +450,17 @@ locations:
     place: office
     label: Kontaktron okno
     coordinates: [{x: 970, y: 403}]
+  H-roleta:
+    place: office
+    label: Roleta
+    coordinates: [{x: 969, y: 402}]
+
 #  hall
+  19:
+    place: hall
+    label: Przy schodach
+    coordinates: [{x: 381, y: 202}]
+    slots: 2
   20:
     place: hall
     label: Przy drzwiach tarasowych
@@ -427,7 +487,15 @@ locations:
   J-kontaktron-drzwi:
     place: hall
     label: Kontaktron drzwi
-    coordinates: [{x: 71, y: 262}]
+    coordinates: [{x: 71, y: 258}]
+  J-roleta-okno:
+    place: hall
+    label: Roleta
+    coordinates: [{x: 71, y: 141}]
+  J-roleta-drzwi:
+    place: hall
+    label: Roleta
+    coordinates: [{x: 71, y: 266}]
 
 # hall-bathroom
   J3:
@@ -465,6 +533,14 @@ locations:
     place: bathroom
     label: Kontaktron okno
     coordinates: [{x: 671, y: 156}]
+  K-roleta-1:
+    place: bathroom
+    label: Roleta
+    coordinates: [{x: 463, y: 78}]
+  K-roleta-2:
+    place: bathroom
+    label: Roleta
+    coordinates: [{x: 680, y: 156}]
 
 #  bedroom-1
   24:
@@ -507,6 +583,14 @@ locations:
     place: bedroom-1
     label: Kontaktron drzwi
     coordinates: [{x: 670, y: 323}]
+  L-roleta:
+    place: bedroom-1
+    label: Roleta
+    coordinates: [{x: 683, y: 323}]
+  L-gniazda:
+    place: bedroom-1
+    label: Gniazda tarasowe
+    coordinates: [{x: 681, y: 481}]
 
 #  bedroom-2
   28:
@@ -535,6 +619,10 @@ locations:
     place: bedroom-2
     label: Kontaktron okno
     coordinates: [{x: 371, y: 550}]
+  M-roleta:
+    place: bedroom-2
+    label: Roleta
+    coordinates: [{x: 372, y: 548}]
 #  bedroom-3
   30:
     place: bedroom-3
@@ -562,6 +650,11 @@ locations:
     place: bedroom-3
     label: Kontaktron okno
     coordinates: [{x: 156, y: 550}]
+  N-roleta:
+    place: bedroom-3
+    label: Roleta
+    coordinates: [{x: 155, y: 548}]
+
 #  tarrace-south
   Lo:
     place: tarrace-south
@@ -618,13 +711,17 @@ types:
   controllable-plug:
     label: Gniazdo kontrolowane
     direction: output
-    controllable: false
+    controllable: true
   relay:
     label: Przekaźnik
     direction: output
     controllable: true
   shade:
     label: Roleta
+    direction: output
+    controllable: true
+  gate:
+    label: Brama
     direction: output
     controllable: true
   motion-detector:
@@ -635,6 +732,10 @@ types:
     label: Kontaktron
     direction: input
     controllable: true
+  spare-out:
+    label: Zapas
+    direction: output
+    controllable: false
 
 controllers:
   - place: control-cabinet
@@ -664,13 +765,17 @@ controllers:
       - tarrace-north
       - tarrace-east
   - place: control-cabinet
-    label: 'First floor'
+    label: 'First floor - bathroom + bedroom-1'
     slots: 32
     controlling:
       - hall-bathroom
       - bathroom
       - tarrace-south
       - bedroom-1
+  - place: control-cabinet
+    label: 'First floor - bedroom-2 + bedroom-3'
+    slots: 32
+    controlling:
       - bedroom-2
       - bedroom-3
 
@@ -679,624 +784,831 @@ entities:
   location: 1
   slot: 1
   actions: {push: [{toggle: A1}]}
+
 - type: button
   location: 1
   slot: 2
   actions: {push: [{toggle: Ao}]}
+
 - type: button
   location: 1
   slot: 3
   actions: {push: [{toggle: Ax}]}
+
 - type: button
   location: 2
   slot: 1
   actions: {push: [{toggle: A1}]}
+
 - type: button
   location: 2
   slot: 2
   actions: {push: [{toggle: A2},{toggle: A3}]}
+
 - type: button
   location: 3
   slot: 1
   actions: {push: [{toggle: B1}]}
+
 - type: button
   location: 3
   slot: 2
   actions: {push: [{toggle: B2}]}
+
 - type: button
   location: 4
   slot: 1
   actions: {push: [{toggle: B1}]}
+
 - type: button
   location: 4
   slot: 2
   actions: {push: [{toggle: B2}]}
+
 - type: button
   location: 4
   slot: 3
   actions: {push: [{toggle: B3}]}
+
 - type: button
   location: 5
   slot: 1
   actions: {push: [{toggle: C1}]}
+
 - type: button
   location: 5
   slot: 1
   actions: {push: [{toggle: C2}]}
+
 - type: button
   location: 6
   slot: 1
   actions: {push: [{toggle: D1}]}
+
 - type: button
   location: 6
   slot: 2
   actions: {push: [{toggle: D2}]}
+
 - type: button
   location: 6
   slot: 3
   actions: {push: [{toggle: D4}]}
+
 - type: button
   location: 6
   slot: 4
   actions: {push: [{toggle: D3}]}
+
 - type: button
   location: 6b
   slot: 5
   actions: {push: [{toggle: A1}]}
+
 - type: button
   location: 6
   slot: 6
-  actions: {push: [{activate: G}]}
+  actions: {push: [{activate: G2}]}
+
 - type: button
   location: 7
   slot: 1
   actions: {push: [{toggle: D1}]}
+
 - type: button
   location: 7
   slot: 2
   actions: {push: [{toggle: D2}]}
+
 - type: button
   location: 7
   slot: 3
   actions: {push: [{toggle: Dp}]}
+
 - type: button
   location: 7
   slot: 4
   actions: {push: [{toggle: D3}]}
+
 - type: button
   location: 7
   slot: 5
   actions: {push: [{toggle: Dw}]}
+
 - type: button
   location: 7
   slot: 6
   actions: {push: [{toggle: Du}]}
+
 - type: button
   location: 8
   slot: 1
   actions: {push: [{toggle: Do}]}
+
 - type: button
   location: 8
   slot: 2
   actions: {push: [{toggle: Dz}]}
+
 - type: button
   location: 8
   slot: 3
   actions: {push: [{toggle: Dx}, {toggle: Dy}]}
+
 - type: button
   location: 8
   slot: 4
   actions: {push: [{toggle: D3}]}
+
 - type: button
   location: 8
   slot: 5
   actions: {push: [{toggle: D2}]}
+
 - type: button
   location: 8
   slot: 6
   actions: {push: [{toggle: D4}]}
+
 - type: button
   location: 9
   slot: 1
   actions: {push: [{toggle: D1}]}
+
 - type: button
   location: 9
   slot: 2
   actions: {push: [{toggle: D3}]}
+
 - type: button
   location: 10
   slot: 1
   actions: {push: [{toggle: E1}]}
+
 - type: button
   location: 10
   slot: 2
   actions: {push: [{toggle: E2}]}
+
 - type: button
   location: 10
   slot: 3
   actions: {push: [{toggle: Eo}]}
+
 - type: button
   location: 11
   slot: 1
   actions: {push: [{toggle: D1}]}
+
 - type: button
   location: 11
   slot: 1
   actions: {push: [{toggle: F1}]}
+
 - type: plug
   location: 11
   slot: 2
+
 - type: button
   location: 12
   slot: 1
   actions: {push: [{toggle: F3}]}
+
 - type: button
   location: 12
   slot: 2
   actions: {push: [{toggle: F2}]}
+
 - type: button
   location: 13
   slot: 1
   actions: {push: [{toggle: F2}]}
+
 - type: button
   location: 13
   slot: 2
   actions: {push: [{toggle: F3}]}
+
 - type: button
   location: 14
   slot: 1
   actions: {push: [{toggle: H1}]}
+
 - type: button
   location: 15
   slot: 1
   actions: {push: [{toggle: H2}]}
+
 - type: button
   location: 15
   slot: 2
   actions: {push: [{toggle: H3}]}
+
 - type: plug
   location: 15
   slot: 3
+
 - type: plug
   location: 15
   slot: 4
+
 - type: button
   location: 16
   slot: 1
   actions: {push: [{toggle: H4}]}
+
 - type: button
   location: 17
   slot: 1
   actions: {push: [{toggle: I1},{toggle: I2}]}
+
 - type: button
   location: 17
   slot: 2
   actions: {push: [{toggle: I3}]}
+
 - type: plug
   location: 18
   slot: 1
+
 - type: plug
   location: 18
   slot: 2
+
 - type: button
   location: 18
   slot: 3
   actions: {push: [{toggle: I4}]}
+
 - type: button
   location: 19
   slot: 1
   actions: {push: [{toggle: J1}]}
+
 - type: button
   location: 19
   slot: 2
   actions: {push: [{toggle: J2}]}
+
 - type: button
   location: 20
   slot: 1
   actions: {push: [{toggle: J1}]}
+
 - type: button
   location: 20
   slot: 2
   actions: {push: [{toggle: J2}]}
+
 - type: button
   location: 20
   slot: 3
   actions: {push: [{toggle: Jx}]}
+
 - type: button
   location: 20
   slot: 4
   actions: {push: [{toggle: Jy}]}
+
 - type: button
   location: 21
   slot: 1
   actions: {push: [{toggle: J1}]}
+
 - type: button
   location: 22
   slot: 1
   actions: {push: [{toggle: K1},{toggle: K2}]}
+
 - type: button
   location: 22
   slot: 2
   actions: {push: [{toggle: J3}]}
+
 - type: button
   location: 22
   slot: 3
+
 - type: button
   location: 23
   slot: 1
   actions: {push: [{toggle: K3}]}
+
 - type: button
   location: 23
   slot: 2
   actions: {push: [{toggle: K4}]}
+
 - type: plug
   location: 23
   slot: 3
+
 - type: plug
   location: 23
   slot: 4
+
 - type: button
   location: 24
   slot: 1
   actions: {push: [{toggle: L1}]}
+
 - type: button
   location: 24
   slot: 2
   actions: {push: [{toggle: L2}]}
+
 - type: button
   location: 24
   slot: 3
   actions: {push: [{toggle: L3}]}
+
 - type: button
   location: 25
   slot: 1
   actions: {push: [{toggle: L1}]}
+
 - type: button
   location: 25
   slot: 2
   actions: {push: [{toggle: L2}]}
+
 - type: plug
   location: 25
   slot: 3
+
 - type: plug
   location: 25
   slot: 4
+
 - type: plug
   location: 26
   slot: 1
+
 - type: plug
   location: 26
   slot: 2
+
 - type: button
   location: 26
   slot: 3
   actions: {push: [{toggle: L2}]}
+
 - type: button
   location: 26
   slot: 4
   actions: {push: [{toggle: L1}]}
+
 - type: button
   location: 27
   slot: 1
   actions: {push: [{toggle: L4}]}
+
 - type: button
   location: 27
   slot: 2
   actions: {push: [{toggle: Lo}]}
+
 - type: button
   location: 28
   slot: 1
   actions: {push: [{toggle: M1}]}
+
 - type: button
   location: 28
   slot: 2
   actions: {push: [{toggle: M2}]}
+
 - type: plug
   location: 28
   slot: 3
+
 - type: plug
   location: 28
   slot: 4
+
 - type: button
   location: 29
   slot: 1
   actions: {push: [{toggle: M3}]}
+
 - type: plug
   location: 29
   slot: 2
+
 - type: plug
   location: 29
   slot: 3
+
 - type: plug
   location: 29
   slot: 4
+
 - type: button
   location: 30
   slot: 1
   actions: {push: [{toggle: N1}]}
+
 - type: button
   location: 30
   slot: 2
   actions: {push: [{toggle: N2}]}
+
 - type: plug
   location: 31
   slot: 1
+
 - type: plug
   location: 31
   slot: 2
+
 - type: plug
   location: 31
   slot: 3
+
 - type: button
   location: 31
   slot: 4
   actions: {push: [{toggle: N3}]}
+
 - id: A1
   type: light
   location: A1
   kind: górne
+
 - id: A2
   type: light
   location: A2
+
 - id: A3
   type: light
   location: A3
+
 - id: A4
   type: light
   location: A4
   controllable: false
+
 - id: Ao
   type: light
   location: Ao
+
 - id: Ax
   type: light
   location: Ax
+
 - id: B1
   type: light
   location: B1
+
 - id: B2
   type: light
   location: B2
+
 - id: B3
   type: light
   location: B3
+
 - id: C1
   type: light
   location: C1
+
 - id: C2
   type: light
   location: C2
+
 - id: D1
   type: light
   location: D1
+
 - id: D2
   type: light
   location: D2
+
 - id: D3
   type: light
   location: D3
+
 - id: D4
   type: light
   location: D4
+
 - id: Do
   type: light
   location: Do
+
 - id: Dp
   type: light
   location: Dp
+
 - id: Du
   type: light
   location: Du
+
 - id: Dw
   type: light
   location: Dw
+
 - id: Dx
   type: light
   location: Dx
+
 - id: Dy
   type: light
   location: Dy
+
 - id: Dz
   type: light
   location: Dz
+
 - id: E1
   type: light
   location: E1
+
 - id: E2
   type: light
   location: E2
+
 - id: Eo
   type: light
   location: Eo
+
 - id: F1
   type: light
   location: F1
+
 - id: F2
   type: light
   location: F2
+
 - id: F3
   type: light
   location: F3
-- id: G
-  type: light
-  location: G
+
 - id: G1
   type: light
   location: G1
+
 - id: G2
   type: light
   location: G2
+
 - id: H1
   type: light
   location: H1
+
 - id: H2
   type: light
   location: H2
+
 - id: H3
   type: light
   location: H3
+
 - id: H4
   type: light
   location: H4
+
 - id: I1
   type: light
   location: I1
+
 - id: I2
   type: light
   location: I2
+
 - id: I3
   type: light
   location: I3
+
 - id: I4
   type: light
   location: I4
+
 - id: J1
   type: light
   location: J1
+
 - id: J2
   type: light
   location: J2
+
 - id: J3
   type: light
   location: J3
+
 - id: Jx
   type: light
   location: Jx
+
 - id: Jy
   type: light
   location: Jy
+
 - id: K1
   type: light
   location: K1
+
 - id: K2
   type: light
   location: K2
+
 - id: K3
   type: light
   location: K3
+
 - id: K4
   type: light
   location: K4
+
 - id: L1
   type: light
   location: L1
+
 - id: L2
   type: light
   location: L2
+
 - id: L3
   type: light
   location: L3
+
 - id: L4
   type: light
   location: L4
+
 - id: Lo
   type: light
   location: Lo
+
 - id: M1
   type: light
   location: M1
+
 - id: M2
   type: light
   location: M2
+
 - id: M3
   type: light
   location: M3
+
 - id: N1
   type: light
   location: N1
+
 - id: N2
   type: light
   location: N2
+
 - id: N3
   type: light
   location: N3
+
 - id: Podbitka
   type: spare-out
   location: Podbitka
+
 - id: L_Gate
-  type: light
-  location: Brama
+  type: gate
+  location: B-brama
+
 - id: Rezerwa1
   type: spare-out
+
 - id: Rezerwa2
   type: spare-out
+
 - id: L-gniazda
   type: controllable-plug
   location: L-gniazda
+
 - id: J-gniazda
   type: controllable-plug
   location: J-gniazda
+
 - id: D-gniazda
   type: controllable-plug
   location: D-gniazda
+
 - id: A-gniazda
   type: controllable-plug
   location: A-gniazda
+
 - id: Shade_LivingRoom1
   type: shade
+  location: D-roleta-1
+
 - id: Shade_LivingRoom2
   type: shade
+  location: D-roleta-2
+
 - id: Shade_LivingRoom3
   type: shade
+  location: D-roleta-3
+
 - id: Shade_LivingRoom4
   type: shade
+  location: D-roleta-4
+
 - id: Shade_LivingRoom5
   type: shade
+  location: D-roleta-5
+
 - id: Shade_Kitchen1
   type: shade
+  location: F-roleta-1
+
 - id: Shade_Kitchen2
   type: shade
+  location: F-roleta-2
+
 - id: Shade_Kitchen3
   type: shade
+  location: F-roleta-3
+
 - id: Shade_BathroomL1
   type: shade
+  location: I-roleta
+
 - id: Shade_Library
   type: shade
+  location: E-roleta
+
 - id: Shade_HallWindow
   type: shade
+  location: J-roleta-okno
+
 - id: Shade_HallDoor
   type: shade
+  location: J-roleta-drzwi
+
 - id: Shade_BathroomL2Secondary
   type: shade
+  location: K-roleta-1
+
 - id: Shade_BathroomL2Primary
   type: shade
+  location: K-roleta-2
+
 - id: Shade_Bedroom1
   type: shade
+  location: L-roleta
+
 - id: Shade_Bedroom2
   type: shade
+  location: M-roleta
+
 - id: Shade_Bedroom3
   type: shade
+  location: N-roleta
+
 - type: reed-switch
   location: A-kontaktron-drzwi
+
 - type: reed-switch
   location: B-kontaktron-brama
+
 - type: reed-switch
   location: B-kontaktron-okno
+
 - type: reed-switch
   location: C-kontaktron-okno
+
 - type: reed-switch
   location: I-kontaktron-okno
+
 - type: reed-switch
   location: D-kontaktron-drzwi-1
+
 - type: reed-switch
   location: D-kontaktron-drzwi-2
+
 - type: reed-switch
   location: E-kontaktron-okno-1
+
 - type: reed-switch
   location: F-kontaktron-okno-1
+
 - type: reed-switch
   location: F-kontaktron-okno-2
+
 - type: reed-switch
   location: H-kontaktron-okno
+
 - type: reed-switch
   location: J-kontaktron-drzwi
+
 - type: reed-switch
   location: K-kontaktron-okno-1
+
 - type: reed-switch
   location: K-kontaktron-okno-2
+
 - type: reed-switch
   location: L-kontaktron-okno
+
 - type: reed-switch
   location: M-kontaktron-okno
+
 - type: reed-switch
   location: N-kontaktron-okno
