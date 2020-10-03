@@ -6,6 +6,7 @@ const router = new VueRouter({
         { path: '/validation', component: Vue.component('validation-page') },
         { path: '/stats', component: Vue.component('stats-page') },
         { path: '/controllers', component: Vue.component('controllers-page') },
+        { path: '/controllers/:id', component: Vue.component('controller-page') },
         { path: '/', component: Vue.component('main-page') }
     ]
 })
@@ -105,7 +106,41 @@ const store = new Vuex.Store({
                     return (controller.controlling || []).indexOf(placeId) > -1;
                  })
                  .filter(entity => entity.controllable)
-            return Object.assign({id: "controller."+index, entities},controller);
+            const inputs = entities.filter(entity => entity.$type.direction == 'input');
+            const outputs = entities.filter(entity => entity.$type.direction == 'output');
+            const slots = controller.slots;
+            const offset = controller.slots / 2;
+            const ports = [...Array(controller.slots).keys()].map(port => {
+                const entity = port < offset ?
+                    inputs[port] :
+                    outputs[port - offset];
+                const $direction = entity && entity.$direction;
+                return {
+                    index: port, entity, $direction,
+                    directionId: $direction && $direction.id
+                }
+            });
+            const portRelations = ports.map( port => {
+                const entity = port.entity;
+                const relations = [];
+                if(entity){
+                    getters.relatedEntities(entity.id)
+                        .forEach(relatedEntityId => {
+                            const relatedPort = ports.find(port => {
+                                const entityId = port.entity && port.entity.id;
+                                return entityId && relatedEntityId == entityId;
+                            });
+                            relations.push({
+                                entityId: relatedEntityId,
+                                entity: getters.entityById(relatedEntityId),
+                                portIndex: relatedPort && relatedPort.index,
+                                port: relatedPort
+                            });
+                        });
+                }
+                return {port, relations};
+            });
+            return Object.assign({id: "controller."+index, entities, ports, portRelations},controller);
         })
     },
     controllerById: (state,getters) => id => {

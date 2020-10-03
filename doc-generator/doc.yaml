@@ -270,6 +270,11 @@ locations:
     label: Przy wejściu
     coordinates: [{x: 666, y: 336}]
     slots: 3
+  6c:
+    place: living-room
+    label: Przy wejściu
+    coordinates: [{x: 666, y: 336}]
+    slots: 3
   D1:
     place: dining-room
     label: Sufit
@@ -296,13 +301,28 @@ locations:
     label: Przy wyjściu na ogród
     coordinates: [{x: 451, y: 570}]
     slots: 4
+  7b:
+    place: dining-room
+    label: Przy wyjściu na ogród
+    coordinates: [{x: 451, y: 570}]
+    slots: 4
   8:
     place: living-room
     label: Przy wyjściu na taras
     coordinates: [{x: 289, y: 390}]
     slots: 4
+  8b:
+    place: dining-room
+    label: Przy wyjściu na taras
+    coordinates: [{x: 289, y: 390}]
+    slots: 4
   9:
     place: living-room
+    label: Przy biblioteczce
+    coordinates: [{x: 469, y: 295}]
+    slots: 2
+  9b:
+    place: dining-room
     label: Przy biblioteczce
     coordinates: [{x: 469, y: 295}]
     slots: 2
@@ -851,32 +871,37 @@ entities:
   actions: {push: [{toggle: D2}]}
 
 - type: button
-  location: 6
+  id: overridden-button-14
+  location: 6c
   slot: 3
   actions: {push: [{toggle: D4}]}
 
 - type: button
-  location: 6
+  id: overridden-button-15
+  location: 6c
   slot: 4
   actions: {push: [{toggle: D3}]}
 
 - type: button
+  id: overridden-button-16
   location: 6b
   slot: 5
   actions: {push: [{toggle: A1}]}
+#
+#- type: button
+#  location: 6
+#  slot: 6
+#  actions: {push: [{activate: G2}]}
 
 - type: button
-  location: 6
-  slot: 6
-  actions: {push: [{activate: G2}]}
-
-- type: button
-  location: 7
+  id: overridden-button-17
+  location: 7b
   slot: 1
   actions: {push: [{toggle: D1}]}
 
 - type: button
-  location: 7
+  id: overridden-button-18
+  location: 7b
   slot: 2
   actions: {push: [{toggle: D2}]}
 
@@ -921,7 +946,8 @@ entities:
   actions: {push: [{toggle: D3}]}
 
 - type: button
-  location: 8
+  id: overridden-button-27
+  location: 8b
   slot: 5
   actions: {push: [{toggle: D2}]}
 
@@ -931,7 +957,8 @@ entities:
   actions: {push: [{toggle: D4}]}
 
 - type: button
-  location: 9
+  id: overridden-button-29
+  location: 9b
   slot: 1
   actions: {push: [{toggle: D1}]}
 

@@ -12,7 +12,9 @@ Vue.component('controller', {
     },
     computed: {
         controller: function(){
-            return this.$store.getters.controllerById(this.id);
+            const out = this.$store.getters.controllerById(this.id);
+            console.log(out);
+            return out;
         },
         mapIds: function(){
             return (this.controller && this.controller.entities || [])
@@ -40,26 +42,13 @@ Vue.component('controller', {
 
         }
     },
-    methods:{
-        relatedEntities: function(entity){
-            return this.$store.getters.relatedEntities(entity.id);
-        },
-        relatedPorts: function(entity){
-            return this.relatedEntities(entity)
-                .map(relatedEntityId => {
-                    return (this.controller.entities || [])
-                        .reduce((acc, value, index) => {
-                            if(relatedEntityId == value.id){
-                                acc.ports.push(index);
-                            }
-                            return acc;
-                        },{entity: relatedEntityId, ports:[]})
-                });
-        }
-    },
     template: `
         <div v-if="controller">
-            <h2>Controller: {{controller.label}}</h2>
+            <h2>Controller</h2>
+            <div>
+                <div>ID: <router-link :to="'/controllers/'+controller.id">{{controller.id}}</router-link></div>
+                <div>Label: {{controller.label}}</div>
+            </div>
             <h3>Statystyki</h3>
             <h4>Wejść: {{stats.inputs}}, Wyjść: {{stats.outputs}}, Suma: {{stats.inputs + stats.outputs}}</h4>
             <h3>Sloty</h3>
@@ -78,19 +67,27 @@ Vue.component('controller', {
                 <tr>
                     <th>Port</th><th>Encja</th><th>Lokalizacja</th><th>Powiązania</th>
                 </tr>
-                <tr v-for="entity,index of controller.entities">
-                    <td>{{index}}</td>
-                    <td><entity :entity="entity"></entity></td>
+                <tr v-for="port of controller.ports">
+                    <td v-bind:class="{input: port.directionId == 'input', output: port.directionId == 'output', error: !(port.directionId)}">{{port.index}}</td>
+                    <td><entity :entity="port.entity" v-if="port.entity"></entity></td>
                     <td>
-                        <location :id="entity.location"></location>
-                        <location-slot :index="entity.slot" :location="entity.location"></location-slot>
+                        <location :id="port.entity.location" v-if="port.entity"></location>
+                        <location-slot :index="port.entity.slot" :location="port.entity.location" v-if="port.entity"></location-slot>
                     </td>
                     <td>
-                        <h3>Powiązania</h3>
-                        <ul>
-                            <li v-for="relation in relatedPorts(entity)">{{relation.entity}} => <span v-bind:style="{backgroundColor: relation.ports.length > 0 ? 'lightgreen' : 'red'}">{{relation.ports.length > 0 ? relation.ports.join(', ') : 'BRAK'}}</span></li>
-                        </ul>
-                        <action :entity-id="entity.id"></action></td>
+                        <div v-if="port.entity">
+                            <h3>Akcje</h3>
+                            <action :entity-id="port.entity.id"></action>
+                            <div v-if="controller.portRelations[port.index]">
+                                <h3>Relacje portów</h3>
+                                <ul>
+                                    <port-relation
+                                        :relation="portRelation"
+                                         v-for="portRelation in controller.portRelations[port.index].relations"></port-relation>
+                                </ul>
+                            </div>
+                        </div>
+                    </td>
                 </tr>
             </table>
         </div>
