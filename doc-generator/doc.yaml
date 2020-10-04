@@ -92,7 +92,7 @@ locations:
     place: entrance
     label: "Wzdłuż wejścia"
     coordinates: [{x: 818, y: 318},{x: 883, y: 318},{x: 911, y: 318},{x: 938, y: 318},{x: 964, y: 318}]
-  A-gniazda:
+  A_gniazda:
     place: entrance
     label: "Gniazda przy wejściu do garażu"
     coordinates: [{x: 768, y: 214}]
@@ -124,7 +124,7 @@ locations:
     place: garden
     label: "Kinkiet na tarasie"
     coordinates: [{x: 156, y: 336}]
-  D-gniazda:
+  D_gniazda:
     place: garden
     label: "Gniazda w ogrodzie"
     coordinates: [{x: 818, y: 619},{x: 442, y: 588},{x: 135, y: 754},{x: 261, y: 392},{x: 110, y: 335},{x: 110, y: 316},{x: 269, y: 315},{x: 497, y: 31}]
@@ -136,17 +136,20 @@ locations:
     coordinates: [{x: 773, y: 305}]
     slots: 4
     wires:
-      - buttons
-      - buttons
-      - buttons
-      - thermostat
-      - alarm
-      - domofon
+      - signal: A1, A2
+      - signal: A1, A2
+      - signal: Ao, Ax, gł
+      - signal: rezerwa
+      - thermostat:
+      - alarm:
+      - domofon:
   2:
     place: entry-hall
     label: Przy garażu
     coordinates: [{x: 728, y: 237}]
     slots: 2
+    wires:
+      - signal: A1, A2
   A1:
     place: entry-hall
     label: Sufit
@@ -174,11 +177,16 @@ locations:
     label: Przy bramie
     coordinates: [{x: 724, y: 215}]
     slots: 3
+    wires:
+      - signal: brama
+      - signal: B1, B2
   4:
     place: garage
     label: Przy kotłowni
     coordinates: [{x: 452, y: 114}]
     slots: 3
+    wires:
+      - signal: B1, B2, B3
   B1:
     place: garage
     label: Po bokach
@@ -201,8 +209,8 @@ locations:
     coordinates: [{x: 625, y: 42}]
   B-brama:
     place: garage
-    label: Brama garażowa
-    coordinates: [{x: 735, y: 66},{x: 735, y: 106},{x: 735, y: 146},{x: 735, y: 186}]
+    label: Brama wjazdowa
+    coordinates: [{x: 935, y: 66},{x: 935, y: 106},{x: 935, y: 146},{x: 935, y: 186}]
 
 #  boiler-room
   5:
@@ -210,6 +218,8 @@ locations:
     label: Przy wejściu
     coordinates: [{x: 438, y: 53}]
     slots: 2
+    wires:
+      - signal: C1, C2
   C1:
     place: boiler-room
     label: Sufit
@@ -229,6 +239,9 @@ locations:
     label: Przy wejściu
     coordinates: [{x: 732, y: 399}]
     slots: 4
+    wires:
+      - signal: I4
+      - termostat:
   I1:
     place: toilet
     label: Sufit
@@ -239,7 +252,7 @@ locations:
     coordinates: [{x: 774, y: 370}]
   I3:
     place: toilet
-    label: ???
+    label: Halogeny
     coordinates: [{x: 818, y: 352},{x: 818, y: 375}]
   I4:
     place: toilet
@@ -265,16 +278,22 @@ locations:
     label: Przy wejściu
     coordinates: [{x: 666, y: 336}]
     slots: 3
+    wires:
+      - signal: D4, A1, G
   6b:
     place: entry-hall
     label: Przy wejściu
     coordinates: [{x: 666, y: 336}]
     slots: 3
+    wires:
+      - signal: D4, A1, G
   6c:
     place: living-room
     label: Przy wejściu
     coordinates: [{x: 666, y: 336}]
     slots: 3
+    wires:
+      - signal: D1, D2, D3
   D1:
     place: dining-room
     label: Sufit
@@ -301,31 +320,44 @@ locations:
     label: Przy wyjściu na ogród
     coordinates: [{x: 451, y: 570}]
     slots: 4
+    wires:
+      - signal: Dp, Dw, Du
   7b:
     place: dining-room
     label: Przy wyjściu na ogród
     coordinates: [{x: 451, y: 570}]
     slots: 4
+    wires:
+      - signal: D1, D2, D3
+
   8:
     place: living-room
     label: Przy wyjściu na taras
     coordinates: [{x: 289, y: 390}]
     slots: 4
+    wires:
+      - signal: Do, D2, Dx, Dy
   8b:
     place: dining-room
     label: Przy wyjściu na taras
     coordinates: [{x: 289, y: 390}]
     slots: 4
+    wires:
+      - signal: D2, D3, D4
   9:
     place: living-room
     label: Przy biblioteczce
     coordinates: [{x: 469, y: 295}]
     slots: 2
+    wires:
+      - signal: D1, D3
   9b:
     place: dining-room
     label: Przy biblioteczce
     coordinates: [{x: 469, y: 295}]
     slots: 2
+    wires:
+      - signal: D1, D3
   D3:
     place: living-room
     label: Sufit
@@ -364,6 +396,8 @@ locations:
     label: Przy salonie
     coordinates: [{x: 385, y: 326}]
     slots: 3
+    wires:
+      - signal: E1, E2, Eo
   E1:
     place: library
     label: Lampa górna
@@ -391,16 +425,23 @@ locations:
     label: Wyspa
     coordinates: [{x: 694, y: 507}]
     slots: 3
+    wires:
+      - signal: D1, F1
   12:
     place: kitchen
     label: Przy kuchence
     coordinates: [{x: 641, y: 586}]
     slots: 2
+    wires:
+      - signal: F2, F3
   13:
     place: kitchen
     label: Przy gabinecie
     coordinates: [{x: 735, y: 416}]
     slots: 2
+    wires:
+      - signal: F2, F3 z rozdzielni
+      - signal: F2, F3
   F1:
     place: kitchen
     label: Lampy górne
@@ -440,16 +481,23 @@ locations:
     label: Przy drzwiach
     coordinates: [{x: 849, y: 469}]
     slots: 2
+    wires:
+      - signal: H1, H4
+      - signal: H4
   15:
     place: office
     label: Przy biurku
     coordinates: [{x: 957, y: 519}]
     slots: 4
+    wires:
+      - signal: H2, H3
   16:
     place: office
     label: Przy tapczanie
     coordinates: [{x: 850, y: 364}]
     slots: 1
+    wires:
+      - signal: H4
   H1:
     place: office
     label: Lampa górna
@@ -481,21 +529,35 @@ locations:
     label: Przy schodach
     coordinates: [{x: 381, y: 202}]
     slots: 2
+    wires:
+      - signal: J1, J2
   20:
     place: hall
     label: Przy drzwiach tarasowych
     coordinates: [{x: 84, y: 203}]
     slots: 4
+    wires:
+      - signal: J1, J2
+      - signal: Jx, Jy
+      - thermostat:
+      - alarm:
+      - lan:
   21:
     place: hall
     label: Na korytarzu
     coordinates: [{x: 303, y: 287}]
     slots: 2
+    wires:
+      - signal: J1, J2
+      - signal: J1, J2
   22:
     place: hall-bathroom
     label: Przy łazience
     coordinates: [{x: 443, y: 226}]
     slots: 3
+    wires:
+      - signal: 1K
+      - signal: 2K
   J1:
     place: hall
     label: Lampa nad duszą
@@ -529,6 +591,9 @@ locations:
     label: Przy blacie
     coordinates: [{x: 637, y: 102}]
     slots: 3
+    wires:
+      - signal: K3, K4 z rozdzielni
+      - termostat:
   K1:
     place: bathroom
     label: Sufit napinany - skcja słaba
@@ -568,21 +633,30 @@ locations:
     label: Przy wejściu
     coordinates: [{x: 512, y: 317}]
     slots: 3
+    wires:
+      - signal: L2 z rozdzielni
+      - signal: L2
   25:
     place: bedroom-1
     label: Z lewej strony łóżka
     coordinates: [{x: 467, y: 533}]
     slots: 4
+    wires:
+      - signal: wł1
   26:
     place: bedroom-1
     label: Z prawej strony łóżka
     coordinates: [{x: 642, y: 533}]
     slots: 4
+    wires:
+      - signal: wł2
   27:
     place: bedroom-1
     label: W garderobie
     coordinates: [{x: 585, y: 332}]
     slots: 2
+    wires:
+      - signal: L2
   L1:
     place: bedroom-1
     label: Oświetlenie LED szafek nad łóżkiem
@@ -607,7 +681,7 @@ locations:
     place: bedroom-1
     label: Roleta
     coordinates: [{x: 683, y: 323}]
-  L-gniazda:
+  L_gniazda:
     place: bedroom-1
     label: Gniazda tarasowe
     coordinates: [{x: 681, y: 481}]
@@ -618,11 +692,16 @@ locations:
     label: Przy wejściu
     coordinates: [{x: 385, y: 294}]
     slots: 4
+    wires:
+      - signal: M z rozdzielni
+      - signal: M
   29:
     place: bedroom-2
     label: Przy oknie
     coordinates: [{x: 442, y: 514}]
     slots: 3
+    wires:
+      - signal: wł3
   M1:
     place: bedroom-2
     label: Swiatło główne
@@ -649,11 +728,16 @@ locations:
     label: Przy wejściu
     coordinates: [{x: 156, y: 300}]
     slots: 4
+    wires:
+      - signal: N z rozdzielni
+      - signal: N
   31:
     place: bedroom-3
     label: Przy oknie
     coordinates: [{x: 86, y: 514}]
     slots: 3
+    wires:
+      - signal: wł4
   N1:
     place: bedroom-3
     label: Swiatło główne
@@ -693,8 +777,8 @@ locations:
     label: Kinkiety
     coordinates: [{x: 193, y: 76},{x: 252, y: 75}]
 
-#  J-gniazda
-  J-gniazda:
+#  J_gniazda
+  J_gniazda:
     place: tarrace-north
     label: Gniazda tarasowe
     coordinates: [{x: 59, y: 512},{x: 59, y: 170},{x: 159, y: 73}]
@@ -748,7 +832,7 @@ types:
     label: Czujka ruchu
     direction: input
     controllable: true
-  reed-switch:
+  reed_switch:
     label: Kontaktron
     direction: input
     controllable: true
@@ -759,8 +843,10 @@ types:
 
 controllers:
   - place: control-cabinet
+    id: 'controller_1'
     label: 'Garage + Hall + Toilet'
-    slots: 128
+    device: esp128
+    ip: 192.168.88.5
     controlling:
       - entrance
       - garage
@@ -768,15 +854,19 @@ controllers:
       - toilet
       - entry-hall
   - place: control-cabinet
+    id: 'controller_2'
     label: 'Office + Kichen + Dining room'
-    slots: 64
+    device: esp64
+    ip: 192.168.88.6
     controlling:
       - office
       - kitchen
       - dining-room
   - place: control-cabinet
+    id: 'controller_3'
     label: 'Living room + Garden'
-    slots: 64
+    device: esp64
+    ip: 192.168.88.7
     controlling:
       - living-room
       - library
@@ -785,16 +875,26 @@ controllers:
       - tarrace-north
       - tarrace-east
   - place: control-cabinet
-    label: 'First floor - bathroom + bedroom-1'
-    slots: 32
+    id: 'controller_4'
+    label: 'First floor - hall + bathroom'
+    device: esp32
+    ip: 192.168.88.8
     controlling:
       - hall-bathroom
       - bathroom
-      - tarrace-south
-      - bedroom-1
   - place: control-cabinet
+    id: 'controller_5'
+    label: 'First floor - bedroom-1'
+    device: esp32
+    ip: 192.168.88.9
+    controlling:
+      - bedroom-1
+      - tarrace-south
+  - place: control-cabinet
+    id: 'controller_6'
     label: 'First floor - bedroom-2 + bedroom-3'
-    slots: 32
+    device: esp32
+    ip: 192.168.88.10
     controlling:
       - bedroom-2
       - bedroom-3
@@ -871,19 +971,19 @@ entities:
   actions: {push: [{toggle: D2}]}
 
 - type: button
-  id: overridden-button-14
+  id: overridden_button_14
   location: 6c
   slot: 3
   actions: {push: [{toggle: D4}]}
 
 - type: button
-  id: overridden-button-15
+  id: overridden_button_15
   location: 6c
   slot: 4
   actions: {push: [{toggle: D3}]}
 
 - type: button
-  id: overridden-button-16
+  id: overridden_button_16
   location: 6b
   slot: 5
   actions: {push: [{toggle: A1}]}
@@ -894,13 +994,13 @@ entities:
 #  actions: {push: [{activate: G2}]}
 
 - type: button
-  id: overridden-button-17
+  id: overridden_button_17
   location: 7b
   slot: 1
   actions: {push: [{toggle: D1}]}
 
 - type: button
-  id: overridden-button-18
+  id: overridden_button_18
   location: 7b
   slot: 2
   actions: {push: [{toggle: D2}]}
@@ -946,7 +1046,7 @@ entities:
   actions: {push: [{toggle: D3}]}
 
 - type: button
-  id: overridden-button-27
+  id: overridden_button_27
   location: 8b
   slot: 5
   actions: {push: [{toggle: D2}]}
@@ -957,7 +1057,7 @@ entities:
   actions: {push: [{toggle: D4}]}
 
 - type: button
-  id: overridden-button-29
+  id: overridden_button_29
   location: 9b
   slot: 1
   actions: {push: [{toggle: D1}]}
@@ -1261,67 +1361,82 @@ entities:
   type: light
   location: A1
   kind: górne
+  relay: 1
 
 - id: A2
   type: light
   location: A2
+  relay: 2
 
 - id: A3
   type: light
   location: A3
+  relay: 3
 
 - id: A4
   type: light
   location: A4
-  controllable: false
+  relay: 4
 
 - id: Ao
   type: light
   location: Ao
+  relay: 5
 
 - id: Ax
   type: light
   location: Ax
+  relay: 6
 
 - id: B1
   type: light
   location: B1
+  relay: 7
 
 - id: B2
   type: light
   location: B2
+  relay: 8
 
 - id: B3
   type: light
   location: B3
+  relay: 9
 
 - id: C1
   type: light
   location: C1
+  relay: 10
 
 - id: C2
   type: light
   location: C2
+  relay: 11
 
 - id: D1
   type: light
   location: D1
+  relay: 12
 
 - id: D2
   type: light
   location: D2
+  relay: 13
 
 - id: D3
   type: light
   location: D3
+  relay: 14
 
 - id: D4
   type: light
   location: D4
+  relay: 15
 
 - id: Do
   type: light
   location: Do
+  relay: 16
 
 - id: Dp
   type: light
@@ -1330,14 +1445,17 @@ entities:
 - id: Du
   type: light
   location: Du
+  relay: 17
 
 - id: Dw
   type: light
   location: Dw
+  relay: 18
 
 - id: Dx
   type: light
   location: Dx
+  relay: 19
 
 - id: Dy
   type: light
@@ -1346,296 +1464,363 @@ entities:
 - id: Dz
   type: light
   location: Dz
+  relay: 20
 
 - id: E1
   type: light
   location: E1
+  relay: 21
 
 - id: E2
   type: light
   location: E2
+  relay: 22
 
 - id: Eo
   type: light
   location: Eo
+  relay: 23
 
 - id: F1
   type: light
   location: F1
+  relay: 24
 
 - id: F2
   type: light
   location: F2
+  relay: 25
 
 - id: F3
   type: light
   location: F3
+  relay: 26
 
 - id: G1
   type: light
   location: G1
+  relay: 27
 
 - id: G2
   type: light
   location: G2
+  relay: 28
 
 - id: H1
   type: light
   location: H1
+  relay: 29
 
 - id: H2
   type: light
   location: H2
+  relay: 30
 
 - id: H3
   type: light
   location: H3
+  relay: 31
 
 - id: H4
   type: light
   location: H4
+  relay: 32
 
 - id: I1
   type: light
   location: I1
+  relay: 33
 
 - id: I2
   type: light
   location: I2
+  relay: 34
 
 - id: I3
   type: light
   location: I3
+  relay: 35
 
 - id: I4
   type: light
   location: I4
+  relay: 36
 
 - id: J1
   type: light
   location: J1
+  relay: 37
 
 - id: J2
   type: light
   location: J2
+  relay: 38
 
 - id: J3
   type: light
   location: J3
+  relay: 39
 
 - id: Jx
   type: light
   location: Jx
+  relay: 40
 
 - id: Jy
   type: light
   location: Jy
+  relay: 41
 
 - id: K1
   type: light
   location: K1
+  relay: 42
 
 - id: K2
   type: light
   location: K2
+  relay: 43
 
 - id: K3
   type: light
   location: K3
+  relay: 44
 
 - id: K4
   type: light
   location: K4
+  relay: 45
 
 - id: L1
   type: light
   location: L1
+  relay: 46
 
 - id: L2
   type: light
   location: L2
+  relay: 47
 
 - id: L3
   type: light
   location: L3
+  relay: 48
 
 - id: L4
   type: light
   location: L4
+  relay: 49
 
 - id: Lo
   type: light
   location: Lo
+  relay: 50
 
 - id: M1
   type: light
   location: M1
+  relay: 51
 
 - id: M2
   type: light
   location: M2
+  relay: 52
 
 - id: M3
   type: light
   location: M3
+  relay: 53
 
 - id: N1
   type: light
   location: N1
+  relay: 54
 
 - id: N2
   type: light
   location: N2
+  relay: 55
 
 - id: N3
   type: light
   location: N3
+  relay: 56
 
 - id: Podbitka
   type: spare-out
   location: Podbitka
+  relay: 57
 
 - id: L_Gate
   type: gate
   location: B-brama
+  relay: 58
 
 - id: Rezerwa1
   type: spare-out
+  relay: 59
 
 - id: Rezerwa2
   type: spare-out
+  relay: 60
 
-- id: L-gniazda
+- id: L_gniazda
   type: controllable-plug
-  location: L-gniazda
+  location: L_gniazda
+  relay: 61
 
-- id: J-gniazda
+- id: J_gniazda
   type: controllable-plug
-  location: J-gniazda
+  location: J_gniazda
+  relay: 62
 
-- id: D-gniazda
+- id: D_gniazda
   type: controllable-plug
-  location: D-gniazda
+  location: D_gniazda
+  relay: 63
 
-- id: A-gniazda
+- id: A_gniazda
   type: controllable-plug
-  location: A-gniazda
+  location: A_gniazda
+  relay: 64
 
 - id: Shade_LivingRoom1
   type: shade
   location: D-roleta-1
+  relay: 65
 
 - id: Shade_LivingRoom2
   type: shade
   location: D-roleta-2
+  relay: 66
 
 - id: Shade_LivingRoom3
   type: shade
   location: D-roleta-3
+  relay: 67
 
 - id: Shade_LivingRoom4
   type: shade
   location: D-roleta-4
+  relay: 68
 
 - id: Shade_LivingRoom5
   type: shade
   location: D-roleta-5
+  relay: 69
 
 - id: Shade_Kitchen1
   type: shade
   location: F-roleta-1
+  relay: 70
 
 - id: Shade_Kitchen2
   type: shade
   location: F-roleta-2
+  relay: 71
 
 - id: Shade_Kitchen3
   type: shade
   location: F-roleta-3
+  relay: 72
+
+- id: Shade_Office
+  type: shade
+  location: H-roleta
+  relay: 73
 
 - id: Shade_BathroomL1
   type: shade
   location: I-roleta
+  relay: 74
 
 - id: Shade_Library
   type: shade
   location: E-roleta
+  relay: 75
 
 - id: Shade_HallWindow
   type: shade
   location: J-roleta-okno
+  relay: 76
 
 - id: Shade_HallDoor
   type: shade
   location: J-roleta-drzwi
+  relay: 77
 
 - id: Shade_BathroomL2Secondary
   type: shade
   location: K-roleta-1
+  relay: 78
 
 - id: Shade_BathroomL2Primary
   type: shade
   location: K-roleta-2
+  relay: 79
 
 - id: Shade_Bedroom1
   type: shade
   location: L-roleta
+  relay: 80
 
 - id: Shade_Bedroom2
   type: shade
   location: M-roleta
+  relay: 81
 
 - id: Shade_Bedroom3
   type: shade
   location: N-roleta
+  relay: 82
 
-- type: reed-switch
+- type: reed_switch
   location: A-kontaktron-drzwi
 
-- type: reed-switch
+- type: reed_switch
   location: B-kontaktron-brama
 
-- type: reed-switch
+- type: reed_switch
   location: B-kontaktron-okno
 
-- type: reed-switch
+- type: reed_switch
   location: C-kontaktron-okno
 
-- type: reed-switch
+- type: reed_switch
   location: I-kontaktron-okno
 
-- type: reed-switch
+- type: reed_switch
   location: D-kontaktron-drzwi-1
 
-- type: reed-switch
+- type: reed_switch
   location: D-kontaktron-drzwi-2
 
-- type: reed-switch
+- type: reed_switch
   location: E-kontaktron-okno-1
 
-- type: reed-switch
+- type: reed_switch
   location: F-kontaktron-okno-1
 
-- type: reed-switch
+- type: reed_switch
   location: F-kontaktron-okno-2
 
-- type: reed-switch
+- type: reed_switch
   location: H-kontaktron-okno
 
-- type: reed-switch
+- type: reed_switch
   location: J-kontaktron-drzwi
 
-- type: reed-switch
+- type: reed_switch
   location: K-kontaktron-okno-1
 
-- type: reed-switch
+- type: reed_switch
   location: K-kontaktron-okno-2
 
-- type: reed-switch
+- type: reed_switch
   location: L-kontaktron-okno
 
-- type: reed-switch
+- type: reed_switch
   location: M-kontaktron-okno
 
-- type: reed-switch
+- type: reed_switch
   location: N-kontaktron-okno

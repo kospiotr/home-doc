@@ -14,12 +14,55 @@ const router = new VueRouter({
 const store = new Vuex.Store({
   state: {
     count: 0,
-    data: {},
+    data: {
+    },
     filters: {
         places: [],
         directions: [],
         types: []
     },
+    devices: {
+        esp32: {
+            slots: 24,
+            portMapper: function(portIndex){
+                switch(portIndex){
+                    case 0: return 'GPIO36';
+                    case 1: return 'GPIO39';
+                    case 2: return 'GPIO34';
+                    case 3: return 'GPIO35';
+                    case 4: return 'GPIO32';
+                    case 5: return 'GPIO33';
+                    case 6: return 'GPIO25';
+                    case 7: return 'GPIO26';
+                    case 8: return 'GPIO27';
+                    case 9: return 'GPIO14';
+                    case 10: return 'GPIO12';
+                    case 11: return 'GPIO13';
+                    case 12: return 'GPIO15';
+                    case 13: return 'GPIO2';
+                    case 14: return 'GPIO0';
+                    case 15: return 'GPIO4';
+                    case 16: return 'GPIO16';
+                    case 17: return 'GPIO17';
+                    case 18: return 'GPIO5';
+                    case 19: return 'GPIO18';
+                    case 20: return 'GPIO19';
+                    case 21: return 'GPIO21';
+                    case 22: return 'GPIO22';
+                    case 23: return 'GPIO23';
+                }
+                return portIndex+'aaa'
+            }
+        },
+        esp64: {
+            slots: 64,
+            portMapper: function(portIndex){return portIndex}
+        },
+        esp128: {
+            slots: 128,
+            portMapper: function(portIndex){return portIndex}
+        },
+    }
   },
   mutations: {
     load (state, data) {
@@ -40,6 +83,9 @@ const store = new Vuex.Store({
 
   },
   getters: {
+    deviceById: (state, getters) => id => {
+        return state.devices[id];
+    },
     actions: (state, getters) => {
         return Object.entries(state.data.actions || {})
             .map(entry => {return Object.assign({id: entry[0]},entry[1])})
@@ -86,7 +132,7 @@ const store = new Vuex.Store({
                 const $type = getters.typeById(entity.type)
                 const $direction = $type && getters.directionById($type.direction)
                 const sections = [entity.type, index];
-                const id = sections.join('.');
+                const id = sections.join('_');
                 const $related = Object.values(entity.actions || {})
                     .flatMap(action => action)
                     .flatMap(operation => Object.values(operation))
@@ -100,6 +146,7 @@ const store = new Vuex.Store({
     },
     controllers: (state, getters) => {
         return (state.data.controllers || []).map((controller, index) => {
+            const id = controller.id ?  controller.id : "controller."+index
             const entities = getters.entities
                 .filter(entity => {
                     const placeId = entity.$place && entity.$place.id;
@@ -108,15 +155,16 @@ const store = new Vuex.Store({
                  .filter(entity => entity.controllable)
             const inputs = entities.filter(entity => entity.$type.direction == 'input');
             const outputs = entities.filter(entity => entity.$type.direction == 'output');
-            const slots = controller.slots;
-            const offset = controller.slots / 2;
-            const ports = [...Array(controller.slots).keys()].map(port => {
+            const device = getters.deviceById(controller.device);
+            const slots = device.slots;
+            const offset = slots / 2;
+            const ports = [...Array(slots).keys()].map(port => {
                 const entity = port < offset ?
                     inputs[port] :
                     outputs[port - offset];
                 const $direction = entity && entity.$direction;
                 return {
-                    index: port, entity, $direction,
+                    id: device.portMapper(port),index: port, entity, $direction,
                     directionId: $direction && $direction.id
                 }
             });
@@ -140,7 +188,7 @@ const store = new Vuex.Store({
                 }
                 return {port, relations};
             });
-            return Object.assign({id: "controller."+index, entities, ports, portRelations},controller);
+            return Object.assign({id, entities, ports, slots, portRelations},controller);
         })
     },
     controllerById: (state,getters) => id => {

@@ -59,6 +59,8 @@ Vue.component('controller', {
             <place-with-direction-stats :entities="controller.entities"></place-with-direction-stats>
             <h3>Mapa</h3>
             <center><entity-map :ids="mapIds" :width="850" :height="800" :borders="100"></entity-map></center>
+            <h3>ESP code</h3>
+            <esp-code :controller="controller"></esp-code>
             <h3>Szczegóły</h3>
             <div>
                 <button type="button" @click="collapsed=!collapsed">{{collapsed ? 'Rozwiń' : 'Zwiń'}}</button>
@@ -68,8 +70,12 @@ Vue.component('controller', {
                     <th>Port</th><th>Encja</th><th>Lokalizacja</th><th>Powiązania</th>
                 </tr>
                 <tr v-for="port of controller.ports">
-                    <td v-bind:class="{input: port.directionId == 'input', output: port.directionId == 'output', error: !(port.directionId)}">{{port.index}}</td>
-                    <td><entity :entity="port.entity" v-if="port.entity"></entity></td>
+                    <td v-bind:class="{input: port.directionId == 'input', output: port.directionId == 'output', error: !(port.directionId)}"><div>index: {{port.index}}</div><div>id: {{port.id}}</div></td>
+                    <td>
+                        <entity :entity="port.entity" v-if="port.entity"></entity>
+                        <relay :index="port.entity && port.entity.relay"/>
+                        <div>Controller: {{controller.id}}</div>
+                    </td>
                     <td>
                         <location :id="port.entity.location" v-if="port.entity"></location>
                         <location-slot :index="port.entity.slot" :location="port.entity.location" v-if="port.entity"></location-slot>
