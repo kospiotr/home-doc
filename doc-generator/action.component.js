@@ -8,10 +8,11 @@ Vue.component('action', {
             return ((this.entity && this.entity.actions) || [])
         },
         parties: () => function(operations){
+            // console.log({operations})
             const targets = operations
                 .flatMap(operation => Object.values(operation))
-                .map(id => {return [{id: id}]})
-            targets.unshift([{id: this.entityId}])
+                .map(id => {return {id: id}})
+            targets.unshift({id: this.entityId})
             return targets
         }
     },

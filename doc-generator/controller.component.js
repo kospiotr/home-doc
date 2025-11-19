@@ -1,44 +1,32 @@
 Vue.component('controller', {
     props: ['id', 'expand'],
-    data: function(){
+    data: function () {
         return {
             collapsed: !this.expand
         }
     },
-    watch:{
-        'expand'(newValue, oldValue){
+    watch: {
+        'expand'(newValue, oldValue) {
             this.collapsed = !newValue;
         }
     },
     computed: {
-        controller: function(){
+        controller: function () {
             const out = this.$store.getters.controllerById(this.id);
             console.log(out);
             return out;
         },
-        mapIds: function(){
+        stats: function () {
             return (this.controller && this.controller.entities || [])
-                .reduce((acc, entity)=>{
-                    if(entity.$direction.id=='input'){
-                        acc[0].push({id: entity.id})
-                    }
-                    if(entity.$direction.id=='output'){
-                        acc[1].push({id: entity.id})
-                    }
-                    return acc;
-                },[[],[]]);
-        },
-        stats: function(){
-            return (this.controller && this.controller.entities || [])
-                .reduce((acc, entity)=>{
-                    if(entity.$direction.id=='input'){
+                .reduce((acc, entity) => {
+                    if (entity.$direction.id == 'input') {
                         acc.inputs++;
                     }
-                    if(entity.$direction.id=='output'){
+                    if (entity.$direction.id == 'output') {
                         acc.outputs++
                     }
                     return acc;
-                },{inputs: 0, outputs: 0})
+                }, {inputs: 0, outputs: 0})
 
         }
     },
@@ -58,7 +46,7 @@ Vue.component('controller', {
             <br/>
             <place-with-direction-stats :entities="controller.entities"></place-with-direction-stats>
             <h3>Mapa</h3>
-            <center><entity-map :ids="mapIds" :width="850" :height="800" :borders="100"></entity-map></center>
+            <center><entity-map :ids="this.controller.entities" :width="850" :height="800" :borders="100"></entity-map></center>
             <h3>ESP code</h3>
             <esp-code :controller="controller"></esp-code>
             <h3>Szczegóły</h3>

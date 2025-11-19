@@ -164,7 +164,10 @@ const store = new Vuex.Store({
                     outputs[port - offset];
                 const $direction = entity && entity.$direction;
                 return {
-                    id: device.portMapper(port),index: port, entity, $direction,
+                    id: device.portMapper(port),
+                    index: port,
+                    entity,
+                    $direction,
                     directionId: $direction && $direction.id
                 }
             });

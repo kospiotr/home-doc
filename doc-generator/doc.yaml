@@ -1,92 +1,92 @@
 ---
 places:
   entrance:
-    label: Wejście
+    label: Entrance
     map: 'plan-L1.png'
-    level: 1
+    level: 0
   garden:
-    label: Ogród
+    label: Garden
     map: 'plan-L1.png'
-    level: 1
+    level: 0
   entry-hall:
-    label: Wiatrołap
+    label: Entry Hall
     map: 'plan-L1.png'
-    level: 1
+    level: 0
   garage:
-    label: Garaż
+    label: Garage
     map: 'plan-L1.png'
-    level: 1
+    level: 0
   boiler-room:
-    label: Kotłownia
+    label: Boiler Room
     map: 'plan-L1.png'
-    level: 1
+    level: 0
   toilet:
-    label: Toaleta na parterze
+    label: Toilet
     map: 'plan-L1.png'
-    level: 1
+    level: 0
   dining-room:
-    label: Jadalnia
+    label: Dining Room
     map: 'plan-L1.png'
-    level: 1
+    level: 0
   living-room:
-    label: Salon
+    label: Living Room
     map: 'plan-L1.png'
-    level: 1
+    level: 0
   library:
-    label: Biblioteczka
+    label: Library
     map: 'plan-L1.png'
-    level: 1
+    level: 0
   kitchen:
-    label: Kuchnia
+    label: Kitchen
     map: 'plan-L1.png'
-    level: 1
+    level: 0
   office:
-    label: Gabinet
+    label: Office
     map: 'plan-L1.png'
-    level: 1
+    level: 0
   hall:
-    label: Hol
+    label: Hall
     map: 'plan-L2.png'
-    level: 2
+    level: 1
   hall-bathroom:
-    label: Hol przy łazience
+    label: Hall przy łazience
     map: 'plan-L2.png'
-    level: 2
+    level: 1
   bathroom:
-    label: Lazienka
+    label: Bathroom
     map: 'plan-L2.png'
-    level: 2
+    level: 1
   bedroom-1:
-    label: Sypialnia 1
+    label: Bedroom 1
     map: 'plan-L2.png'
-    level: 2
+    level: 1
   bedroom-2:
-    label: Sypialnia 2
+    label: Bedroom 2
     map: 'plan-L2.png'
-    level: 2
+    level: 1
   bedroom-3:
-    label: Sypialnia 3
+    label: Bedroom 3
     map: 'plan-L2.png'
-    level: 2
-  tarrace-south:
-    label: Taras południowy
+    level: 1
+  terrace-south:
+    label: Terrace south
     map: 'plan-L2.png'
-    level: 2
-  tarrace-north:
-    label: Taras północny
+    level: 1
+  terrace-north:
+    label: Terrace north
     map: 'plan-L2.png'
-    level: 2
-  tarrace-east:
-    label: Taras wschodni
+    level: 1
+  terrace-east:
+    label: Terrace east
     map: 'plan-L2.png'
-    level: 2
+    level: 1
 
 locations:
 
 #  outside
   Ao:
     place: entrance
-    label: "Nad wejściem i wjazdem do garażu"
+    label: "Nad Entrancem i wjazdem do Garageu"
     coordinates: [{x: 817, y: 277},{x: 771, y: 169},{x: 771, y: 101}]
   Ax:
     place: entrance
@@ -94,77 +94,77 @@ locations:
     coordinates: [{x: 818, y: 318},{x: 883, y: 318},{x: 911, y: 318},{x: 938, y: 318},{x: 964, y: 318}]
   A_gniazda:
     place: entrance
-    label: "Gniazda przy wejściu do garażu"
+    label: "Plugs przy wejściu do Garageu"
     coordinates: [{x: 768, y: 214}]
   Do:
     place: garden
-    label: "Oświetlenie górne tarasu"
+    label: "Lights top Terrace"
     coordinates: [{x: 205, y: 413},{x: 205, y: 492}]
   Dp:
     place: garden
-    label: "Ogród południowy"
+    label: "Garden south"
     coordinates: [{x: 360, y: 802}]
   Du:
     place: garden
-    label: "Lampy górne"
+    label: "Lights Garden main"
     coordinates: [{x: 204, y: 605},{x: 309, y: 605},{x: 354, y: 605},{x: 496, y: 605},{x: 540, y: 605},{x: 585, y: 605}]
   Dw:
     place: garden
-    label: "Kinkiet na ogród południowy"
+    label: "Lights Garden south"
     coordinates: [{x: 422, y: 590}]
   Dx:
     place: garden
-    label: "Stopnie"
+    label: "Stairs"
     coordinates: [{x: 634, y: 620},{x: 661, y: 620},{x: 390, y: 769},{x: 391, y: 796},{x: 86, y: 479},{x: 113, y: 479},{x: 314, y: 195},{x: 315, y: 168}]
   Dy:
     place: garden
-    label: "Ogród północny"
+    label: "Garden north"
     coordinates: [{x: 41, y: 195},{x: 97, y: 596}]
   Dz:
     place: garden
-    label: "Kinkiet na tarasie"
+    label: "Lights over the Terrace"
     coordinates: [{x: 156, y: 336}]
   D_gniazda:
     place: garden
-    label: "Gniazda w ogrodzie"
+    label: "Plugs in Garden"
     coordinates: [{x: 818, y: 619},{x: 442, y: 588},{x: 135, y: 754},{x: 261, y: 392},{x: 110, y: 335},{x: 110, y: 316},{x: 269, y: 315},{x: 497, y: 31}]
 
 #  entry-hall
   1:
     place: entry-hall
-    label: Przy wejściu głównym
+    label: Main
     coordinates: [{x: 773, y: 305}]
     slots: 4
     wires:
       - signal: A1, A2
       - signal: A1, A2
       - signal: Ao, Ax, gł
-      - signal: rezerwa
+      - signal: spare
       - thermostat:
       - alarm:
       - domofon:
   2:
     place: entry-hall
-    label: Przy garażu
+    label: Next to Garage
     coordinates: [{x: 728, y: 237}]
     slots: 2
     wires:
       - signal: A1, A2
   A1:
     place: entry-hall
-    label: Sufit
+    label: Ceiling
     coordinates: [{x: 700, y: 295}, {x: 700, y: 261}]
   A2:
     place: entry-hall
-    label: Ściany
+    label: Walls
     coordinates: [{x: 737, y: 237}, {x: 737, y: 325}]
   A3:
     place: entry-hall
-    label: Nad siedzeniem
+    label: Over the seat
     coordinates: [{x: 759, y: 304}]
   A4:
     place: entry-hall
-    label: Szafa
+    label: Wardrobe
     coordinates: [{x: 649, y: 279}]
   A-kontaktron-drzwi:
     place: entry-hall
@@ -193,7 +193,7 @@ locations:
     coordinates: [{x: 653, y: 53},{x: 653, y: 225}]
   B2:
     place: garage
-    label: Sufit
+    label: Ceiling
     coordinates: [{x: 542, y: 135}]
   B3:
     place: garage
@@ -222,7 +222,7 @@ locations:
       - signal: C1, C2
   C1:
     place: boiler-room
-    label: Sufit
+    label: Ceiling
     coordinates: [{x: 390, y: 93},{x: 390, y: 131},{x: 390, y: 170}]
   C2:
     place: boiler-room
@@ -244,7 +244,7 @@ locations:
       - termostat:
   I1:
     place: toilet
-    label: Sufit
+    label: Ceiling
     coordinates: [{x: 781, y: 335}]
   I2:
     place: toilet
@@ -296,7 +296,7 @@ locations:
       - signal: D1, D2, D3
   D1:
     place: dining-room
-    label: Sufit
+    label: Ceiling
     coordinates: [{x: 557, y: 446},{x: 557, y: 491}]
   D2:
     place: dining-room
@@ -317,14 +317,14 @@ locations:
 #  living-room
   7:
     place: living-room
-    label: Przy wyjściu na ogród
+    label: Przy wyjściu na Garden
     coordinates: [{x: 451, y: 570}]
     slots: 4
     wires:
       - signal: Dp, Dw, Du
   7b:
     place: dining-room
-    label: Przy wyjściu na ogród
+    label: Przy wyjściu na Garden
     coordinates: [{x: 451, y: 570}]
     slots: 4
     wires:
@@ -332,14 +332,14 @@ locations:
 
   8:
     place: living-room
-    label: Przy wyjściu na taras
+    label: Przy wyjściu na Terrace
     coordinates: [{x: 289, y: 390}]
     slots: 4
     wires:
       - signal: Do, D2, Dx, Dy
   8b:
     place: dining-room
-    label: Przy wyjściu na taras
+    label: Przy wyjściu na Terrace
     coordinates: [{x: 289, y: 390}]
     slots: 4
     wires:
@@ -360,7 +360,7 @@ locations:
       - signal: D1, D3
   D3:
     place: living-room
-    label: Sufit
+    label: Ceiling
     coordinates: [{x: 351, y: 430},{x: 383, y: 447}]
   D4:
     place: living-room
@@ -393,7 +393,7 @@ locations:
 #  library
   10:
     place: library
-    label: Przy salonie
+    label: Przy Living Roomie
     coordinates: [{x: 385, y: 326}]
     slots: 3
     wires:
@@ -408,7 +408,7 @@ locations:
     coordinates: [{x: 409, y: 250},{x: 426, y: 272}]
   Eo:
     place: library
-    label: "Kinkiety na biblioteczkę"
+    label: "Lightsy na biblioteczkę"
     coordinates: [{x: 155, y: 317},{x: 288, y: 316}]
   E-kontaktron-okno-1:
     place: library
@@ -444,11 +444,11 @@ locations:
       - signal: F2, F3
   F1:
     place: kitchen
-    label: Lampy górne
+    label: Lights top
     coordinates: [{x: 690, y: 492},{x: 735, y: 492}]
   F2:
     place: kitchen
-    label: Sufit napinany
+    label: Ceiling napinany
     coordinates: [{x: 671, y: 553},{x: 723, y: 553},{x: 785, y: 553}]
   F3:
     place: kitchen
@@ -504,7 +504,7 @@ locations:
     coordinates: [{x: 904, y: 439}]
   H2:
     place: office
-    label: Kinkiety
+    label: Lightsy
     coordinates: [{x: 958, y: 478}]
   H3:
     place: office
@@ -533,7 +533,7 @@ locations:
       - signal: J1, J2
   20:
     place: hall
-    label: Przy drzwiach tarasowych
+    label: Przy drzwiach Terraceowych
     coordinates: [{x: 84, y: 203}]
     slots: 4
     wires:
@@ -564,7 +564,7 @@ locations:
     coordinates: [{x: 218, y: 197},{x: 255, y: 197},{x: 238, y: 188},{x: 239, y: 206}]
   J2:
     place: hall
-    label: Lampy nad schodami
+    label: Lights nad schodami
     coordinates: [{x: 117, y: 140},{x: 349, y: 140}]
   J-kontaktron-drzwi:
     place: hall
@@ -596,15 +596,15 @@ locations:
       - termostat:
   K1:
     place: bathroom
-    label: Sufit napinany - skcja słaba
+    label: Ceiling napinany - skcja słaba
     coordinates: [{x: 534, y: 167},{x: 585, y: 207}]
   K2:
     place: bathroom
-    label: Sufit napinany - skcja silna
+    label: Ceiling napinany - skcja silna
     coordinates: [{x: 504, y: 181}]
   K3:
     place: bathroom
-    label: Lampy górne
+    label: Lights top
     coordinates: [{x: 530, y: 118},{x: 566, y: 118}]
   K4:
     place: bathroom
@@ -659,7 +659,7 @@ locations:
       - signal: L2
   L1:
     place: bedroom-1
-    label: Oświetlenie LED szafek nad łóżkiem
+    label: Lights LED szafek nad łóżkiem
     coordinates: [{x: 491, y: 524},{x: 556, y: 524},{x: 603, y: 524}]
   L2:
     place: bedroom-1
@@ -667,7 +667,7 @@ locations:
     coordinates: [{x: 575, y: 436}]
   L3:
     place: bedroom-1
-    label: Lampy nastropowe
+    label: Lights nastropowe
     coordinates: [{x: 481, y: 341},{x: 481, y: 390},{x: 481, y: 437},{x: 481, y: 485}]
   L4:
     place: bedroom-1
@@ -683,7 +683,7 @@ locations:
     coordinates: [{x: 683, y: 323}]
   L_gniazda:
     place: bedroom-1
-    label: Gniazda tarasowe
+    label: Plugs Terraceowe
     coordinates: [{x: 681, y: 481}]
 
 #  bedroom-2
@@ -708,11 +708,11 @@ locations:
     coordinates: [{x: 356, y: 414}]
   M2:
     place: bedroom-2
-    label: Kinkiet
+    label: Lights
     coordinates: [{x: 405, y: 294}]
   M3:
     place: bedroom-2
-    label: Lampy nastropowe
+    label: Lights nastropowe
     coordinates: [{x: 330, y: 513},{x: 371, y: 513},{x: 412, y: 513}]
   M-kontaktron-okno:
     place: bedroom-2
@@ -744,11 +744,11 @@ locations:
     coordinates: [{x: 173, y: 414}]
   N2:
     place: bedroom-3
-    label: Kinkiet
+    label: Lights
     coordinates: [{x: 125, y: 310}]
   N3:
     place: bedroom-3
-    label: Lampy nastropowe
+    label: Lights nastropowe
     coordinates: [{x: 115, y: 513},{x: 156, y: 513},{x: 196, y: 513}]
   N-kontaktron-okno:
     place: bedroom-3
@@ -759,45 +759,45 @@ locations:
     label: Roleta
     coordinates: [{x: 155, y: 548}]
 
-#  tarrace-south
+#  terrace-south
   Lo:
-    place: tarrace-south
-    label: Kinkiety
+    place: terrace-south
+    label: Lightsy
     coordinates: [{x: 682, y: 405},{x: 682, y: 465}]
 
-#  tarrace-north
+#  terrace-north
   Jx:
-    place: tarrace-north
-    label: Kinkiety
+    place: terrace-north
+    label: Lightsy
     coordinates: [{x: 58, y: 477},{x: 58, y: 419},{x: 58, y: 359},{x: 58, y: 199}]
 
-#  tarrace-east
+#  terrace-east
   Jy:
-    place: tarrace-east
-    label: Kinkiety
+    place: terrace-east
+    label: Lightsy
     coordinates: [{x: 193, y: 76},{x: 252, y: 75}]
 
 #  J_gniazda
   J_gniazda:
-    place: tarrace-north
-    label: Gniazda tarasowe
+    place: terrace-north
+    label: Plugs Terraceowe
     coordinates: [{x: 59, y: 512},{x: 59, y: 170},{x: 159, y: 73}]
 
 actions:
   push:
-    label: Przyciśnięcie
+    label: Press
   double-push:
-    label: Podwójne przyciśnięcie
+    label: Double press
   long-push:
-    label: Długie przyciśnięcie
+    label: Long press
   toggle:
-    label: Przełącza
+    label: Toggle
   activate:
-    label: Aktywuje
+    label: Activate
 
 directions:
-  input: {label: Wejście}
-  output: {label: Wyjście}
+  input: {label: Input}
+  output: {label: Output}
 
 types:
   button:
@@ -843,7 +843,7 @@ types:
 
 controllers:
   - place: control-cabinet
-    id: 'controller_1'
+    id: 'controller01'
     label: 'Garage + Hall + Toilet'
     device: esp128
     ip: 192.168.88.5
@@ -854,7 +854,7 @@ controllers:
       - toilet
       - entry-hall
   - place: control-cabinet
-    id: 'controller_2'
+    id: 'controller02'
     label: 'Office + Kichen + Dining room'
     device: esp64
     ip: 192.168.88.6
@@ -863,7 +863,7 @@ controllers:
       - kitchen
       - dining-room
   - place: control-cabinet
-    id: 'controller_3'
+    id: 'controller03'
     label: 'Living room + Garden'
     device: esp64
     ip: 192.168.88.7
@@ -872,10 +872,10 @@ controllers:
       - library
       - hall
       - garden
-      - tarrace-north
-      - tarrace-east
+      - terrace-north
+      - terrace-east
   - place: control-cabinet
-    id: 'controller_4'
+    id: 'controller04'
     label: 'First floor - hall + bathroom'
     device: esp32
     ip: 192.168.88.8
@@ -883,15 +883,15 @@ controllers:
       - hall-bathroom
       - bathroom
   - place: control-cabinet
-    id: 'controller_5'
+    id: 'controller05'
     label: 'First floor - bedroom-1'
     device: esp32
     ip: 192.168.88.9
     controlling:
       - bedroom-1
-      - tarrace-south
+      - terrace-south
   - place: control-cabinet
-    id: 'controller_6'
+    id: 'controller06'
     label: 'First floor - bedroom-2 + bedroom-3'
     device: esp32
     ip: 192.168.88.10
@@ -1360,7 +1360,7 @@ entities:
 - id: A1
   type: light
   location: A1
-  kind: górne
+  kind: top
   relay: 1
 
 - id: A2

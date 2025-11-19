@@ -2,25 +2,28 @@ Vue.component('entity-map', {
     props: ['ids','width','height','borders'],
     data: function(){
         return {
-            colors: ['red', 'blue', 'yellow', 'cyan']
+            colors: {
+                'button': 'red',
+                'light': 'blue',
+                'reed_switch': 'orange',
+                'controllable-plug': 'green',
+                'shade': 'purple',
+                'gate': 'brown'
+            }
         }
     },
     computed: {
         entitiesWithColor: function(){
             return this.ids
-                .flatMap((ids,idsIndex) => {
-                    if(ids){
-                        return ids.flatMap((id, idIndex) => {
-                            const entity = this.$store.getters.entityById(id.id);
-                            return {
-                                entity,
-                                color: id.color || this.colors[idsIndex]
-                            }
-                        })
-
-                    } else{
-                       return [];
+                .map((el) => {
+                    const entity = this.$store.getters.entityById(el.id);
+                    const type = entity.$type;
+                    const typeId = type && type.id;
+                    const color = el.color || this.colors[typeId] || 'black';
+                    if (color == 'black') {
+                        console.error(typeId)
                     }
+                    return {entity,color}
                 });
 
         },
