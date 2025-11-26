@@ -1,0 +1,77 @@
+deviceTypes:
+  - id: esp128
+    label: ESP128
+    ico: https://static.ui.com/fingerprint/0/3900_257x257.png
+    templates:
+      - name: debug_inputs
+  - id: esp64
+    label: ESP64
+    ico: https://static.ui.com/fingerprint/0/3900_257x257.png
+  - id: esp32
+    label: ESP32
+    ico: https://static.ui.com/fingerprint/0/3900_257x257.png
+  - id: button
+    label: Button
+    direction: input
+    controllable: true
+  - id: light
+    label: Light
+    direction: output
+    controllable: true
+    ico: https://static.ui.com/fingerprint/0/2131_257x257.png
+  - id: plug
+    label: Plug
+    direction: output
+    ico: https://static.ui.com/fingerprint/0/2130_257x257.png
+  - id: controllable-plug
+    label: Plug (controllable)
+    direction: output
+    controllable: true
+    ico: https://static.ui.com/fingerprint/0/2130_257x257.png
+  - id: relay
+    label: Relay
+    direction: output
+    controllable: true
+  - id: shade
+    label: Shade
+    direction: output
+    controllable: true
+  - id: gate
+    label: Gate
+    direction: output
+    controllable: true
+  - id: motion-detector
+    label: Motion Detector
+    direction: input
+    controllable: true
+  - id: reed_switch
+    label: Reed Switch
+    direction: input
+    controllable: true
+  - id: spare-out
+    label: Output (spare)
+    direction: output
+  - id: tablet
+    label: iPad
+    ico: https://static.ui.com/fingerprint/0/2952_257x257.png
+  - id: tv-box
+    label: TV Box
+    ico: https://static.ui.com/fingerprint/0/2494_257x257.png
+
+deviceActions:
+  - id: push
+    label: Press
+  - id: double-push
+    label: Double press
+  - id: long-push
+    label: Long press
+  - id: toggle
+    label: Toggle
+  - id: activate
+    label: Activate
+
+deviceDirections:
+  - id: input
+    label: Input
+  - id: output
+    label: Output

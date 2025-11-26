@@ -1,0 +1,81 @@
+- id: entrance
+  label: Entrance
+  map: 'plan-L1.png'
+  level: 0
+- id: garden
+  label: Garden
+  map: 'plan-L1.png'
+  level: 0
+- id: entry-hall
+  label: Entry Hall
+  map: 'plan-L1.png'
+  level: 0
+- id: garage
+  label: Garage
+  map: 'plan-L1.png'
+  level: 0
+- id: boiler-room
+  label: Boiler Room
+  map: 'plan-L1.png'
+  level: 0
+- id: toilet
+  label: Toilet
+  map: 'plan-L1.png'
+  level: 0
+- id: dining-room
+  label: Dining Room
+  map: 'plan-L1.png'
+  level: 0
+- id: living-room
+  label: Living Room
+  map: 'plan-L1.png'
+  level: 0
+- id: library
+  label: Library
+  map: 'plan-L1.png'
+  level: 0
+- id: kitchen
+  label: Kitchen
+  map: 'plan-L1.png'
+  level: 0
+- id: office
+  label: Office
+  map: 'plan-L1.png'
+  level: 0
+- id: hall
+  label: Hall
+  map: 'plan-L2.png'
+  level: 1
+- id: hall-bathroom
+  label: Hall przy łazience
+  map: 'plan-L2.png'
+  level: 1
+- id: bathroom
+  label: Bathroom
+  map: 'plan-L2.png'
+  level: 1
+- id: bedroom-1
+  label: Bedroom 1
+  map: 'plan-L2.png'
+  level: 1
+- id: bedroom-2
+  label: Bedroom 2
+  map: 'plan-L2.png'
+  level: 1
+- id: bedroom-3
+  label: Bedroom 3
+  map: 'plan-L2.png'
+  level: 1
+- id: terrace-south
+  label: Terrace south
+  map: 'plan-L2.png'
+  level: 1
+- id: terrace-north
+  label: Terrace north
+  map: 'plan-L2.png'
+  level: 1
+- id: terrace-east
+  label: Terrace east
+  map: 'plan-L2.png'
+  level: 1
+

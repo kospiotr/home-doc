@@ -1,0 +1,450 @@
+esphome:
+  name: controller01
+esp32:
+  board: nodemcu-32s
+  framework:
+    type: esp-idf
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  ap:
+    ssid: controller01 hotspot
+    password: !secret wifi_password
+  power_save_mode: none
+  use_address: controller01.home
+captive_portal: {}
+logger:
+  baud_rate: 0
+  level: INFO
+api:
+  encryption:
+    key: !secret api_encryption_key
+ota:
+  - platform: esphome
+    password: !secret ota_password
+i2c:
+  scan: true
+mcp23017:
+  - id: mcp23017_hub_0
+    address: '0x20'
+  - id: mcp23017_hub_1
+    address: '0x21'
+  - id: mcp23017_hub_2
+    address: '0x22'
+  - id: mcp23017_hub_3
+    address: '0x23'
+  - id: mcp23017_hub_4
+    address: '0x24'
+  - id: mcp23017_hub_5
+    address: '0x25'
+  - id: mcp23017_hub_6
+    address: '0x26'
+  - id: mcp23017_hub_7
+    address: '0x27'
+light:
+  - platform: binary
+    id: LIGHT_A1
+    name: 'Światło : Entry Hall : Ceiling (A1)'
+    output: OUT_A1
+  - platform: binary
+    id: LIGHT_A2
+    name: 'Światło : Entry Hall : Walls (A2)'
+    output: OUT_A2
+  - platform: binary
+    id: LIGHT_A3
+    name: 'Światło : Entry Hall : Over the seat (A3)'
+    output: OUT_A3
+  - platform: binary
+    id: LIGHT_A4
+    name: 'Światło : Entry Hall : Wardrobe (A4)'
+    output: OUT_A4
+  - platform: binary
+    id: LIGHT_Ao
+    name: 'Światło : Entrance : Nad Entrancem i wjazdem do Garageu (Ao)'
+    output: OUT_Ao
+  - platform: binary
+    id: LIGHT_Ax
+    name: 'Światło : Entrance : Wzdłuż wejścia (Ax)'
+    output: OUT_Ax
+  - platform: binary
+    id: LIGHT_B1
+    name: 'Światło : Garage : Po bokach (B1)'
+    output: OUT_B1
+  - platform: binary
+    id: LIGHT_B2
+    name: 'Światło : Garage : Ceiling (B2)'
+    output: OUT_B2
+  - platform: binary
+    id: LIGHT_B3
+    name: 'Światło : Garage : Pod schodami (B3)'
+    output: OUT_B3
+  - platform: binary
+    id: LIGHT_C1
+    name: 'Światło : Boiler Room : Ceiling (C1)'
+    output: OUT_C1
+  - platform: binary
+    id: LIGHT_C2
+    name: 'Światło : Boiler Room : Przy wejściu (C2)'
+    output: OUT_C2
+  - platform: binary
+    id: LIGHT_I1
+    name: 'Światło : Toilet : Ceiling (I1)'
+    output: OUT_I1
+  - platform: binary
+    id: LIGHT_I2
+    name: 'Światło : Toilet : ??? (I2)'
+    output: OUT_I2
+  - platform: binary
+    id: LIGHT_I3
+    name: 'Światło : Toilet : Halogeny (I3)'
+    output: OUT_I3
+  - platform: binary
+    id: LIGHT_I4
+    name: 'Światło : Toilet : LEDy szafki (I4)'
+    output: OUT_I4
+output:
+  - platform: gpio
+    id: OUT_A1
+    pin:
+      number: 0
+      mode: OUTPUT
+      inverted: false
+      mcp23xxx: mcp23017_hub_4
+  - platform: gpio
+    id: OUT_A2
+    pin:
+      number: 1
+      mode: OUTPUT
+      inverted: false
+      mcp23xxx: mcp23017_hub_4
+  - platform: gpio
+    id: OUT_A3
+    pin:
+      number: 2
+      mode: OUTPUT
+      inverted: false
+      mcp23xxx: mcp23017_hub_4
+  - platform: gpio
+    id: OUT_A4
+    pin:
+      number: 3
+      mode: OUTPUT
+      inverted: false
+      mcp23xxx: mcp23017_hub_4
+  - platform: gpio
+    id: OUT_Ao
+    pin:
+      number: 4
+      mode: OUTPUT
+      inverted: false
+      mcp23xxx: mcp23017_hub_4
+  - platform: gpio
+    id: OUT_Ax
+    pin:
+      number: 5
+      mode: OUTPUT
+      inverted: false
+      mcp23xxx: mcp23017_hub_4
+  - platform: gpio
+    id: OUT_B1
+    pin:
+      number: 6
+      mode: OUTPUT
+      inverted: false
+      mcp23xxx: mcp23017_hub_4
+  - platform: gpio
+    id: OUT_B2
+    pin:
+      number: 7
+      mode: OUTPUT
+      inverted: false
+      mcp23xxx: mcp23017_hub_4
+  - platform: gpio
+    id: OUT_B3
+    pin:
+      number: 8
+      mode: OUTPUT
+      inverted: false
+      mcp23xxx: mcp23017_hub_4
+  - platform: gpio
+    id: OUT_C1
+    pin:
+      number: 9
+      mode: OUTPUT
+      inverted: false
+      mcp23xxx: mcp23017_hub_4
+  - platform: gpio
+    id: OUT_C2
+    pin:
+      number: 10
+      mode: OUTPUT
+      inverted: false
+      mcp23xxx: mcp23017_hub_4
+  - platform: gpio
+    id: OUT_I1
+    pin:
+      number: 11
+      mode: OUTPUT
+      inverted: false
+      mcp23xxx: mcp23017_hub_4
+  - platform: gpio
+    id: OUT_I2
+    pin:
+      number: 12
+      mode: OUTPUT
+      inverted: false
+      mcp23xxx: mcp23017_hub_4
+  - platform: gpio
+    id: OUT_I3
+    pin:
+      number: 13
+      mode: OUTPUT
+      inverted: false
+      mcp23xxx: mcp23017_hub_4
+  - platform: gpio
+    id: OUT_I4
+    pin:
+      number: 14
+      mode: OUTPUT
+      inverted: false
+      mcp23xxx: mcp23017_hub_4
+  - platform: gpio
+    id: OUT_L_Gate
+    pin:
+      number: 15
+      mode: OUTPUT
+      inverted: false
+      mcp23xxx: mcp23017_hub_4
+  - platform: gpio
+    id: OUT_A_gniazda
+    pin:
+      number: 0
+      mode: OUTPUT
+      inverted: false
+      mcp23xxx: mcp23017_hub_5
+  - platform: gpio
+    id: OUT_Shade_BathroomL1
+    pin:
+      number: 1
+      mode: OUTPUT
+      inverted: false
+      mcp23xxx: mcp23017_hub_5
+binary_sensor:
+  - platform: gpio
+    id: IN_button_0
+    name: 'Przycisk : Entry Hall : Main (button_0)'
+    pin:
+      number: 0
+      mode: INPUT_PULLUP
+      inverted: true
+      mcp23xxx: mcp23017_hub_0
+    on_press:
+      then:
+        - light.toggle: LIGHT_A1
+  - platform: gpio
+    id: IN_button_1
+    name: 'Przycisk : Entry Hall : Main (button_1)'
+    pin:
+      number: 1
+      mode: INPUT_PULLUP
+      inverted: true
+      mcp23xxx: mcp23017_hub_0
+    on_press:
+      then:
+        - light.toggle: LIGHT_Ao
+  - platform: gpio
+    id: IN_button_2
+    name: 'Przycisk : Entry Hall : Main (button_2)'
+    pin:
+      number: 2
+      mode: INPUT_PULLUP
+      inverted: true
+      mcp23xxx: mcp23017_hub_0
+    on_press:
+      then:
+        - light.toggle: LIGHT_Ax
+  - platform: gpio
+    id: IN_button_3
+    name: 'Przycisk : Entry Hall : Next to Garage (button_3)'
+    pin:
+      number: 3
+      mode: INPUT_PULLUP
+      inverted: true
+      mcp23xxx: mcp23017_hub_0
+    on_press:
+      then:
+        - light.toggle: LIGHT_A1
+  - platform: gpio
+    id: IN_button_4
+    name: 'Przycisk : Entry Hall : Next to Garage (button_4)'
+    pin:
+      number: 4
+      mode: INPUT_PULLUP
+      inverted: true
+      mcp23xxx: mcp23017_hub_0
+    on_press:
+      then:
+        - light.toggle: LIGHT_A2
+        - light.toggle: LIGHT_A3
+  - platform: gpio
+    id: IN_button_5
+    name: 'Przycisk : Garage : Przy bramie (button_5)'
+    pin:
+      number: 5
+      mode: INPUT_PULLUP
+      inverted: true
+      mcp23xxx: mcp23017_hub_0
+    on_press:
+      then:
+        - light.toggle: LIGHT_B1
+  - platform: gpio
+    id: IN_button_6
+    name: 'Przycisk : Garage : Przy bramie (button_6)'
+    pin:
+      number: 6
+      mode: INPUT_PULLUP
+      inverted: true
+      mcp23xxx: mcp23017_hub_0
+    on_press:
+      then:
+        - light.toggle: LIGHT_B2
+  - platform: gpio
+    id: IN_button_7
+    name: 'Przycisk : Garage : Przy kotłowni (button_7)'
+    pin:
+      number: 7
+      mode: INPUT_PULLUP
+      inverted: true
+      mcp23xxx: mcp23017_hub_0
+    on_press:
+      then:
+        - light.toggle: LIGHT_B1
+  - platform: gpio
+    id: IN_button_8
+    name: 'Przycisk : Garage : Przy kotłowni (button_8)'
+    pin:
+      number: 8
+      mode: INPUT_PULLUP
+      inverted: true
+      mcp23xxx: mcp23017_hub_0
+    on_press:
+      then:
+        - light.toggle: LIGHT_B2
+  - platform: gpio
+    id: IN_button_9
+    name: 'Przycisk : Garage : Przy kotłowni (button_9)'
+    pin:
+      number: 9
+      mode: INPUT_PULLUP
+      inverted: true
+      mcp23xxx: mcp23017_hub_0
+    on_press:
+      then:
+        - light.toggle: LIGHT_B3
+  - platform: gpio
+    id: IN_button_10
+    name: 'Przycisk : Boiler Room : Przy wejściu (button_10)'
+    pin:
+      number: 10
+      mode: INPUT_PULLUP
+      inverted: true
+      mcp23xxx: mcp23017_hub_0
+    on_press:
+      then:
+        - light.toggle: LIGHT_C1
+  - platform: gpio
+    id: IN_button_11
+    name: 'Przycisk : Boiler Room : Przy wejściu (button_11)'
+    pin:
+      number: 11
+      mode: INPUT_PULLUP
+      inverted: true
+      mcp23xxx: mcp23017_hub_0
+    on_press:
+      then:
+        - light.toggle: LIGHT_C2
+  - platform: gpio
+    id: IN_overridden_button_16
+    name: 'Przycisk : Entry Hall : Przy wejściu (overridden_button_16)'
+    pin:
+      number: 12
+      mode: INPUT_PULLUP
+      inverted: true
+      mcp23xxx: mcp23017_hub_0
+    on_press:
+      then:
+        - light.toggle: LIGHT_A1
+  - platform: gpio
+    id: IN_button_47
+    name: 'Przycisk : Toilet : Przy toalecie (button_47)'
+    pin:
+      number: 13
+      mode: INPUT_PULLUP
+      inverted: true
+      mcp23xxx: mcp23017_hub_0
+    on_press:
+      then:
+        - light.toggle: LIGHT_I1
+        - light.toggle: LIGHT_I2
+  - platform: gpio
+    id: IN_button_48
+    name: 'Przycisk : Toilet : Przy toalecie (button_48)'
+    pin:
+      number: 14
+      mode: INPUT_PULLUP
+      inverted: true
+      mcp23xxx: mcp23017_hub_0
+    on_press:
+      then:
+        - light.toggle: LIGHT_I3
+  - platform: gpio
+    id: IN_button_51
+    name: 'Przycisk : Toilet : Przy wejściu (button_51)'
+    pin:
+      number: 15
+      mode: INPUT_PULLUP
+      inverted: true
+      mcp23xxx: mcp23017_hub_0
+    on_press:
+      then:
+        - light.toggle: LIGHT_I4
+  - platform: gpio
+    id: IN_reed_switch_177
+    name: 'Kontaktron : Entry Hall : Kontaktron (reed_switch_177)'
+    pin:
+      number: 0
+      mode: INPUT_PULLUP
+      inverted: true
+      mcp23xxx: mcp23017_hub_1
+  - platform: gpio
+    id: IN_reed_switch_178
+    name: 'Kontaktron : Garage : Kontaktron brama (reed_switch_178)'
+    pin:
+      number: 1
+      mode: INPUT_PULLUP
+      inverted: true
+      mcp23xxx: mcp23017_hub_1
+  - platform: gpio
+    id: IN_reed_switch_179
+    name: 'Kontaktron : Garage : Kontaktron okno (reed_switch_179)'
+    pin:
+      number: 2
+      mode: INPUT_PULLUP
+      inverted: true
+      mcp23xxx: mcp23017_hub_1
+  - platform: gpio
+    id: IN_reed_switch_180
+    name: 'Kontaktron : Boiler Room : Kontaktron okno (reed_switch_180)'
+    pin:
+      number: 3
+      mode: INPUT_PULLUP
+      inverted: true
+      mcp23xxx: mcp23017_hub_1
+  - platform: gpio
+    id: IN_reed_switch_181
+    name: 'Kontaktron : Toilet : Kontaktron okno (reed_switch_181)'
+    pin:
+      number: 4
+      mode: INPUT_PULLUP
+      inverted: true
+      mcp23xxx: mcp23017_hub_1
