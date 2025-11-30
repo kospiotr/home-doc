@@ -4,6 +4,10 @@ import Esp32_128 from "components/device_card/Esp32_128.vue";
 import DeviceLocation from "components/DeviceLocation.vue";
 import {useUiStore} from "stores/ui";
 import CodeContent from "components/CodeContent.vue";
+import DeviceConnections from "components/DeviceConnections.vue";
+import Esp32_64 from "components/device_card/Esp32_64.vue";
+import Esp32_bare from "components/device_card/Esp32_bare.vue";
+import Esp32_controller from "components/Esp32_controller.vue";
 
 const {device} = defineProps<{
   device: DeviceModel;
@@ -26,10 +30,10 @@ const deviceJson = computed(() => {
       class="shadow-1 bg-white"
     >
       <q-tab name="overview" label="Overview"/>
+      <q-tab name="connections" label="Connections"/>
       <q-tab name="relations" label="Relations"/>
       <q-tab name="topology" label="Topology"/>
-      <q-tab name="code" label="Code"
-             v-if="device.type.id==='esp128'"/>
+      <q-tab name="templates" label="Templates"/>
     </q-tabs>
 
     <q-tab-panels v-model="uiStore.deviceTab" class="col bg-transparent">
@@ -86,13 +90,15 @@ const deviceJson = computed(() => {
         </q-tabs>
       </q-tab-panel>
 
-      <q-tab-panel name="relations">
-        <div class="text-h6">Relations</div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      <q-tab-panel name="connections" class="bg-transparent q-pa-none column">
+        <device-connections :device="device"/>
       </q-tab-panel>
 
-      <q-tab-panel name="code" class="bg-transparent q-pa-none column">
-        <esp32_128 v-if="device.type.id==='esp128'" :device="device"></esp32_128>
+      <q-tab-panel name="relations" class="bg-transparent q-pa-none column">
+        Relations
+      </q-tab-panel>
+      <q-tab-panel name="templates" class="bg-transparent q-pa-none column">
+        <esp32_controller v-if="['esp128', 'esp64', 'esp32'].includes(device.type.id)" :device="device"></esp32_controller>
       </q-tab-panel>
 
     </q-tab-panels>

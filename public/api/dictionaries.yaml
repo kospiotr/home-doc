@@ -2,8 +2,6 @@ deviceTypes:
   - id: esp128
     label: ESP128
     ico: https://static.ui.com/fingerprint/0/3900_257x257.png
-    templates:
-      - name: debug_inputs
   - id: esp64
     label: ESP64
     ico: https://static.ui.com/fingerprint/0/3900_257x257.png

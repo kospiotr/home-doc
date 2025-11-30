@@ -4,12 +4,15 @@ interface Device{
   type: string
   controlling: string[]
   slot: ?number
+  connections: DeviceConnection[]
 }
+
 interface DeviceModel{
   id: string
   location: DeviceLocationModel
   slot: ?number
   type: DeviceType
+  connections: DeviceConnection[]
 }
 
 interface DeviceLocation {
@@ -23,6 +26,13 @@ interface DeviceLocation {
 interface Coordinate{
   x: number
   y: number
+}
+
+interface DeviceConnection {
+    connections: {
+      device: string
+      pin: ?number
+    }[]
 }
 
 interface DeviceLocationModel {
@@ -56,4 +66,41 @@ interface DeviceAction{
 interface DeviceDirection{
   id: string
   label: string
+}
+
+interface Input{
+  id: string
+  display_name: string
+  device_type: string
+  location_id: string
+  area: string
+  location_description: string
+  location_slot: string
+  wire_color: string
+  controller_id: string
+  expander: string
+  controller_pin: string
+  debug_id: string
+}
+
+interface Output{
+  id: string
+  display_name: string
+  location_id: string
+  area: string
+  device_type: string
+  location_description: string
+  operation: string
+  cabinet_socket: string
+  cabinet_relay: string
+  controller_id: string
+  controller_pin: string
+  debug_id: string
+}
+
+interface Action{
+  source_location_id: string
+  source_location_slot: string
+  action: "on_press" | "on_short_press" | "on_long_press"
+  target_location_id: string
 }

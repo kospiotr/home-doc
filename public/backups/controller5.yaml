@@ -1,0 +1,186 @@
+esphome:
+  name: controller05
+esp32:
+  board: nodemcu-32s
+  framework:
+    type: esp-idf
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  ap:
+    ssid: controller05 hotspot
+    password: !secret wifi_password
+  power_save_mode: none
+  use_address: controller05.home
+captive_portal: {}
+logger:
+  baud_rate: 0
+  level: INFO
+api:
+  encryption:
+    key: !secret api_encryption_key
+ota:
+  - platform: esphome
+    password: !secret ota_password
+light:
+  - platform: binary
+    id: LIGHT_L1
+    name: 'Światło : Bedroom 1 : Lights LED szafek nad łóżkiem (L1)'
+    output: OUT_L1
+  - platform: binary
+    id: LIGHT_L2
+    name: 'Światło : Bedroom 1 : Lampa górna (L2)'
+    output: OUT_L2
+  - platform: binary
+    id: LIGHT_L3
+    name: 'Światło : Bedroom 1 : Lights nastropowe (L3)'
+    output: OUT_L3
+  - platform: binary
+    id: LIGHT_L4
+    name: 'Światło : Bedroom 1 : Lampa w garderobie (L4)'
+    output: OUT_L4
+  - platform: binary
+    id: LIGHT_Lo
+    name: 'Światło : Terrace south : Lightsy (Lo)'
+    output: OUT_Lo
+output:
+  - platform: gpio
+    id: OUT_L1
+    pin:
+      number: GPIO15
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_L2
+    pin:
+      number: GPIO2
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_L3
+    pin:
+      number: GPIO0
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_L4
+    pin:
+      number: GPIO4
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_Lo
+    pin:
+      number: GPIO16
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_L_gniazda
+    pin:
+      number: GPIO17
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: OUT_Shade_Bedroom1
+    pin:
+      number: GPIO5
+      mode: OUTPUT
+      inverted: false
+binary_sensor:
+  - platform: gpio
+    id: IN_button_66
+    name: 'Przycisk : Bedroom 1 : Przy wejściu (button_66)'
+    pin:
+      number: GPIO36
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      then:
+        - light.toggle: LIGHT_L1
+  - platform: gpio
+    id: IN_button_67
+    name: 'Przycisk : Bedroom 1 : Przy wejściu (button_67)'
+    pin:
+      number: GPIO39
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      then:
+        - light.toggle: LIGHT_L2
+  - platform: gpio
+    id: IN_button_68
+    name: 'Przycisk : Bedroom 1 : Przy wejściu (button_68)'
+    pin:
+      number: GPIO34
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      then:
+        - light.toggle: LIGHT_L3
+  - platform: gpio
+    id: IN_button_69
+    name: 'Przycisk : Bedroom 1 : Z lewej strony łóżka (button_69)'
+    pin:
+      number: GPIO35
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      then:
+        - light.toggle: LIGHT_L1
+  - platform: gpio
+    id: IN_button_70
+    name: 'Przycisk : Bedroom 1 : Z lewej strony łóżka (button_70)'
+    pin:
+      number: GPIO32
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      then:
+        - light.toggle: LIGHT_L2
+  - platform: gpio
+    id: IN_button_75
+    name: 'Przycisk : Bedroom 1 : Z prawej strony łóżka (button_75)'
+    pin:
+      number: GPIO33
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      then:
+        - light.toggle: LIGHT_L2
+  - platform: gpio
+    id: IN_button_76
+    name: 'Przycisk : Bedroom 1 : Z prawej strony łóżka (button_76)'
+    pin:
+      number: GPIO25
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      then:
+        - light.toggle: LIGHT_L1
+  - platform: gpio
+    id: IN_button_77
+    name: 'Przycisk : Bedroom 1 : W garderobie (button_77)'
+    pin:
+      number: GPIO26
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      then:
+        - light.toggle: LIGHT_L4
+  - platform: gpio
+    id: IN_button_78
+    name: 'Przycisk : Bedroom 1 : W garderobie (button_78)'
+    pin:
+      number: GPIO27
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      then:
+        - light.toggle: LIGHT_Lo
+  - platform: gpio
+    id: IN_reed_switch_191
+    name: 'Kontaktron : Bedroom 1 : Kontaktron drzwi (reed_switch_191)'
+    pin:
+      number: GPIO14
+      mode: INPUT_PULLUP
+      inverted: true

@@ -36,7 +36,7 @@
         :breakpoint="500"
         class="bg-grey-3 relative-position"
       >
-          <device-card  v-for="device in uiStore.selectedDevices" :device="device" v-bind:key="device.id" class="fit"/>
+        <device-card  v-for="device in uiStore.selectedDevices" :device="device" v-bind:key="device.id" class="fit"/>
         <div class="absolute-left" style="top: 50%;">
           <q-btn dense color="grey"
                  @click="drawerRight=!drawerRight"
@@ -51,8 +51,8 @@
           <q-table
             flat
             dense
-            title="Devices"
-            :rows="devices"
+            title="Inputs"
+            :rows="dataFiltered"
             :columns="columns"
             row-key="id"
             :rows-per-page-options="[0]"
@@ -82,35 +82,35 @@
 <script setup lang="ts">
 import {computed, ref} from "vue";
 import type {QTableColumn} from "quasar";
-import {useDeviceStore} from "stores/device";
 import {useDataStore} from "stores/data";
 import {useUiStore} from "stores/ui";
 import DeviceCard from "components/DeviceCard.vue";
 
 const drawerLeft = ref(false)
-const drawerRight = ref(true)
-const deviceTypesAll = useDataStore().getDeviceTypes()
-const deviceTypesSelected = ref([])
-const allDevices: DeviceModel[] = useDeviceStore().getDevices()
-const deviceTypeSelectedIds = computed(() => deviceTypesSelected.value.map((type: DeviceType) => type.id))
-const devices = computed(() =>
-  allDevices.filter(device => {
-      const deviceTypeSelected = deviceTypesSelected.value || [];
-      if (deviceTypeSelected.length === 0) {
-        return true
-      }
-      return deviceTypeSelectedIds.value.includes(device.type.id)
+const drawerRight = ref(false)
+const dataAll: Input[] = useDataStore().getInputs()
+// const deviceTypeSelectedIds = computed(() => deviceTypesSelected.value.map((type: DeviceType) => type.id))
+const dataFiltered = computed(() =>
+  dataAll.filter(device => {
+    return true
     }
   )
 )
-const columns: QTableColumn<DeviceModel>[] = [
-  {name: 'id', label: 'ID', field: 'id', align: 'left'},
-  {name: 'type', label: 'Type', field: 'type'},
-  {name: 'place', label: 'Place', field: 'location'}
+const columns: QTableColumn<Input>[] = [
+  {name: 'id', label: 'id', field: 'id', align: 'left'},
+  {name: 'location_id', label: 'location_id', field: 'location_id', align: 'left'},
+  {name: 'type', label: 'area', field: 'area'},
+  {name: 'place', label: 'location_description', field: 'location_description'},
+  {name: 'place', label: 'location_slot', field: 'location_slot'},
+  {name: 'place', label: 'wire_color', field: 'wire_color'},
+  {name: 'place', label: 'controller_id', field: 'controller_id'},
+  {name: 'place', label: 'expander', field: 'expander'},
+  {name: 'place', label: 'controller_pin', field: 'controller_pin'},
+  {name: 'place', label: 'debug_id', field: 'debug_id'}
 ]
 const uiStore = useUiStore()
-const onSelect = (evt: Event, row: DeviceModel) => {
-  uiStore.selectedDevices = [row]
+const onSelect = (evt: Event, row: Input) => {
+  uiStore.selectedInput = [row]
   drawerRight.value = true
 }
 </script>

@@ -90,6 +90,9 @@ const entries = [
     {icon: 'map', text: 'Topology', route: '/topology'},
     {icon: 'map', text: 'Areas', route: '/topology'},
     {icon: 'map', text: 'Locations', route: '/topology'},
+    {icon: 'map', text: 'Inputs', route: '/inputs'},
+    {icon: 'map', text: 'Outputs', route: '/outputs'},
+    {icon: 'map', text: 'Actions', route: '/actions'},
     {icon: 'watch_later', text: 'Stats', route: '/stats'},
     {icon: 'thumb_up_alt', text: 'Validation', route: '/validation'}
   ],

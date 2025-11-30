@@ -1,6 +1,6 @@
 import {defineStore} from "pinia";
 import {ref} from "vue";
-import {useDataStore} from "stores/backend";
+import {useDataStore} from "stores/data";
 
 export const useGeneratorStore = defineStore('generator', () => {
     const dataStore = useDataStore()

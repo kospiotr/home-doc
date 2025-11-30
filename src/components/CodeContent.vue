@@ -18,7 +18,7 @@ const copy = () => {
 
 <template>
   <q-btn flat dense class="fixed-top-right" icon="content_copy" @click="copy"/>
-  <pre><code>{{ content }}</code></pre>
+  <pre style="font-size: 0.8em; line-height: 1.2em;"><code>{{ content }}</code></pre>
 </template>
 
 <style scoped>

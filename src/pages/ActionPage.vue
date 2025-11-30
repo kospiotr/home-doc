@@ -14,17 +14,6 @@
         class="q-pa-md"
       >
         <q-scroll-area class="fit q-pa-md">
-          <q-select
-            filled
-            stack-label
-            dense
-            clearable
-            use-chips
-            v-model="deviceTypesSelected"
-            multiple
-            :options="deviceTypesAll"
-            label="Type"
-          />
         </q-scroll-area>
       </q-drawer>
 
@@ -36,7 +25,7 @@
         :breakpoint="500"
         class="bg-grey-3 relative-position"
       >
-          <device-card  v-for="device in uiStore.selectedDevices" :device="device" v-bind:key="device.id" class="fit"/>
+        <device-card  v-for="device in uiStore.selectedDevices" :device="device" v-bind:key="device.id" class="fit"/>
         <div class="absolute-left" style="top: 50%;">
           <q-btn dense color="grey"
                  @click="drawerRight=!drawerRight"
@@ -51,8 +40,8 @@
           <q-table
             flat
             dense
-            title="Devices"
-            :rows="devices"
+            title="Actions"
+            :rows="dataFiltered"
             :columns="columns"
             row-key="id"
             :rows-per-page-options="[0]"
@@ -82,35 +71,30 @@
 <script setup lang="ts">
 import {computed, ref} from "vue";
 import type {QTableColumn} from "quasar";
-import {useDeviceStore} from "stores/device";
 import {useDataStore} from "stores/data";
 import {useUiStore} from "stores/ui";
 import DeviceCard from "components/DeviceCard.vue";
 
 const drawerLeft = ref(false)
-const drawerRight = ref(true)
-const deviceTypesAll = useDataStore().getDeviceTypes()
-const deviceTypesSelected = ref([])
-const allDevices: DeviceModel[] = useDeviceStore().getDevices()
-const deviceTypeSelectedIds = computed(() => deviceTypesSelected.value.map((type: DeviceType) => type.id))
-const devices = computed(() =>
-  allDevices.filter(device => {
-      const deviceTypeSelected = deviceTypesSelected.value || [];
-      if (deviceTypeSelected.length === 0) {
-        return true
-      }
-      return deviceTypeSelectedIds.value.includes(device.type.id)
+const drawerRight = ref(false)
+const dataAll: Action[] = useDataStore().getActions()
+// const deviceTypeSelectedIds = computed(() => deviceTypesSelected.value.map((type: DeviceType) => type.id))
+const dataFiltered = computed(() =>
+  dataAll.filter(device => {
+      // return deviceTypeSelectedIds.value.includes(device.type.id)
+    return true
     }
   )
 )
-const columns: QTableColumn<DeviceModel>[] = [
-  {name: 'id', label: 'ID', field: 'id', align: 'left'},
-  {name: 'type', label: 'Type', field: 'type'},
-  {name: 'place', label: 'Place', field: 'location'}
+const columns: QTableColumn<Action>[] = [
+  {name: 'source_location_id', label: 'source_location_id', field: 'source_location_id', align: 'left'},
+  {name: 'source_location_slot', label: 'source_location_slot', field: 'source_location_slot', align: 'left'},
+  {name: 'action', label: 'action', field: 'action'},
+  {name: 'target_location_id', label: 'target_location_id', field: 'target_location_id'}
 ]
 const uiStore = useUiStore()
-const onSelect = (evt: Event, row: DeviceModel) => {
-  uiStore.selectedDevices = [row]
+const onSelect = (evt: Event, row: Action) => {
+  uiStore.selectedAction = [row]
   drawerRight.value = true
 }
 </script>

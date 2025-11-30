@@ -8,7 +8,7 @@
 </template>
 
 <script setup lang="ts">
-import {useDataStore} from "stores/backend";
+import {useDataStore} from "stores/data";
 import {useMeta} from "quasar";
 
 useMeta({title: 'Settings'})

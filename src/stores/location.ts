@@ -1,5 +1,5 @@
 import {defineStore, acceptHMRUpdate} from 'pinia';
-import {useDataStore} from "stores/backend";
+import {useDataStore} from "stores/data";
 import {useAreaStore} from "stores/area";
 
 const LOCATION_UNKNOWN: DeviceLocation = {

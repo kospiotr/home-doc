@@ -1,5 +1,5 @@
 import {acceptHMRUpdate, defineStore} from 'pinia';
-import {useDataStore} from "stores/backend";
+import {useDataStore} from "stores/data";
 
 const AREA_UNKNOWN: DeviceArea = {
   id: 'unknown',

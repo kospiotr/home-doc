@@ -1,80 +1,88 @@
-- id: entrance
+- id: EN
   label: Entrance
   map: 'plan-L1.png'
   level: 0
-- id: garden
-  label: Garden
+- id: GNN
+  label: Garden North
   map: 'plan-L1.png'
   level: 0
-- id: entry-hall
-  label: Entry Hall
+- id: GNW
+  label: Garden West
   map: 'plan-L1.png'
   level: 0
-- id: garage
+- id: GNE
+  label: Garden East
+  map: 'plan-L1.png'
+  level: 0
+- id: FR
+  label: Front
+  map: 'plan-L1.png'
+  level: 0
+- id: EN
+  label: Entry
+  map: 'plan-L1.png'
+  level: 0
+- id: GA
   label: Garage
   map: 'plan-L1.png'
   level: 0
-- id: boiler-room
+- id: BR
   label: Boiler Room
   map: 'plan-L1.png'
   level: 0
-- id: toilet
+- id: TO
   label: Toilet
   map: 'plan-L1.png'
   level: 0
-- id: dining-room
+- id: DR
   label: Dining Room
   map: 'plan-L1.png'
   level: 0
-- id: living-room
+- id: LR
   label: Living Room
   map: 'plan-L1.png'
   level: 0
-- id: library
+- id: LI
   label: Library
   map: 'plan-L1.png'
   level: 0
-- id: kitchen
+- id: KI
   label: Kitchen
   map: 'plan-L1.png'
   level: 0
-- id: office
+- id: OF
   label: Office
   map: 'plan-L1.png'
   level: 0
-- id: hall
+- id: HA
   label: Hall
   map: 'plan-L2.png'
   level: 1
-- id: hall-bathroom
-  label: Hall przy łazience
-  map: 'plan-L2.png'
-  level: 1
-- id: bathroom
+- id: BA
   label: Bathroom
   map: 'plan-L2.png'
   level: 1
-- id: bedroom-1
+- id: BD1
   label: Bedroom 1
   map: 'plan-L2.png'
   level: 1
-- id: bedroom-2
+- id: BD2
   label: Bedroom 2
   map: 'plan-L2.png'
   level: 1
-- id: bedroom-3
+- id: BD3
   label: Bedroom 3
   map: 'plan-L2.png'
   level: 1
-- id: terrace-south
+- id: TS
   label: Terrace south
   map: 'plan-L2.png'
   level: 1
-- id: terrace-north
+- id: TN
   label: Terrace north
   map: 'plan-L2.png'
   level: 1
-- id: terrace-east
+- id: TE
   label: Terrace east
   map: 'plan-L2.png'
   level: 1

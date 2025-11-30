@@ -1,4 +1,4 @@
-- wires:
+- connection:
    - device: controller01
      pin: 0
    - device: button001

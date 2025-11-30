@@ -6,6 +6,9 @@ export const useUiStore = defineStore('ui',
   return {
     mainLeftDrawerOpen: ref(true),
     selectedDevices: ref<DeviceModel[]>([]),
+    selectedInput: ref<Input[]>([]),
+    selectedOutput: ref<Output[]>([]),
+    selectedAction: ref<Action[]>([]),
     deviceTab: ref('pins'),
     deviceOverviewTab: ref('ui'),
     deviceEsp32Tab: ref('main')
