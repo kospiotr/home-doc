@@ -9,6 +9,7 @@ export const useUiStore = defineStore('ui',
     selectedInput: ref<Input[]>([]),
     selectedOutput: ref<Output[]>([]),
     selectedAction: ref<Action[]>([]),
+    selectedShade: ref<Shade[]>([]),
     deviceTab: ref('pins'),
     deviceOverviewTab: ref('ui'),
     deviceEsp32Tab: ref('main')

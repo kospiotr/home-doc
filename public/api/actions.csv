@@ -46,12 +46,12 @@ source_location_id,source_location_slot,action,target_location_id,condition
 15,1,on_press,H2
 15,2,on_press,H3
 16,1,on_press,H4
-17,1,on_short_press,I4
-17,1,on_long_press,I1
+17,1,on_short_press,I1
+17,1,on_long_press,I4
 17,2,on_press,I3
 17,2,on_press,I3
-18,1,on_short_press,I4
-18,1,on_long_press,I1
+18,1,on_short_press,I3
+18,1,on_long_press,I4
 19,1,on_short_press,J1
 19,1,on_long_press,G2
 19,2,on_press,J2
@@ -71,7 +71,8 @@ source_location_id,source_location_slot,action,target_location_id,condition
 23,2,on_press,K4
 24,1,on_press,L1
 24,2,on_press,L2
-24,3,on_press,L3
+24,3,on_short_press,L4
+24,3,on_long_press,L3
 25,1,on_press,L1
 25,2,on_press,L2
 26,3,on_press,L2

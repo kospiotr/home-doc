@@ -20,7 +20,11 @@ const routes: RouteRecordRaw[] = [
       },
       {
         path: '/actions',
-        component: () => import('pages/ActionPage.vue'),
+        component: () => import('pages/ActionsPage.vue'),
+      },
+      {
+        path: '/shades',
+        component: () => import('pages/ShadesPage.vue'),
       },
       {
         path: '/settings',

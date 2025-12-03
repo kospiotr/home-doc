@@ -104,3 +104,13 @@ interface Action{
   action: "on_press" | "on_short_press" | "on_long_press"
   target_location_id: string
 }
+
+interface Shade{
+  area: string
+  controller_id: string
+  controller_pin_open: string
+  controller_pin_close: string
+  open_duration: string
+  close_duration: string
+  size: "large" | "medium" | "small"
+}

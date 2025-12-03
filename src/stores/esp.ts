@@ -2,9 +2,58 @@ import {stringify} from "yaml";
 import {useDataStore} from "stores/data";
 import {useDeviceStore} from "stores/device";
 
+interface Esp32Config {
+  [key: string]: any;
+
+  mcp23017?: Mcp[]
+  binary_sensor?: EspBinarySensor[]
+  output?: EspOutput[]
+  light?: EspLight[]
+  switch?: EspSwitch[]
+  cover?: EspCover[]
+}
+
 interface Area {
   id: string;
   name: string;
+}
+
+interface EspBinarySensor {
+  platform: string
+  id: string
+  pin: Pin
+  on_press?: any
+  on_multi_click?: any[]
+  name: string
+  device_id: string
+}
+
+interface EspOutput {
+  platform: string
+  id: string
+  pin: Pin
+}
+
+interface EspLight {
+}
+
+interface EspSwitch {
+  platform: string
+  id: string
+  pin?: Pin
+  interlock?: string[]
+}
+
+interface EspCover {
+  platform: string
+  device_id: string
+  id: string
+  name: string
+  open_duration: string
+  close_duration: string
+  open_action: Record<string, string>[]
+  close_action: Record<string, string>[]
+  stop_action: Record<string, string>[]
 }
 
 interface Device {
@@ -22,12 +71,14 @@ interface Mcp {
 
 interface Pin {
   number: string;
-  mode: string;
-  inverted: boolean;
+  mode?: string;
+  inverted?: boolean;
   mcp23xxx?: string;
+  interlocks?: string[];
+  interlock_wait_time?: string;
 }
 
-const mcpForPin = (pinIndex: number): Mcp => {
+const createMcp = (pinIndex: number): Mcp => {
   const mcpIndex = Math.floor(pinIndex / 16);
   const pin = pinIndex % 16;
   return {
@@ -41,7 +92,7 @@ const mcpForPin = (pinIndex: number): Mcp => {
 const not_allowed_pins = ["GPIO1", "GPIO3", "GPIO6", "GPIO7", "GPIO8", "GPIO9", "GPIO10", "GPIO11", "GPIO24", "GPIO28", "GPIO29", "GPIO30", "GPIO31"]
 const input_no_pullups_pins = ["GPIO34", "GPIO35", "GPIO36", "GPIO37", "GPIO38"]
 
-const template = {
+const template: Esp32Config = {
   "esphome": {
     "name": "controller01",
     "areas": [],
@@ -81,11 +132,7 @@ const template = {
   ],
   "i2c": {
     "scan": true
-  },
-  "mcp23017": [],
-  "binary_sensor": [],
-  "output": [],
-  "light": []
+  }
 }
 
 const idOf = (name: string) => {
@@ -104,14 +151,15 @@ class EspBuilder {
   }
 
   addArea(id: string, name: string) {
-    const areas: Area[] = this.data.esphome['areas']
+    const areas: Area[] = this.data.esphome.areas || []
     if (!areas.find((d: Area) => d.id === id)) {
       areas.push({id, name})
+      this.data.esphome.areas = areas
     }
   }
 
   addDevice(id: string, device_name: string, area_name: string) {
-    const devices: Device[] = this.data.esphome['devices']
+    const devices: Device[] = this.data.esphome.devices || []
     const device_id = `device_${id}`;
     const area_id = idOf(area_name);
     if (devices.find((d: Device) => d.id === device_id)) {
@@ -119,16 +167,17 @@ class EspBuilder {
       return device_id;
     }
     devices.push({id: `device_${id}`, name: device_name, area_id})
+    this.data.esphome.devices = devices
     this.addArea(area_id, area_name);
     return device_id
   }
 
-
   addMcp(pin_index: string) {
-    const mcp = mcpForPin(parseInt(pin_index));
-    const mcp23017: Mcp[] = this.data['mcp23017']
-    if (!mcp23017.find((d: Mcp) => d.id === mcp.id)) {
-      mcp23017.push(mcp)
+    const mcp = createMcp(parseInt(pin_index));
+    const acc = this.data.mcp23017 || []
+    if (!acc.find((d: Mcp) => d.id === mcp.id)) {
+      acc.push(mcp)
+      this.data.mcp23017 = acc
     }
     return mcp;
   }
@@ -149,58 +198,24 @@ class EspBuilder {
 
   addInput(input: Input) {
     if (!input.controller_pin) {
+      this.warnings.push(`Output has no controller_pin defined`)
       return;
     }
 
-    const name = `${input.location_description}${input.location_slot}`;
     const device_id = this.addDevice(input.id, input.display_name, input.area);
-    const binary_sensor: any[] = this.data['binary_sensor']
-
-    const pin: Pin = {
-      number: input.controller_pin,
-      mode: "INPUT_PULLUP",
-      inverted: true
-    }
+    const binary_sensors: EspBinarySensor[] = this.data.binary_sensor || []
+    const pin = this.createPin(input.controller_pin);
 
     if (this.isMcp()) {
-      const mcp = this.addMcp(input.controller_pin)
-      const existsPinConnection = binary_sensor.find((d) => {
-        return d.pin.number === mcp.getPin() && d.pin.mcp23xxx === mcp.id;
-      });
-
-      if (existsPinConnection) {
-        this.warnings.push('Duplicated input connection on the index: ' + input.controller_pin + ' for output: ' + input.id + ' and output: ' + existsPinConnection.id);
-        return;
-      }
-
-      pin.mcp23xxx = mcp.id
-      pin.number = mcp.getPin()
       pin.mode = "INPUT_PULLUP"
       pin.inverted = true
     } else {
-      const existsPinConnection = binary_sensor.find((d) => {
-        return d.pin.number === input.controller_pin;
-      });
-
-      if (existsPinConnection) {
-        this.warnings.push('Duplicated input connection on the index: ' + input.controller_pin + ' for output: ' + input.id + ' and output: ' + existsPinConnection.id);
-        return;
-      }
-
       const mode = input_no_pullups_pins.includes(input.controller_pin) ? "INPUT" : "INPUT_PULLUP";
       pin.mode = mode
       pin.inverted = mode === "INPUT_PULLUP"
     }
 
-    const out: {
-      on_press?: any
-      on_multi_click?: any[]
-      platform: string
-      id: string
-      name: string
-      device_id: string
-      pin: any
-    } = {
+    const out: EspBinarySensor = {
       platform: "gpio",
       id: input.id,
       name: input.location_slot,
@@ -215,15 +230,9 @@ class EspBuilder {
         }
         const output = useDataStore().findOutputByLocation(action.target_location_id)
         if (!output) {
-          this.warnings.push(`Can't find for action ${action} output: ${action.target_location_id}`)
+          this.warnings.push(`Can't find for action ${action} output or output is not controlled by this controller: ${action.target_location_id}`)
           continue
         }
-
-        if(output.controller_id !== this.data.esphome.name){
-          this.errors.push(`Output ${output.id} in action is not controlled by this controller`)
-          continue
-        }
-
 
         if (output.device_type == 'Light') {
           if (action.action === 'on_press') {
@@ -241,7 +250,7 @@ class EspBuilder {
               timing: [
                 "ON for at most 1s"
               ],
-              then:[
+              then: [
                 {
                   "light.toggle": output.id
                 }
@@ -255,14 +264,14 @@ class EspBuilder {
                 "ON for 1s to 2s",
                 "OFF for at least 0.5s"
               ],
-              then:[
+              then: [
                 {
                   "light.toggle": output.id
                 }
               ]
             })
           }
-        }else{
+        } else {
           this.warnings.push(`Unsupported target device type: ${output.device_type} for action: ${action}`)
         }
       }
@@ -270,55 +279,118 @@ class EspBuilder {
 
     addBinarySensorAction(input.location_id, input.location_slot)
 
-    binary_sensor.push(out)
+    binary_sensors.push(out)
+    this.data.binary_sensor = binary_sensors
   }
 
-  addOutput(output: Output) {
+  addLight(output: Output) {
     if (!output.controller_pin) {
+      this.warnings.push(`Output has no controller_pin defined`)
       return;
     }
-    const outputs: any[] = this.data['output']
-    const lights: any[] = this.data['light']
-    const name = `${output.location_description}`;
+    const lights: EspLight[] = this.data.light || []
     const device_id = this.addDevice(output.id, output.display_name, output.area);
-    const output_id = `output_${output.id}`
+    const output_id = this.addOutput(output.id, output.controller_pin);
 
-    const pin: Pin = {
-      number: output.controller_pin,
-      mode: "OUTPUT",
-      inverted: false
-    }
+    lights.push({
+      platform: "binary",
+      name: "",
+      id: output.id,
+      device_id: device_id,
+      output: output_id
+    })
+    this.data.light = lights
+  }
 
-    if (this.isMcp()) {
-      const mcp = this.addMcp(output.controller_pin)
-      const existsPinConnection = outputs.find((d) => {
-        return d.pin.number === mcp.getPin() && d.pin.mcp23xxx === mcp.id;
-      });
-
-      if (existsPinConnection) {
-        this.warnings.push('Duplicated output connection on the index: ' + output.controller_pin + ' for output: ' + output.id + ' and output: ' + existsPinConnection.id);
-        return;
-      }
-
-      pin.mcp23xxx = mcp.id
-      pin.number = mcp.getPin()
-    }
-
-    if (output.device_type == 'Light') {
-      lights.push({
-        platform: "binary",
-        name: "",
-        id: output.id,
-        device_id: device_id,
-        output: output_id
-      })
-    }
-
+  addOutput(id: string, controller_pin: string) {
+    const outputs: EspOutput[] = this.data.output || []
+    const output_id = `output_${id}`
+    const pin = this.createPin(controller_pin)
+    pin.mode = "OUTPUT"
+    pin.inverted = false
     outputs.push({
       platform: "gpio",
       id: output_id,
       pin: pin
     })
+    this.data.output = outputs;
+
+    return output_id;
+  }
+
+  createPin(controller_pin: string) {
+    const pin: Pin = {
+      number: controller_pin,
+    }
+
+    if (this.isMcp()) {
+      const mcp = this.addMcp(controller_pin)
+      pin.mcp23xxx = mcp.id
+      pin.number = mcp.getPin()
+    }
+
+    return pin
+  }
+
+  addSwitch(id: string, controller_pin: string) {
+    const switches: EspSwitch[] = this.data.switch || []
+    const output_id = `switch_${id}`
+    const pin = this.createPin(controller_pin)
+
+    const out: EspSwitch = {
+      platform: "gpio",
+      id: output_id,
+      pin: pin
+    }
+    switches.push(out)
+    this.data.switch = switches;
+    return out
+  }
+
+  addCover(shade: Shade) {
+    if (!shade.controller_pin_open || !shade.controller_pin_close) {
+      this.warnings.push(`Shade has no open or close pin defined`)
+      return;
+    }
+    const shade_id = "shade_" + idOf(shade.area)
+    const open_switch = this.addSwitch(shade_id + "_open", shade.controller_pin_open)
+    const close_switch = this.addSwitch(shade_id + "_close", shade.controller_pin_close)
+    const device_id = this.addDevice(shade_id, "Shade", shade.area);
+
+    open_switch.interlock = [close_switch.id]
+    close_switch.interlock = [open_switch.id]
+
+    // const open_duration = 100
+      // shade.size == "small" ? 10 :
+      //   shade.size == "medium" ? 20 :
+      //     shade.size == "large" ? 25 : 60;
+
+    // const close_duration = 100
+      // shade.size == "small" ? 15 :
+      //   shade.size == "medium" ? 30 :
+      //     shade.size == "large" ? 35 : 60;
+
+
+    const covers = this.data.cover || []
+    covers.push({
+      platform: "time_based",
+      id: shade_id,
+      device_id: device_id,
+      name: "",
+      open_duration: `${shade.open_duration}s`,
+      close_duration: `${shade.close_duration}s`,
+      open_action: [
+        {"switch.turn_on": open_switch.id}
+      ],
+      close_action: [
+        {"switch.turn_on": close_switch.id}
+      ],
+      stop_action: [
+        {"switch.turn_off": open_switch.id},
+        {"switch.turn_off": close_switch.id}
+      ]
+    })
+    this.data.cover = covers
   }
 }
 
@@ -352,23 +424,32 @@ export const codeMain = (device: DeviceModel) => {
   return codeMcpMain(deviceId, 0)
 }
 
-const codeMcpMain = (deviceId: string, pins: number) => {
-  const builder = new EspBuilder(deviceId);
+const codeMcpMain = (controller_id: string, pins: number) => {
+  const builder = new EspBuilder(controller_id);
   builder.setMcpPins(pins);
-  const outputs = useDataStore().getOutputs()
-  outputs.forEach(output => {
-    if (output.controller_id !== deviceId) {
-      return;
-    }
-    builder.addOutput(output)
-  })
-  const inputs = useDataStore().getInputs()
-  inputs.forEach(input => {
-    if (input.controller_id !== deviceId) {
-      return;
-    }
-    builder.addInput(input)
-  })
+
+  // adding lights
+  useDataStore().getOutputs()
+    .filter(output =>
+      output.controller_id == controller_id && output.device_type == 'Light'
+    )
+    .forEach((output) => {
+      builder.addLight(output)
+    })
+
+  // adding buttons
+  useDataStore().getInputs()
+    .filter(input => input.controller_id == controller_id)
+    .forEach(input => {
+      builder.addInput(input)
+    })
+
+  // adding shades
+  useDataStore().getShades()
+    .filter(shade => shade.controller_id == controller_id)
+    .forEach(shade => {
+      builder.addCover(shade)
+    })
   return builder.build()
 }
 
@@ -412,7 +493,7 @@ const codeMcpDebugInputs = (deviceId: string, pins: number) => {
   out.binary_sensor = []
   out.mcp23017 = []
   for (let i = 0; i < pins; i++) {
-    const mcp = mcpForPin(i);
+    const mcp = createMcp(i);
     if (!out.mcp23017.find((m: Mcp) => m.id === mcp.id)) {
       out.mcp23017.push(mcp);
     }
@@ -475,7 +556,7 @@ const codeMcpDebugOutputs = (deviceId: string, pins: number) => {
   // out.switch = []
   // out.mcp23017 = []
   // for (let i = 0; i < pins; i++) {
-  //   const mcp = mcpForPin(i);
+  //   const mcp = createMcp(i);
   //   if (!out.mcp23017.find((m: Mcp) => m.id === mcp.id)) {
   //     out.mcp23017.push(mcp);
   //   }

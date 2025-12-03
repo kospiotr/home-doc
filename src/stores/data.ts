@@ -23,6 +23,7 @@ interface Data {
   inputs: Input[];
   outputs: Output[];
   actions: Action[];
+  shades: Shade[];
 }
 
 function parseCsvData(csv: string = ""): any[] {
@@ -58,6 +59,7 @@ export const useDataStore = defineStore('data',
       inputs: [],
       outputs: [],
       actions: [],
+      shades: [],
     });
 
     async function load() {
@@ -71,6 +73,7 @@ export const useDataStore = defineStore('data',
         "inputs",
         "outputs",
         "actions",
+        "shades",
       ]
       const requests = Promise.all([
           ...yaml_keys.map(async key => {
@@ -136,12 +139,18 @@ export const useDataStore = defineStore('data',
       return (data.value.actions || []) as Action[]
     }
 
+    const getShades = () => {
+      return (data.value.shades || []) as Shade[]
+    }
+
     const findOutputByLocation = (location_id: string) => {
       return getOutputs().find(output => output.location_id === location_id)
     }
 
     return {
-      data, load, getDeviceTypes, getDeviceTypeById, getInputs, getOutputs, getActions, findOutputByLocation
+      data, load, getDeviceTypes, getDeviceTypeById,
+      getInputs, getOutputs, findOutputByLocation,
+      getActions, getShades
     };
   });
 

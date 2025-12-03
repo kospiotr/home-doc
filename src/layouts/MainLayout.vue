@@ -93,6 +93,7 @@ const entries = [
     {icon: 'map', text: 'Inputs', route: '/inputs'},
     {icon: 'map', text: 'Outputs', route: '/outputs'},
     {icon: 'map', text: 'Actions', route: '/actions'},
+    {icon: 'map', text: 'Shades', route: '/shades'},
     {icon: 'watch_later', text: 'Stats', route: '/stats'},
     {icon: 'thumb_up_alt', text: 'Validation', route: '/validation'}
   ],
