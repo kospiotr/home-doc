@@ -1,0 +1,3 @@
+area,controller_id,controller_pin_open,controller_pin_close
+Front,controller01,105,106
+Garage,controller01,108,109

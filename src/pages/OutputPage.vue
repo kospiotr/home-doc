@@ -80,7 +80,7 @@ const drawerRight = ref(false)
 const dataAll: Output[] = useDataStore().getOutputs()
 // const deviceTypeSelectedIds = computed(() => deviceTypesSelected.value.map((type: DeviceType) => type.id))
 const dataFiltered = computed(() =>
-  dataAll.filter(device => {
+  dataAll.filter(() => {
       // return deviceTypeSelectedIds.value.includes(device.type.id)
     return true
     }

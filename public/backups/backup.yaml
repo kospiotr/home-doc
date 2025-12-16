@@ -1,0 +1,1000 @@
+esphome:
+  name: controller01
+  areas:
+    - id: entrance
+      name: Entrance
+    - id: front
+      name: Front
+    - id: garage
+      name: Garage
+    - id: boiler_room
+      name: Boiler Room
+    - id: toilet
+      name: Toilet
+    - id: dining_room
+      name: Dining Room
+    - id: living_room
+      name: Living Room
+    - id: library
+      name: Library
+    - id: kitchen
+      name: Kitchen
+    - id: office
+      name: Office
+    - id: hall
+      name: Hall
+    - id: bathroom
+      name: Bathroom
+    - id: bedroom_1
+      name: Bedroom 1
+    - id: bedroom_2
+      name: Bedroom 2
+    - id: bedroom_3
+      name: Bedroom 3
+  devices:
+    - id: device_light_entrance_main
+      name: Main
+      area_id: entrance
+    - id: device_light_entrance_aside
+      name: Aside
+      area_id: entrance
+    - id: device_light_front_main
+      name: Main
+      area_id: front
+    - id: device_light_front_aside
+      name: Aside
+      area_id: front
+    - id: device_light_garage_aside
+      name: Aside
+      area_id: garage
+    - id: device_light_garage_ceiling
+      name: Ceiling
+      area_id: garage
+    - id: device_light_garage_alcove
+      name: Alcove
+      area_id: garage
+    - id: device_light_boilerroom_main
+      name: Main
+      area_id: boiler_room
+    - id: device_light_boilerroom_aside
+      name: Aside
+      area_id: boiler_room
+    - id: device_light_toilet_ceiling
+      name: Ceiling
+      area_id: toilet
+    - id: device_light_toilet_fan
+      name: Fan
+      area_id: toilet
+    - id: device_light_toilet_aside
+      name: Aside
+      area_id: toilet
+    - id: device_light_toilet_sink
+      name: Sink
+      area_id: toilet
+    - id: device_light_front_gate
+      name: Gate
+      area_id: front
+    - id: device_button_entrance_main_1
+      name: Main
+      area_id: entrance
+    - id: device_button_entrance_main_2
+      name: Main
+      area_id: entrance
+    - id: device_button_entrance_main_3
+      name: Main
+      area_id: entrance
+    - id: device_button_entrance_aside_1
+      name: Aside
+      area_id: entrance
+    - id: device_button_entrance_aside_2
+      name: Aside
+      area_id: entrance
+    - id: device_button_garage_main_1
+      name: Main
+      area_id: garage
+    - id: device_button_garage_main_2
+      name: Main
+      area_id: garage
+    - id: device_button_garage_desk_1
+      name: Desk
+      area_id: garage
+    - id: device_button_garage_desk_2
+      name: Desk
+      area_id: garage
+    - id: device_button_garage_desk_3
+      name: Desk
+      area_id: garage
+    - id: device_button_boilerroom_main_1
+      name: Main
+      area_id: boiler_room
+    - id: device_button_boilerroom_main_2
+      name: Main
+      area_id: boiler_room
+    - id: device_button_diningroom_toilet_1
+      name: Toilet
+      area_id: dining_room
+    - id: device_button_diningroom_toilet_2
+      name: Toilet
+      area_id: dining_room
+    - id: device_button_toilet_main_1
+      name: Main
+      area_id: toilet
+    - id: device_button_front_main_1
+      name: Main
+      area_id: front
+    - id: device_button_front_main_2
+      name: Main
+      area_id: front
+    - id: device_shade_dining_room
+      name: Shade
+      area_id: dining_room
+    - id: device_shade_living_room
+      name: Shade
+      area_id: living_room
+    - id: device_shade_library
+      name: Shade
+      area_id: library
+    - id: device_shade_kitchen
+      name: Shade
+      area_id: kitchen
+    - id: device_shade_office
+      name: Shade
+      area_id: office
+    - id: device_shade_toilet
+      name: Shade
+      area_id: toilet
+    - id: device_shade_hall
+      name: Shade
+      area_id: hall
+    - id: device_shade_bathroom
+      name: Shade
+      area_id: bathroom
+    - id: device_shade_bedroom_1
+      name: Shade
+      area_id: bedroom_1
+    - id: device_shade_bedroom_2
+      name: Shade
+      area_id: bedroom_2
+    - id: device_shade_bedroom_3
+      name: Shade
+      area_id: bedroom_3
+    - id: device_gate_garage
+      name: Gate
+      area_id: garage
+    - id: device_gate_front
+      name: Gate
+      area_id: front
+esp32:
+  board: nodemcu-32s
+  framework:
+    type: esp-idf
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  ap:
+    ssid: controller01 hotspot
+    password: !secret wifi_password
+  power_save_mode: none
+  use_address: controller01.home
+captive_portal: {}
+logger:
+  baud_rate: 0
+  level: INFO
+api:
+  encryption:
+    key: !secret api_encryption_key
+ota:
+  - platform: esphome
+    password: !secret ota_password
+i2c:
+  scan: true
+mcp23017:
+  - id: mcp23017_hub_4
+    address: "0x24"
+  - id: mcp23017_hub_0
+    address: "0x20"
+  - id: mcp23017_hub_1
+    address: "0x21"
+  - id: mcp23017_hub_5
+    address: "0x25"
+  - id: mcp23017_hub_6
+    address: "0x26"
+output:
+  - platform: gpio
+    id: output_light_entrance_main
+    pin:
+      number: "0"
+      mcp23xxx: mcp23017_hub_4
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: output_light_entrance_aside
+    pin:
+      number: "1"
+      mcp23xxx: mcp23017_hub_4
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: output_light_front_main
+    pin:
+      number: "4"
+      mcp23xxx: mcp23017_hub_4
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: output_light_front_aside
+    pin:
+      number: "5"
+      mcp23xxx: mcp23017_hub_4
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: output_light_garage_aside
+    pin:
+      number: "6"
+      mcp23xxx: mcp23017_hub_4
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: output_light_garage_ceiling
+    pin:
+      number: "7"
+      mcp23xxx: mcp23017_hub_4
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: output_light_garage_alcove
+    pin:
+      number: "8"
+      mcp23xxx: mcp23017_hub_4
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: output_light_boilerroom_main
+    pin:
+      number: "9"
+      mcp23xxx: mcp23017_hub_4
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: output_light_boilerroom_aside
+    pin:
+      number: "10"
+      mcp23xxx: mcp23017_hub_4
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: output_light_toilet_ceiling
+    pin:
+      number: "11"
+      mcp23xxx: mcp23017_hub_4
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: output_light_toilet_fan
+    pin:
+      number: "12"
+      mcp23xxx: mcp23017_hub_4
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: output_light_toilet_aside
+    pin:
+      number: "13"
+      mcp23xxx: mcp23017_hub_4
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: output_light_toilet_sink
+    pin:
+      number: "14"
+      mcp23xxx: mcp23017_hub_4
+      mode: OUTPUT
+      inverted: false
+  - platform: gpio
+    id: output_light_front_gate
+    pin:
+      number: "15"
+      mcp23xxx: mcp23017_hub_4
+      mode: OUTPUT
+      inverted: false
+light:
+  - platform: binary
+    name: ""
+    id: light_entrance_main
+    device_id: device_light_entrance_main
+    output: output_light_entrance_main
+  - platform: binary
+    name: ""
+    id: light_entrance_aside
+    device_id: device_light_entrance_aside
+    output: output_light_entrance_aside
+  - platform: binary
+    name: ""
+    id: light_front_main
+    device_id: device_light_front_main
+    output: output_light_front_main
+  - platform: binary
+    name: ""
+    id: light_front_aside
+    device_id: device_light_front_aside
+    output: output_light_front_aside
+  - platform: binary
+    name: ""
+    id: light_garage_aside
+    device_id: device_light_garage_aside
+    output: output_light_garage_aside
+  - platform: binary
+    name: ""
+    id: light_garage_ceiling
+    device_id: device_light_garage_ceiling
+    output: output_light_garage_ceiling
+  - platform: binary
+    name: ""
+    id: light_garage_alcove
+    device_id: device_light_garage_alcove
+    output: output_light_garage_alcove
+  - platform: binary
+    name: ""
+    id: light_boilerroom_main
+    device_id: device_light_boilerroom_main
+    output: output_light_boilerroom_main
+  - platform: binary
+    name: ""
+    id: light_boilerroom_aside
+    device_id: device_light_boilerroom_aside
+    output: output_light_boilerroom_aside
+  - platform: binary
+    name: ""
+    id: light_toilet_ceiling
+    device_id: device_light_toilet_ceiling
+    output: output_light_toilet_ceiling
+  - platform: binary
+    name: ""
+    id: light_toilet_fan
+    device_id: device_light_toilet_fan
+    output: output_light_toilet_fan
+  - platform: binary
+    name: ""
+    id: light_toilet_aside
+    device_id: device_light_toilet_aside
+    output: output_light_toilet_aside
+  - platform: binary
+    name: ""
+    id: light_toilet_sink
+    device_id: device_light_toilet_sink
+    output: output_light_toilet_sink
+  - platform: binary
+    name: ""
+    id: light_front_gate
+    device_id: device_light_front_gate
+    output: output_light_front_gate
+binary_sensor:
+  - platform: gpio
+    id: button_entrance_main_1
+    name: "1"
+    device_id: device_button_entrance_main_1
+    pin:
+      number: "0"
+      mcp23xxx: mcp23017_hub_0
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      then:
+        - light.toggle: light_entrance_main
+  - platform: gpio
+    id: button_entrance_main_2
+    name: "2"
+    device_id: device_button_entrance_main_2
+    pin:
+      number: "1"
+      mcp23xxx: mcp23017_hub_0
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      then:
+        - light.toggle: light_front_main
+  - platform: gpio
+    id: button_entrance_main_3
+    name: "3"
+    device_id: device_button_entrance_main_3
+    pin:
+      number: "2"
+      mcp23xxx: mcp23017_hub_0
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      then:
+        - light.toggle: light_front_aside
+  - platform: gpio
+    id: button_entrance_aside_1
+    name: "1"
+    device_id: device_button_entrance_aside_1
+    pin:
+      number: "3"
+      mcp23xxx: mcp23017_hub_0
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      then:
+        - light.toggle: light_entrance_main
+  - platform: gpio
+    id: button_entrance_aside_2
+    name: "2"
+    device_id: device_button_entrance_aside_2
+    pin:
+      number: "4"
+      mcp23xxx: mcp23017_hub_0
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      then:
+        - light.toggle: light_entrance_aside
+  - platform: gpio
+    id: button_garage_main_1
+    name: "1"
+    device_id: device_button_garage_main_1
+    pin:
+      number: "5"
+      mcp23xxx: mcp23017_hub_0
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      then:
+        - light.toggle: light_garage_aside
+  - platform: gpio
+    id: button_garage_main_2
+    name: "2"
+    device_id: device_button_garage_main_2
+    pin:
+      number: "6"
+      mcp23xxx: mcp23017_hub_0
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      then:
+        - light.toggle: light_garage_ceiling
+  - platform: gpio
+    id: button_garage_desk_1
+    name: "1"
+    device_id: device_button_garage_desk_1
+    pin:
+      number: "7"
+      mcp23xxx: mcp23017_hub_0
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      then:
+        - light.toggle: light_garage_aside
+  - platform: gpio
+    id: button_garage_desk_2
+    name: "2"
+    device_id: device_button_garage_desk_2
+    pin:
+      number: "8"
+      mcp23xxx: mcp23017_hub_0
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      then:
+        - light.toggle: light_garage_ceiling
+  - platform: gpio
+    id: button_garage_desk_3
+    name: "3"
+    device_id: device_button_garage_desk_3
+    pin:
+      number: "9"
+      mcp23xxx: mcp23017_hub_0
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      then:
+        - light.toggle: light_garage_alcove
+  - platform: gpio
+    id: button_boilerroom_main_1
+    name: "1"
+    device_id: device_button_boilerroom_main_1
+    pin:
+      number: "10"
+      mcp23xxx: mcp23017_hub_0
+      mode: INPUT_PULLUP
+      inverted: true
+  - platform: gpio
+    id: button_boilerroom_main_2
+    name: "2"
+    device_id: device_button_boilerroom_main_2
+    pin:
+      number: "11"
+      mcp23xxx: mcp23017_hub_0
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      then:
+        - light.toggle: light_boilerroom_aside
+  - platform: gpio
+    id: button_diningroom_toilet_1
+    name: "1"
+    device_id: device_button_diningroom_toilet_1
+    pin:
+      number: "13"
+      mcp23xxx: mcp23017_hub_0
+      mode: INPUT_PULLUP
+      inverted: true
+    on_multi_click:
+      - timing:
+          - ON for at most 1s
+        then:
+          - light.toggle: light_toilet_ceiling
+      - timing:
+          - ON for 1s to 2s
+          - OFF for at least 0.5s
+        then:
+          - light.toggle: light_toilet_sink
+  - platform: gpio
+    id: button_diningroom_toilet_2
+    name: "2"
+    device_id: device_button_diningroom_toilet_2
+    pin:
+      number: "14"
+      mcp23xxx: mcp23017_hub_0
+      mode: INPUT_PULLUP
+      inverted: true
+    on_press:
+      then:
+        - light.toggle: light_toilet_aside
+  - platform: gpio
+    id: button_toilet_main_1
+    name: "1"
+    device_id: device_button_toilet_main_1
+    pin:
+      number: "15"
+      mcp23xxx: mcp23017_hub_0
+      mode: INPUT_PULLUP
+      inverted: true
+    on_multi_click:
+      - timing:
+          - ON for at most 1s
+        then:
+          - light.toggle: light_toilet_aside
+      - timing:
+          - ON for 1s to 2s
+          - OFF for at least 0.5s
+        then:
+          - light.toggle: light_toilet_sink
+  - platform: gpio
+    id: button_front_main_1
+    name: "1"
+    device_id: device_button_front_main_1
+    pin:
+      number: "0"
+      mcp23xxx: mcp23017_hub_1
+      mode: INPUT_PULLUP
+      inverted: true
+    on_multi_click:
+      - timing:
+          - ON for at most 1s
+        then:
+          - cover.toggle: gate_front
+      - timing:
+          - ON for 1s to 2s
+          - OFF for at least 0.5s
+        then:
+          - light.toggle: light_front_main
+  - platform: gpio
+    id: button_front_main_2
+    name: "2"
+    device_id: device_button_front_main_2
+    pin:
+      number: "1"
+      mcp23xxx: mcp23017_hub_1
+      mode: INPUT_PULLUP
+      inverted: true
+    on_multi_click:
+      - timing:
+          - ON for at most 1s
+        then:
+          - switch.toggle: switch_door_front_door_switch
+      - timing:
+          - ON for 1s to 2s
+          - OFF for at least 0.5s
+        then:
+          - light.toggle: light_front_aside
+switch:
+  - platform: gpio
+    id: switch_shade_dining_room_open
+    pin:
+      number: "1"
+      mcp23xxx: mcp23017_hub_5
+    interlock:
+      - switch_shade_dining_room_close
+  - platform: gpio
+    id: switch_shade_dining_room_close
+    pin:
+      number: "2"
+      mcp23xxx: mcp23017_hub_5
+    interlock:
+      - switch_shade_dining_room_open
+  - platform: gpio
+    id: switch_shade_living_room_open
+    pin:
+      number: "3"
+      mcp23xxx: mcp23017_hub_5
+    interlock:
+      - switch_shade_living_room_close
+  - platform: gpio
+    id: switch_shade_living_room_close
+    pin:
+      number: "4"
+      mcp23xxx: mcp23017_hub_5
+    interlock:
+      - switch_shade_living_room_open
+  - platform: gpio
+    id: switch_shade_library_open
+    pin:
+      number: "11"
+      mcp23xxx: mcp23017_hub_5
+    interlock:
+      - switch_shade_library_close
+  - platform: gpio
+    id: switch_shade_library_close
+    pin:
+      number: "12"
+      mcp23xxx: mcp23017_hub_5
+    interlock:
+      - switch_shade_library_open
+  - platform: gpio
+    id: switch_shade_kitchen_open
+    pin:
+      number: "5"
+      mcp23xxx: mcp23017_hub_5
+    interlock:
+      - switch_shade_kitchen_close
+  - platform: gpio
+    id: switch_shade_kitchen_close
+    pin:
+      number: "6"
+      mcp23xxx: mcp23017_hub_5
+    interlock:
+      - switch_shade_kitchen_open
+  - platform: gpio
+    id: switch_shade_office_open
+    pin:
+      number: "7"
+      mcp23xxx: mcp23017_hub_5
+    interlock:
+      - switch_shade_office_close
+  - platform: gpio
+    id: switch_shade_office_close
+    pin:
+      number: "8"
+      mcp23xxx: mcp23017_hub_5
+    interlock:
+      - switch_shade_office_open
+  - platform: gpio
+    id: switch_shade_toilet_open
+    pin:
+      number: "9"
+      mcp23xxx: mcp23017_hub_5
+    interlock:
+      - switch_shade_toilet_close
+  - platform: gpio
+    id: switch_shade_toilet_close
+    pin:
+      number: "10"
+      mcp23xxx: mcp23017_hub_5
+    interlock:
+      - switch_shade_toilet_open
+  - platform: gpio
+    id: switch_shade_hall_open
+    pin:
+      number: "13"
+      mcp23xxx: mcp23017_hub_5
+    interlock:
+      - switch_shade_hall_close
+  - platform: gpio
+    id: switch_shade_hall_close
+    pin:
+      number: "14"
+      mcp23xxx: mcp23017_hub_5
+    interlock:
+      - switch_shade_hall_open
+  - platform: gpio
+    id: switch_shade_bathroom_open
+    pin:
+      number: "15"
+      mcp23xxx: mcp23017_hub_5
+    interlock:
+      - switch_shade_bathroom_close
+  - platform: gpio
+    id: switch_shade_bathroom_close
+    pin:
+      number: "0"
+      mcp23xxx: mcp23017_hub_6
+    interlock:
+      - switch_shade_bathroom_open
+  - platform: gpio
+    id: switch_shade_bedroom_1_open
+    pin:
+      number: "1"
+      mcp23xxx: mcp23017_hub_6
+    interlock:
+      - switch_shade_bedroom_1_close
+  - platform: gpio
+    id: switch_shade_bedroom_1_close
+    pin:
+      number: "2"
+      mcp23xxx: mcp23017_hub_6
+    interlock:
+      - switch_shade_bedroom_1_open
+  - platform: gpio
+    id: switch_shade_bedroom_2_open
+    pin:
+      number: "3"
+      mcp23xxx: mcp23017_hub_6
+    interlock:
+      - switch_shade_bedroom_2_close
+  - platform: gpio
+    id: switch_shade_bedroom_2_close
+    pin:
+      number: "4"
+      mcp23xxx: mcp23017_hub_6
+    interlock:
+      - switch_shade_bedroom_2_open
+  - platform: gpio
+    id: switch_shade_bedroom_3_open
+    pin:
+      number: "5"
+      mcp23xxx: mcp23017_hub_6
+    interlock:
+      - switch_shade_bedroom_3_close
+  - platform: gpio
+    id: switch_shade_bedroom_3_close
+    pin:
+      number: "6"
+      mcp23xxx: mcp23017_hub_6
+    interlock:
+      - switch_shade_bedroom_3_open
+  - platform: gpio
+    id: switch_door_front_door_switch
+    pin:
+      number: "2"
+      mcp23xxx: mcp23017_hub_4
+    on_turn_on:
+      - delay: 8s
+      - switch.turn_off: switch_door_front_door_switch
+    icon: mdi:door
+    name: Front Door
+  - platform: gpio
+    id: switch_door_entrance_door_switch
+    pin:
+      number: "3"
+      mcp23xxx: mcp23017_hub_4
+    on_turn_on:
+      - delay: 8s
+      - switch.turn_off: switch_door_entrance_door_switch
+    icon: mdi:door
+    name: Entrance Door
+  - platform: gpio
+    id: switch_plugswitch_front_garage
+    pin:
+      number: "0"
+      mcp23xxx: mcp23017_hub_5
+    name: Front Garage
+  - platform: gpio
+    id: switch_gate_garage_open
+    pin:
+      number: "12"
+      mcp23xxx: mcp23017_hub_6
+    interlock:
+      - switch_gate_garage_close
+  - platform: gpio
+    id: switch_gate_garage_close
+    pin:
+      number: "13"
+      mcp23xxx: mcp23017_hub_6
+    interlock:
+      - switch_gate_garage_open
+  - platform: gpio
+    id: switch_gate_front_open
+    pin:
+      number: "9"
+      mcp23xxx: mcp23017_hub_6
+    interlock:
+      - switch_gate_front_close
+  - platform: gpio
+    id: switch_gate_front_close
+    pin:
+      number: "10"
+      mcp23xxx: mcp23017_hub_6
+    interlock:
+      - switch_gate_front_open
+cover:
+  - platform: time_based
+    id: shade_dining_room
+    device_id: device_shade_dining_room
+    name: ""
+    open_duration: 31s
+    close_duration: 29s
+    open_action:
+      - switch.turn_on: switch_shade_dining_room_open
+    close_action:
+      - switch.turn_on: switch_shade_dining_room_close
+    stop_action:
+      - switch.turn_off: switch_shade_dining_room_open
+      - switch.turn_off: switch_shade_dining_room_close
+  - platform: time_based
+    id: shade_living_room
+    device_id: device_shade_living_room
+    name: ""
+    open_duration: 31s
+    close_duration: 29s
+    open_action:
+      - switch.turn_on: switch_shade_living_room_open
+    close_action:
+      - switch.turn_on: switch_shade_living_room_close
+    stop_action:
+      - switch.turn_off: switch_shade_living_room_open
+      - switch.turn_off: switch_shade_living_room_close
+  - platform: time_based
+    id: shade_library
+    device_id: device_shade_library
+    name: ""
+    open_duration: 35s
+    close_duration: 33s
+    open_action:
+      - switch.turn_on: switch_shade_library_open
+    close_action:
+      - switch.turn_on: switch_shade_library_close
+    stop_action:
+      - switch.turn_off: switch_shade_library_open
+      - switch.turn_off: switch_shade_library_close
+  - platform: time_based
+    id: shade_kitchen
+    device_id: device_shade_kitchen
+    name: ""
+    open_duration: 19s
+    close_duration: 18s
+    open_action:
+      - switch.turn_on: switch_shade_kitchen_open
+    close_action:
+      - switch.turn_on: switch_shade_kitchen_close
+    stop_action:
+      - switch.turn_off: switch_shade_kitchen_open
+      - switch.turn_off: switch_shade_kitchen_close
+  - platform: time_based
+    id: shade_office
+    device_id: device_shade_office
+    name: ""
+    open_duration: 22s
+    close_duration: 19s
+    open_action:
+      - switch.turn_on: switch_shade_office_open
+    close_action:
+      - switch.turn_on: switch_shade_office_close
+    stop_action:
+      - switch.turn_off: switch_shade_office_open
+      - switch.turn_off: switch_shade_office_close
+  - platform: time_based
+    id: shade_toilet
+    device_id: device_shade_toilet
+    name: ""
+    open_duration: 16s
+    close_duration: 15s
+    open_action:
+      - switch.turn_on: switch_shade_toilet_open
+    close_action:
+      - switch.turn_on: switch_shade_toilet_close
+    stop_action:
+      - switch.turn_off: switch_shade_toilet_open
+      - switch.turn_off: switch_shade_toilet_close
+  - platform: time_based
+    id: shade_hall
+    device_id: device_shade_hall
+    name: ""
+    open_duration: 28s
+    close_duration: 28s
+    open_action:
+      - switch.turn_on: switch_shade_hall_open
+    close_action:
+      - switch.turn_on: switch_shade_hall_close
+    stop_action:
+      - switch.turn_off: switch_shade_hall_open
+      - switch.turn_off: switch_shade_hall_close
+  - platform: time_based
+    id: shade_bathroom
+    device_id: device_shade_bathroom
+    name: ""
+    open_duration: 20s
+    close_duration: 18s
+    open_action:
+      - switch.turn_on: switch_shade_bathroom_open
+    close_action:
+      - switch.turn_on: switch_shade_bathroom_close
+    stop_action:
+      - switch.turn_off: switch_shade_bathroom_open
+      - switch.turn_off: switch_shade_bathroom_close
+  - platform: time_based
+    id: shade_bedroom_1
+    device_id: device_shade_bedroom_1
+    name: ""
+    open_duration: 32s
+    close_duration: 31s
+    open_action:
+      - switch.turn_on: switch_shade_bedroom_1_open
+    close_action:
+      - switch.turn_on: switch_shade_bedroom_1_close
+    stop_action:
+      - switch.turn_off: switch_shade_bedroom_1_open
+      - switch.turn_off: switch_shade_bedroom_1_close
+  - platform: time_based
+    id: shade_bedroom_2
+    device_id: device_shade_bedroom_2
+    name: ""
+    open_duration: 21s
+    close_duration: 20s
+    open_action:
+      - switch.turn_on: switch_shade_bedroom_2_open
+    close_action:
+      - switch.turn_on: switch_shade_bedroom_2_close
+    stop_action:
+      - switch.turn_off: switch_shade_bedroom_2_open
+      - switch.turn_off: switch_shade_bedroom_2_close
+  - platform: time_based
+    id: shade_bedroom_3
+    device_id: device_shade_bedroom_3
+    name: ""
+    open_duration: 21s
+    close_duration: 21s
+    open_action:
+      - switch.turn_on: switch_shade_bedroom_3_open
+    close_action:
+      - switch.turn_on: switch_shade_bedroom_3_close
+    stop_action:
+      - switch.turn_off: switch_shade_bedroom_3_open
+      - switch.turn_off: switch_shade_bedroom_3_close
+  - platform: template
+    id: gate_garage
+    device_id: device_gate_garage
+    device_class: gate
+    name: ""
+    optimistic: true
+    assumed_state: true
+    open_action:
+      - switch.turn_on: switch_gate_garage_open
+      - delay: 1s
+      - switch.turn_off: switch_gate_garage_open
+    close_action:
+      - switch.turn_on: switch_gate_garage_close
+      - delay: 1s
+      - switch.turn_off: switch_gate_garage_close
+    toggle_action:
+      - if:
+          condition:
+            lambda: 'return id(gate_garage).position == COVER_CLOSED;'
+          then:
+            - cover.open:  gate_garage
+          else:
+            - cover.close:  gate_garage
+  - platform: template
+    id: gate_front
+    device_id: device_gate_front
+    device_class: gate
+    name: ""
+    optimistic: true
+    assumed_state: true
+    open_action:
+      - switch.turn_on: switch_gate_front_open
+      - delay: 1s
+      - switch.turn_off: switch_gate_front_open
+    close_action:
+      - switch.turn_on: switch_gate_front_close
+      - delay: 1s
+      - switch.turn_off: switch_gate_front_close
+    toggle_action:
+      - if:
+          condition:
+            lambda: 'return id(gate_front).position == COVER_CLOSED;'
+          then:
+            - cover.open:  gate_front
+          else:
+            - cover.close:  gate_front

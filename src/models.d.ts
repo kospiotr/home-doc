@@ -1,4 +1,4 @@
-interface Device{
+interface Device {
   id: ?string
   location: ?string
   type: string
@@ -7,7 +7,7 @@ interface Device{
   connections: DeviceConnection[]
 }
 
-interface DeviceModel{
+interface DeviceModel {
   id: string
   location: DeviceLocationModel
   slot: ?number
@@ -23,16 +23,16 @@ interface DeviceLocation {
   coordinates: ?Coordinate[]
 }
 
-interface Coordinate{
+interface Coordinate {
   x: number
   y: number
 }
 
 interface DeviceConnection {
-    connections: {
-      device: string
-      pin: ?number
-    }[]
+  connections: {
+    device: string
+    pin: ?number
+  }[]
 }
 
 interface DeviceLocationModel {
@@ -50,7 +50,7 @@ interface DeviceArea {
   level: ?number
 }
 
-interface DeviceType{
+interface DeviceType {
   id: string
   label: string
   direction: ?string
@@ -58,17 +58,17 @@ interface DeviceType{
   ico: ?string
 }
 
-interface DeviceAction{
+interface DeviceAction {
   id: string
   label: string
 }
 
-interface DeviceDirection{
+interface DeviceDirection {
   id: string
   label: string
 }
 
-interface Input{
+interface Input {
   id: string
   display_name: string
   device_type: string
@@ -83,7 +83,7 @@ interface Input{
   debug_id: string
 }
 
-interface Output{
+interface Output {
   id: string
   display_name: string
   location_id: string
@@ -96,21 +96,28 @@ interface Output{
   controller_id: string
   controller_pin: string
   debug_id: string
+  duration: string
 }
 
-interface Action{
+interface Action {
   source_location_id: string
   source_location_slot: string
-  action: "on_press" | "on_short_press" | "on_long_press"
+  trigger: "on_press" | "on_short_press" | "on_long_press"
+  action: "light.toggle" | "switch.toggle" | "on_long_press"
   target_location_id: string
 }
 
-interface Shade{
+interface Shade {
   area: string
   controller_id: string
   controller_pin_open: string
   controller_pin_close: string
   open_duration: string
   close_duration: string
-  size: "large" | "medium" | "small"
+}
+
+interface ValidationError {
+  type: string,
+  msg: string,
+  details: string
 }

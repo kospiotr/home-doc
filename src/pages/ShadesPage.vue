@@ -80,7 +80,7 @@ const drawerRight = ref(false)
 const dataAll: Shade[] = useDataStore().getShades()
 // const deviceTypeSelectedIds = computed(() => deviceTypesSelected.value.map((type: DeviceType) => type.id))
 const dataFiltered = computed(() =>
-  dataAll.filter(device => {
+  dataAll.filter(() => {
       // return deviceTypeSelectedIds.value.includes(device.type.id)
     return true
     }
@@ -91,10 +91,9 @@ const columns: QTableColumn<Shade>[] = [
   {name: 'controller_id', label: 'controller_id', field: 'controller_id', align: 'left'},
   {name: 'controller_pin_open', label: 'controller_pin_open', field: 'controller_pin_open', align: 'left'},
   {name: 'controller_pin_close', label: 'controller_pin_close', field: 'controller_pin_close'},
-  {name: 'size', label: 'size', field: 'size'}
 ]
 const uiStore = useUiStore()
-const onSelect = (evt: Event, row: Action) => {
+const onSelect = (evt: Event, row: Shade) => {
   uiStore.selectedShade = [row]
   drawerRight.value = true
 }

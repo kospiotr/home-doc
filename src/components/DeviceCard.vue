@@ -1,13 +1,12 @@
 <script setup lang="ts">
-import {defineProps, computed} from 'vue';
-import Esp32_128 from "components/device_card/Esp32_128.vue";
+import {computed, defineProps} from 'vue';
 import DeviceLocation from "components/DeviceLocation.vue";
 import {useUiStore} from "stores/ui";
 import CodeContent from "components/CodeContent.vue";
 import DeviceConnections from "components/DeviceConnections.vue";
-import Esp32_64 from "components/device_card/Esp32_64.vue";
-import Esp32_bare from "components/device_card/Esp32_bare.vue";
 import Esp32_controller from "components/Esp32_controller.vue";
+import {buildEspDeviceOfType} from "stores/esp";
+import type {QTableColumn} from "quasar";
 
 const {device} = defineProps<{
   device: DeviceModel;
@@ -18,6 +17,19 @@ const uiStore = useUiStore();
 const deviceJson = computed(() => {
   return JSON.stringify(device, null, 2);
 })
+
+const validation_rows = computed<ValidationError[]>(() => {
+  if (['esp128', 'esp64', 'esp32'].includes(device.type.id)){
+    const esp = buildEspDeviceOfType(device);
+    return esp.validation_errors
+  }
+  return []
+})
+
+const validation_columns: QTableColumn<ValidationError>[] = [
+  {name: 'type', label: 'Type', field: 'type', align: 'left'},
+  {name: 'msg', label: 'Message', field: 'msg', align: 'left'}
+]
 </script>
 
 <template>
@@ -30,6 +42,7 @@ const deviceJson = computed(() => {
       class="shadow-1 bg-white"
     >
       <q-tab name="overview" label="Overview"/>
+      <q-tab name="validation" label="Validation"/>
       <q-tab name="connections" label="Connections"/>
       <q-tab name="relations" label="Relations"/>
       <q-tab name="topology" label="Topology"/>
@@ -94,11 +107,56 @@ const deviceJson = computed(() => {
         <device-connections :device="device"/>
       </q-tab-panel>
 
+      <q-tab-panel name="validation" class="bg-transparent q-pa-none column">
+        <q-table
+          flat bordered
+          :rows="validation_rows"
+          :columns="validation_columns"
+          :pagination="{rowsPerPage: 0}"
+        >
+
+          <template v-slot:header="props">
+            <q-tr :props="props">
+              <q-th auto-width />
+              <q-th
+                v-for="col in props.cols"
+                :key="col.name"
+                :props="props"
+              >
+                {{ col.label }}
+              </q-th>
+            </q-tr>
+          </template>
+
+          <template v-slot:body="props">
+            <q-tr :props="props">
+              <q-td auto-width>
+                <q-btn size="sm" color="accent" round dense @click="props.expand = !props.expand" :icon="props.expand ? 'remove' : 'add'" />
+              </q-td>
+              <q-td
+                v-for="col in props.cols"
+                :key="col.name"
+                :props="props"
+              >
+                {{ col.value }}
+              </q-td>
+            </q-tr>
+            <q-tr v-show="props.expand" :props="props">
+              <q-td colspan="100%">
+                <div class="text-left code">{{ props.row.details }}</div>
+              </q-td>
+            </q-tr>
+          </template>
+
+        </q-table>
+      </q-tab-panel>
+
       <q-tab-panel name="relations" class="bg-transparent q-pa-none column">
         Relations
       </q-tab-panel>
       <q-tab-panel name="templates" class="bg-transparent q-pa-none column">
-        <esp32_controller v-if="['esp128', 'esp64', 'esp32'].includes(device.type.id)" :device="device"></esp32_controller>
+        <esp32_controller v-if="['esp128', 'esp64', 'esp32'].includes(device.type.id)"
+                          :device="device"></esp32_controller>
       </q-tab-panel>
 
     </q-tab-panels>

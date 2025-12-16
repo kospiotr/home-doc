@@ -80,7 +80,7 @@ const drawerRight = ref(false)
 const dataAll: Action[] = useDataStore().getActions()
 // const deviceTypeSelectedIds = computed(() => deviceTypesSelected.value.map((type: DeviceType) => type.id))
 const dataFiltered = computed(() =>
-  dataAll.filter(device => {
+  dataAll.filter(() => {
       // return deviceTypeSelectedIds.value.includes(device.type.id)
     return true
     }
@@ -89,7 +89,7 @@ const dataFiltered = computed(() =>
 const columns: QTableColumn<Action>[] = [
   {name: 'source_location_id', label: 'source_location_id', field: 'source_location_id', align: 'left'},
   {name: 'source_location_slot', label: 'source_location_slot', field: 'source_location_slot', align: 'left'},
-  {name: 'action', label: 'action', field: 'action'},
+  {name: 'action', label: 'action', field: 'trigger'},
   {name: 'target_location_id', label: 'target_location_id', field: 'target_location_id'}
 ]
 const uiStore = useUiStore()

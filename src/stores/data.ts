@@ -25,18 +25,24 @@ interface Data {
   actions: Action[];
   shades: Shade[];
 }
-
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function parseCsvData(csv: string = ""): any[] {
   const lines = csv.split('\n')
     .filter(line => line.trim() !== '') || [];
   if (lines.length === 0) {
     return [];
   }
-  const headers = lines[0].split(',')
+  const headersLine = lines[0];
+  if (!headersLine) {
+    return [];
+  }
+  const headers = headersLine.split(',')
     .map(header => header.trim());
   return lines.slice(1).map(line => {
     const values = line.split(',')
       .map(value => value.trim());
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
     const entry: any = {};
     headers.forEach((header, index) => {
       entry[header] = values[index];
@@ -78,12 +84,12 @@ export const useDataStore = defineStore('data',
       const requests = Promise.all([
           ...yaml_keys.map(async key => {
             const response = await api(`/${key}.yaml`)
-            // @ts-ignore: dynamic index on ref
+            // @ts-expect-error: can be ignored
             data.value[key] = parse(response.data)
           }),
           ...csv_keys.map(async key => {
             const response = await api(`/${key}.csv`)
-            // @ts-ignore: dynamic index on ref
+            // @ts-expect-error: dynamic index on ref
             data.value[key] = parseCsvData(response.data)
           }),
         ]
@@ -129,7 +135,7 @@ export const useDataStore = defineStore('data',
 
         output.id = id.toLowerCase().replaceAll(' ', '');
 
-        let display_name = output.location_description
+        const display_name = output.location_description
         output.display_name = display_name
         return output
       })

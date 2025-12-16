@@ -2,7 +2,7 @@
   <q-tab-panels v-model="uiStore.deviceEsp32Tab" class="bg-transparent col">
     <q-tab-panel name="main">
       <q-scroll-area class="fit">
-        <CodeContent :content="codeMain(device)"/>
+        <CodeContent :content="espDevice.code"/>
       </q-scroll-area>
     </q-tab-panel>
 
@@ -36,12 +36,13 @@
 import {defineProps} from "vue";
 import {useUiStore} from "stores/ui";
 import CodeContent from "components/CodeContent.vue";
-import {codeDebugInputs, codeDebugOutputs, codeMain} from "stores/esp";
+import {buildEspDeviceOfType, codeDebugInputs, codeDebugOutputs} from "stores/esp";
 
 const {device} = defineProps<{
   device: DeviceModel;
 }>();
 const uiStore = useUiStore();
+const espDevice = buildEspDeviceOfType(device)
 
 </script>
 <style scoped>

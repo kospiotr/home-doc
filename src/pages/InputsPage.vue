@@ -14,17 +14,6 @@
         class="q-pa-md"
       >
         <q-scroll-area class="fit q-pa-md">
-          <q-select
-            filled
-            stack-label
-            dense
-            clearable
-            use-chips
-            v-model="deviceTypesSelected"
-            multiple
-            :options="deviceTypesAll"
-            label="Type"
-          />
         </q-scroll-area>
       </q-drawer>
 
@@ -91,7 +80,7 @@ const drawerRight = ref(false)
 const dataAll: Input[] = useDataStore().getInputs()
 // const deviceTypeSelectedIds = computed(() => deviceTypesSelected.value.map((type: DeviceType) => type.id))
 const dataFiltered = computed(() =>
-  dataAll.filter(device => {
+  dataAll.filter(() => {
     return true
     }
   )
