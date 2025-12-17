@@ -1,185 +1,185 @@
-device_type,area,description,positions
-Button,Entrance,Main-1
-Button,Entrance,Main-2
-Button,Entrance,Main-3
-Button,Entrance,Main-4
-Button,Entrance,Aside-1
-Button,Entrance,Aside-2
-Button,Garage,Main-1
-Button,Garage,Main-2
-Button,Garage,Main-3
-Button,Garage,Desk-1
-Button,Garage,Desk-2
-Button,Garage,Desk-3
-Button,Boiler Room,Main-1
-Button,Boiler Room,Main-2
-Button,Dining Room,Toilet-1
-Button,Dining Room,Toilet-2
-Button,Toilet,Main-1
-Button,Front,Main-1
-Button,Front,Main-2
-Button,Dining Room,Main-1
-Button,Dining Room,Main-2
-Button,Living Room,Secondary-1
-Button,Living Room,Secondary-2
-Button,Living Room,Library-1
-Button,Kitchen,Island-1
-Button,Kitchen,Island-2
-Button,Dining Room,Toilet-3
-Button,Kitchen,Cooker-1
-Button,Kitchen,Cooker-2
-Button,Dining Room,Toilet-1
-Button,Dining Room,Toilet-2
-Button,Office,Main-1
-Button,Office,Main-2
-Button,Office,Desk-1
-Button,Office,Desk-2
-Button,Office,Bed-1
-Button,Dining Room,Main-3
-Button,Living Room,Secondary-2
-Button,Living Room,Secondary-3
-Button,Living Room,Main-1
-Button,Living Room,Main-2
-Button,Living Room,Main-3
-Button,Living Room,Main-4
-Button,Library,Main-1
-Button,Library,Main-2
-Button,Library,Main-3
-Button,Hall,Stairs-1
-Button,Hall,Stairs-2
-Button,Hall,Terrace-1
-Button,Hall,Terrace-2
-Button,Hall,Terrace-3
-Button,Hall,Terrace-4
-Button,Hall,Main-1
-Button,Hall,Main-2
-Button,Hall,Bathroom-2
-Button,Hall,Bathroom-1
-Button,Hall,Bathroom-3
-Button,Bathroom,Main-2
-Button,Bathroom,Main-1
-Button,Bedroom 1,Main-2
-Button,Bedroom 1,Main-1
-Button,Bedroom 1,Main-3
-Button,Bedroom 1,Main-2
-Button,Bedroom 1,Main-1
-Button,Bedroom 1,Main-3
-Button,Bedroom 1,Main-2
-Button,Bedroom 1,Main-1
-Button,Bedroom 1,Main-3
-Button,Bedroom 1,Wardrobe-1
-Button,Bedroom 1,Wardrobe-2
-Button,Bedroom 2,Main-2
-Button,Bedroom 2,Main-1
-Button,Bedroom 2,Aside-1
-Button,Bedroom 3,Aside-1
-Button,Bedroom 3,Main-1
-Button,Bedroom 3,Main-2
-Light,Entrance,Main A1
-Light,Entrance,Aside A2
-Light,Entrance,Hanger A3
-Light,Entrance,Wardrobe A4
-Light,Front,Main Ao
-Light,Front,Aside Ax
-Light,Garage,Aside B1
-Light,Garage,Ceiling B2
-Light,Garage,Alcove B3
-Light,Boiler Room,Main C1
-Light,Boiler Room,Aside C2
-Light,Dining Room,Main D1
-Light,Dining Room,Aside D2
-Light,Living Room,Main D3
-Light,Living Room,TV Wall D4
-Light,Terrace,Living Room Main Do
-Light,Terrace,Dining Room Garden Dp
-Light,Terrace,Dining Room Main Du
-Light,Terrace,Dining Room Aside Dw
-Light,Terrace,Stairs Dx
-,Terrace,Power wire ?? Dy
-Light,Terrace,Living Room Aside Dz
-Light,Library,Main E1
-Light,Library,Aside E2
-Light,Terrace,Library Eo
-Light,Kitchen,Island F1
-Light,Kitchen,Main F2
-Light,Kitchen,Aside F3
-Light,Kitchen,Ambient G1
-Light,Hall,Ambient G2
-Light,Office,Main H1
-Light,Office,Aside H2
-Light,Office,Desk H3
-Light,Office,Bed H4
-Light,Toilet,Ceiling I1
-Light,Toilet,Fan I2
-Light,Toilet,Aside I3
-Light,Toilet,Sink I4
-Light,Hall,Main J1
-Light,Hall,Aside J2
-Light,Hall,Hatch J3
-Light,Balcony,Hall Jx
-Light,Balcony,Bathroom Jy
-Light,Bathroom,Main K1
-Light,Bathroom,Ambient K2
-Light,Bathroom,Sink K3
-Light,Bathroom,Desk K4
-Light,Bedroom 1,Bed L1
-Light,Bedroom 1,Main L2
-Light,Bedroom 1,Aside L3
-Light,Bedroom 1,Wardrobe L4
-Light,Balcony,Bedroom Lo
-Light,Bedroom 2,Main M1
-Light,Bedroom 2,Bed M2
-Light,Bedroom 2,Aside M3
-Light,Bedroom 3,Main N1
-Light,Bedroom 3,Bed N2
-Light,Bedroom 3,Aside N3
-Light,Roof,Podbitka
-Light,Front,Gate
-Spare,Garage,Spare 1
-Spare,Garage,Spare 2
-Plug switch,Balcony,Bedroom L-plug
-Plug switch,Balcony,Hall J-plug
-Plug switch,Terrace,Living Room D-plug
-Plug switch,Front,Garage A-plug
-Shade,Dining Room,1 D-shade-1
-Shade,Dining Room,1 D-shade-1
-Shade,Dining Room,2 D-shade-2
-Shade,Dining Room,2 D-shade-2
-Shade,Living Room,1 D-shade-3
-Shade,Living Room,1 D-shade-3
-Shade,Living Room,2 D-shade-4
-Shade,Living Room,2 D-shade-4
-Shade,Living Room,3 D-shade-5
-Shade,Living Room,3 D-shade-5
-Shade,Library,1 E-shade-1
-Shade,Library,1 E-shade-1
-Shade,Kitchen,1 F-shade-1
-Shade,Kitchen,1 F-shade-1
-Shade,Kitchen,2 F-shade-2
-Shade,Kitchen,2 F-shade-2
-Shade,Kitchen,3 F-shade-3
-Shade,Kitchen,3 F-shade-3
-Shade,Office,1 H-shade-1
-Shade,Office,1 H-shade-1
-Shade,Toilet,1 I-shade-1
-Shade,Toilet,1 I-shade-1
-Shade,Hall,Door J-shade-door-1
-Shade,Hall,Door J-shade-door-1
-Shade,Hall,Window J-shade-window-1
-Shade,Hall,Window J-shade-window-1
-Shade,Bathroom,1 K-shade-1
-Shade,Bathroom,1 K-shade-1
-Shade,Bathroom,2 K-shade-2
-Shade,Bathroom,2 K-shade-2
-Shade,Bedroom 1,1 L-shade-1
-Shade,Bedroom 1,1 L-shade-1
-Shade,Bedroom 2,1 M-shade-1
-Shade,Bedroom 2,1 M-shade-1
-Shade,Bedroom 3,1 N-shade-1
-Shade,Bedroom 3,1 N-shade-1
-Gate,Garage,Main B-gate
-Gate,Garage,Main B-gate
-Gate,Front,Main A-gate
-Gate,Front,Main A-gate
-Door,Front,Door Aa-door
-Door,Entrance,Door Ab-door
+id,device_type,area_id,description,positions
+1,Button,Entrance,Main-1,
+2,Button,Entrance,Main-2,
+3,Button,Entrance,Main-3,
+4,Button,Entrance,Main-4,
+5,Button,Entrance,Aside-1,
+6,Button,Entrance,Aside-2,
+7,Button,Garage,Main-1,
+8,Button,Garage,Main-2,
+9,Button,Garage,Main-3,
+0,Button,Garage,Desk-1,
+11,Button,Garage,Desk-2,
+12,Button,Garage,Desk-3,
+13,Button,Boiler Room,Main-1,
+14,Button,Boiler Room,Main-2,
+15,Button,Dining Room,Toilet-1,
+16,Button,Dining Room,Toilet-2,
+17,Button,Toilet,Main-1,
+18,Button,Front,Main-1,
+19,Button,Front,Main-2,
+20,Button,Dining Room,Main-1,
+21,Button,Dining Room,Main-2,
+22,Button,Living Room,Secondary-1,
+23,Button,Living Room,Secondary-2,
+24,Button,Living Room,Library-1,
+25,Button,Kitchen,Island-1,
+26,Button,Kitchen,Island-2,
+27,Button,Dining Room,Toilet-3,
+28,Button,Kitchen,Cooker-1,
+29,Button,Kitchen,Cooker-2,
+30,Button,Dining Room,Toilet-1,
+31,Button,Dining Room,Toilet-2,
+32,Button,Office,Main-1,
+33,Button,Office,Main-2,
+34,Button,Office,Desk-1,
+35,Button,Office,Desk-2,
+36,Button,Office,Bed-1,
+37,Button,Dining Room,Main-3,
+38,Button,Living Room,Secondary-2,
+39,Button,Living Room,Secondary-3,
+40,Button,Living Room,Main-1,
+41,Button,Living Room,Main-2,
+42,Button,Living Room,Main-3,
+43,Button,Living Room,Main-4,
+44,Button,Library,Main-1,
+45,Button,Library,Main-2,
+46,Button,Library,Main-3,
+47,Button,Hall,Stairs-1,
+48,Button,Hall,Stairs-2,
+49,Button,Hall,Terrace-1,
+50,Button,Hall,Terrace-2,
+51,Button,Hall,Terrace-3,
+52,Button,Hall,Terrace-4,
+53,Button,Hall,Main-1,
+54,Button,Hall,Main-2,
+55,Button,Hall,Bathroom-2,
+56,Button,Hall,Bathroom-1,
+57,Button,Hall,Bathroom-3,
+58,Button,Bathroom,Main-2,
+59,Button,Bathroom,Main-1,
+60,Button,Bedroom 1,Main-2,
+61,Button,Bedroom 1,Main-1,
+62,Button,Bedroom 1,Main-3,
+63,Button,Bedroom 1,Main-2,
+64,Button,Bedroom 1,Main-1,
+65,Button,Bedroom 1,Main-3,
+66,Button,Bedroom 1,Main-2,
+67,Button,Bedroom 1,Main-1,
+68,Button,Bedroom 1,Main-3,
+69,Button,Bedroom 1,Wardrobe-1,
+70,Button,Bedroom 1,Wardrobe-2,
+71,Button,Bedroom 2,Main-2,
+72,Button,Bedroom 2,Main-1,
+73,Button,Bedroom 2,Aside-1,
+74,Button,Bedroom 3,Aside-1,
+75,Button,Bedroom 3,Main-1,
+76,Button,Bedroom 3,Main-2,
+77,Light,Entrance,Main A1,
+78,Light,Entrance,Aside A2,
+79,Light,Entrance,Hanger A3,
+80,Light,Entrance,Wardrobe A4,
+81,Light,Front,Main Ao,
+82,Light,Front,Aside Ax,
+83,Light,Garage,Aside B1,
+84,Light,Garage,Ceiling B2,
+85,Light,Garage,Alcove B3,
+86,Light,Boiler Room,Main C1,
+87,Light,Boiler Room,Aside C2,
+88,Light,Dining Room,Main D1,
+89,Light,Dining Room,Aside D2,
+90,Light,Living Room,Main D3,
+91,Light,Living Room,TV Wall D4,
+92,Light,Terrace,Living Room Main Do,
+93,Light,Terrace,Dining Room Garden Dp,
+94,Light,Terrace,Dining Room Main Du,
+95,Light,Terrace,Dining Room Aside Dw,
+96,Light,Terrace,Stairs Dx,
+97,,Terrace,Power wire ?? Dy,
+98,Light,Terrace,Living Room Aside Dz,
+99,Light,Library,Main E1,
+100,Light,Library,Aside E2,
+101,Light,Terrace,Library Eo,
+102,Light,Kitchen,Island F1,
+103,Light,Kitchen,Main F2,
+104,Light,Kitchen,Aside F3,
+105,Light,Kitchen,Ambient G1,
+106,Light,Hall,Ambient G2,
+107,Light,Office,Main H1,
+108,Light,Office,Aside H2,
+109,Light,Office,Desk H3,
+110,Light,Office,Bed H4,
+111,Light,Toilet,Ceiling I1,
+112,Light,Toilet,Fan I2,
+113,Light,Toilet,Aside I3,
+114,Light,Toilet,Sink I4,
+115,Light,Hall,Main J1,
+116,Light,Hall,Aside J2,
+117,Light,Hall,Hatch J3,
+118,Light,Balcony,Hall Jx,
+119,Light,Balcony,Bathroom Jy,
+120,Light,Bathroom,Main K1,
+121,Light,Bathroom,Ambient K2,
+122,Light,Bathroom,Sink K3,
+123,Light,Bathroom,Desk K4,
+124,Light,Bedroom 1,Bed L1,
+125,Light,Bedroom 1,Main L2,
+126,Light,Bedroom 1,Aside L3,
+127,Light,Bedroom 1,Wardrobe L4,
+128,Light,Balcony,Bedroom Lo,
+129,Light,Bedroom 2,Main M1,
+130,Light,Bedroom 2,Bed M2,
+131,Light,Bedroom 2,Aside M3,
+132,Light,Bedroom 3,Main N1,
+133,Light,Bedroom 3,Bed N2,
+134,Light,Bedroom 3,Aside N3,
+135,Light,Roof,Podbitka,
+136,Light,Front,Gate,
+137,Spare,Garage,Spare 1,
+138,Spare,Garage,Spare 2,
+139,Plug switch,Balcony,Bedroom L-plug,
+140,Plug switch,Balcony,Hall J-plug,
+141,Plug switch,Terrace,Living Room D-plug,
+142,Plug switch,Front,Garage A-plug,
+143,Shade,Dining Room,1 D-shade-1,
+144,Shade,Dining Room,1 D-shade-1,
+145,Shade,Dining Room,2 D-shade-2,
+146,Shade,Dining Room,2 D-shade-2,
+147,Shade,Living Room,1 D-shade-3,
+148,Shade,Living Room,1 D-shade-3,
+149,Shade,Living Room,2 D-shade-4,
+150,Shade,Living Room,2 D-shade-4,
+151,Shade,Living Room,3 D-shade-5,
+152,Shade,Living Room,3 D-shade-5,
+153,Shade,Library,1 E-shade-1,
+154,Shade,Library,1 E-shade-1,
+155,Shade,Kitchen,1 F-shade-1,
+156,Shade,Kitchen,1 F-shade-1,
+157,Shade,Kitchen,2 F-shade-2,
+158,Shade,Kitchen,2 F-shade-2,
+159,Shade,Kitchen,3 F-shade-3,
+160,Shade,Kitchen,3 F-shade-3,
+161,Shade,Office,1 H-shade-1,
+162,Shade,Office,1 H-shade-1,
+163,Shade,Toilet,1 I-shade-1,
+164,Shade,Toilet,1 I-shade-1,
+165,Shade,Hall,Door J-shade-door-1,
+166,Shade,Hall,Door J-shade-door-1,
+167,Shade,Hall,Window J-shade-window-1,
+168,Shade,Hall,Window J-shade-window-1,
+169,Shade,Bathroom,1 K-shade-1,
+170,Shade,Bathroom,1 K-shade-1,
+171,Shade,Bathroom,2 K-shade-2,
+172,Shade,Bathroom,2 K-shade-2,
+173,Shade,Bedroom 1,1 L-shade-1,
+174,Shade,Bedroom 1,1 L-shade-1,
+175,Shade,Bedroom 2,1 M-shade-1,
+176,Shade,Bedroom 2,1 M-shade-1,
+177,Shade,Bedroom 3,1 N-shade-1,
+178,Shade,Bedroom 3,1 N-shade-1,
+179,Gate,Garage,Main B-gate,
+180,Gate,Garage,Main B-gate,
+181,Gate,Front,Main A-gate,
+182,Gate,Front,Main A-gate,
+183,Door,Front,Door Aa-door,
+184,Door,Entrance,Door Ab-door,

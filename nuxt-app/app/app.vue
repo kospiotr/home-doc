@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import {loadData} from "~/data/data";
 
 const colorMode = useColorMode()
 
@@ -30,14 +29,13 @@ useSeoMeta({
 })
 
 onMounted(async () => {
-  await loadData()
+  // await useIndexStore().load()
 })
 </script>
 
 <template>
   <UApp>
     <NuxtLoadingIndicator />
-
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
