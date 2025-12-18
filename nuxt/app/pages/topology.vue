@@ -68,7 +68,8 @@ const render = async () => {
       floorsSelected.value,
       areaSelected.value
   )
-  nodes.value = await elk_layout(undefined, raw_nodes)
+  await elk_layout(undefined, raw_nodes)
+  nodes.value = raw_nodes
   requestAnimationFrame(() => fitView())
   console.log('rendered', nodes.value)
 }
@@ -102,6 +103,9 @@ const save = () => {
     >
       <template #node-resizable="resizableNodeProps">
         <ResizableNode :data="resizableNodeProps.data" />
+      </template>
+      <template #node-device="props">
+        <DeviceNode :data="props.data"/>
       </template>
       <Background/>
       <MiniMap
