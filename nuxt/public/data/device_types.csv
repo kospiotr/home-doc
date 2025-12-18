@@ -1,0 +1,13 @@
+device_type,width,height,ico,inputs,outputs
+Button,50,50,,1,0
+Light,50,50,lightbulb,0,1
+Spare,50,50,,1,1
+Plug Switch,50,50,,0,1
+Shade,50,50,,2,0
+Gate,50,50,,2,0
+Door,50,50,,1,0
+Reed Relay,50,50,,1,0
+Motion,50,50,,1,0
+Controller128,600,100,,64,64
+Controller64,300,100,,32,32
+Controller32,150,100,,16,16

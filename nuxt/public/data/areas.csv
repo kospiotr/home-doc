@@ -1,0 +1,16 @@
+id,label,floor_id
+Entrance,Entrance,0
+Garage,Garage,0
+Boiler Room,Boiler Room,0
+Dining Room,Dining Room,0
+Toilet,Toilet,0
+Front,Front,0
+Living Room,Living Room,0
+Kitchen,Kitchen,0
+Office,Office,0
+Library,Library,0
+Hall,Hall,1
+Bathroom,Bathroom,1
+Bedroom 1,Bedroom 1,1
+Bedroom 2,Bedroom 2,1
+Bedroom 3,Bedroom 3,1

@@ -1,5 +1,8 @@
-import {type DataFloor, type Floor, type ValidationMessage, warnValidationMessage} from "~/models";
-import {defineStore} from 'pinia'
+import {
+  type Area, type DataFloor, type Floor,
+  type ValidationMessage,
+  warnValidationMessage
+} from "~/models";
 
 export const useFloorStore = defineStore('FloorStore', () => {
 

@@ -1,0 +1,77 @@
+device_type,location_id,area,location_description,location_slot,wire_color,controller_id,controller_pin,debug_id
+Button,1,Entrance,Main,1,,controller01,0,C1_IN_0_mcp23017_hub_0_0
+Button,1,Entrance,Main,2,,controller01,1,C1_IN_1_mcp23017_hub_0_1
+Button,1,Entrance,Main,3,,controller01,2,C1_IN_2_mcp23017_hub_0_2
+Button,1,Entrance,Main,4,,controller01,,
+Button,2,Entrance,Aside,1,,controller01,3,C1_IN_3_mcp23017_hub_0_3
+Button,2,Entrance,Aside,2,,controller01,4,C1_IN_4_mcp23017_hub_0_4
+Button,3,Garage,Main,1,,controller01,5,C1_IN_5_mcp23017_hub_0_5
+Button,3,Garage,Main,2,,controller01,6,C1_IN_6_mcp23017_hub_0_6
+Button,3,Garage,Main,3,,controller01,,
+Button,4,Garage,Desk,1,,controller01,7,C1_IN_7_mcp23017_hub_0_7
+Button,4,Garage,Desk,2,,controller01,8,C1_IN_8_mcp23017_hub_0_8
+Button,4,Garage,Desk,3,,controller01,9,C1_IN_9_mcp23017_hub_0_9
+Button,5,Boiler Room,Main,1,,controller01,10,C1_IN_10_mcp23017_hub_0_10
+Button,5,Boiler Room,Main,2,,controller01,11,C1_IN_11_mcp23017_hub_0_11
+Button,17,Dining Room,Toilet,1,,controller01,13,C1_IN_13_mcp23017_hub_0_13
+Button,17,Dining Room,Toilet,2,,controller01,14,C1_IN_14_mcp23017_hub_0_14
+Button,18,Toilet,Main,1,,controller01,15,C1_IN_15_mcp23017_hub_0_15
+Button,0,Front,Main,1,,controller01,16,C1_IN_16_mcp23017_hub_1_0
+Button,0,Front,Main,2,,controller01,17,C1_IN_17_mcp23017_hub_1_1
+Button,6,Dining Room,Main,1,,controller02,0,C2_IN_0_mcp23017_hub_0_0
+Button,6,Dining Room,Main,2,,controller02,1,C2_IN_1_mcp23017_hub_0_1
+Button,7,Living Room,Secondary,1,,controller02,2,C2_IN_2_mcp23017_hub_0_2
+Button,7,Living Room,Secondary,2,,controller02,3,C2_IN_3_mcp23017_hub_0_3
+Button,9,Living Room,Library,1,,controller02,5,C2_IN_5_mcp23017_hub_0_5
+Button,11,Kitchen,Island,1,,controller02,6,C2_IN_6_mcp23017_hub_0_6
+Button,11,Kitchen,Island,2,,controller02,7,C2_IN_7_mcp23017_hub_0_7
+Button,17,Dining Room,Toilet,3,,controller02,7,C2_IN_7_mcp23017_hub_0_7
+Button,12,Kitchen,Cooker,1,,controller02,8,C2_IN_8_mcp23017_hub_0_8
+Button,12,Kitchen,Cooker,2,,controller02,9,C2_IN_9_mcp23017_hub_0_9
+Button,17b,Dining Room,Toilet,1,,controller02,8,C2_IN_8_mcp23017_hub_0_8
+Button,17b,Dining Room,Toilet,2,,controller02,9,C2_IN_9_mcp23017_hub_0_9
+Button,14,Office,Main,1,,controller02,12,C2_IN_12_mcp23017_hub_0_12
+Button,14,Office,Main,2,,controller02,,
+Button,15,Office,Desk,1,,controller02,13,C2_IN_13_mcp23017_hub_0_13
+Button,15,Office,Desk,2,,controller02,14,C2_IN_14_mcp23017_hub_0_14
+Button,16,Office,Bed,1,,controller02,15,C2_IN_15_mcp23017_hub_0_15
+Button,6,Dining Room,Main,3,,controller03,0,C3_IN_0_mcp23017_hub_0_0
+Button,7,Living Room,Secondary,2,,controller03,2,C3_IN_2_mcp23017_hub_0_2
+Button,7,Living Room,Secondary,3,,controller03,3,C3_IN_3_mcp23017_hub_0_3
+Button,8,Living Room,Main,1,,controller03,6,C3_IN_6_mcp23017_hub_0_6
+Button,8,Living Room,Main,2,,controller03,7,C3_IN_7_mcp23017_hub_0_7
+Button,8,Living Room,Main,3,,controller03,8,C3_IN_8_mcp23017_hub_0_8
+Button,8,Living Room,Main,4,,controller03,9,C3_IN_9_mcp23017_hub_0_9
+Button,10,Library,Main,1,,controller03,12,C3_IN_12_mcp23017_hub_0_12
+Button,10,Library,Main,2,,controller03,13,C3_IN_13_mcp23017_hub_0_13
+Button,10,Library,Main,3,,controller03,14,C3_IN_14_mcp23017_hub_0_14
+Button,19,Hall,Stairs,1,,controller03,15,C3_IN_15_mcp23017_hub_0_15
+Button,19,Hall,Stairs,2,,controller03,16,C3_IN_16_mcp23017_hub_1_0
+Button,20,Hall,Terrace,1,,controller03,17,C3_IN_17_mcp23017_hub_1_1
+Button,20,Hall,Terrace,2,,controller03,18,C3_IN_18_mcp23017_hub_1_2
+Button,20,Hall,Terrace,3,,controller03,19,C3_IN_19_mcp23017_hub_1_3
+Button,20,Hall,Terrace,4,,controller03,20,C3_IN_20_mcp23017_hub_1_4
+Button,21,Hall,Main,1,,controller03,21,C3_IN_21_mcp23017_hub_1_5
+Button,21,Hall,Main,2,,controller03,22,,
+Button,22,Hall,Bathroom,2,,controller04,GPIO12,C4_IN_GPIO12
+Button,22,Hall,Bathroom,1,,controller04,GPIO13,C4_IN_GPIO13
+Button,22,Hall,Bathroom,3,,controller04,GPIO14,C4_IN_GPIO14
+Button,23,Bathroom,Main,2,,controller04,GPIO26,C4_IN_GPIO26
+Button,23,Bathroom,Main,1,,controller04,GPIO27,C4_IN_GPIO27
+Button,24,Bedroom 1,Main,2,,controller05,GPIO12,C5_IN_GPIO12
+Button,24,Bedroom 1,Main,1,,controller05,GPIO13,C5_IN_GPIO13
+Button,24,Bedroom 1,Main,3,,controller05,GPIO14,C5_IN_GPIO14
+Button,25,Bedroom 1,Main,2,,controller05,GPIO12,C5_IN_GPIO12
+Button,25,Bedroom 1,Main,1,,controller05,GPIO13,C5_IN_GPIO13
+Button,25,Bedroom 1,Main,3,,controller05,GPIO14,C5_IN_GPIO14
+Button,26,Bedroom 1,Main,2,,controller05,GPIO12,C5_IN_GPIO12
+Button,26,Bedroom 1,Main,1,,controller05,GPIO13,C5_IN_GPIO13
+Button,26,Bedroom 1,Main,3,,controller05,GPIO14,C5_IN_GPIO14
+Button,27,Bedroom 1,Wardrobe,1,,controller05,GPIO32,C5_IN_GPIO32
+Button,27,Bedroom 1,Wardrobe,2,,controller05,,
+Button,28,Bedroom 2,Main,2,,controller06,GPIO12,C6_IN_GPIO12
+Button,28,Bedroom 2,Main,1,,controller06,GPIO13,C6_IN_GPIO13
+Button,29,Bedroom 2,Aside,1,,controller06,GPIO14,C6_IN_GPIO14
+Button,31,Bedroom 3,Aside,1,,controller06,GPIO25,C6_IN_GPIO25
+Button,30,Bedroom 3,Main,1,,controller06,GPIO27,C6_IN_GPIO27
+Button,30,Bedroom 3,Main,2,,controller06,GPIO33,

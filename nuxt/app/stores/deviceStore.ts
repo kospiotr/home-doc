@@ -1,6 +1,9 @@
-import {type DataDevice, type Device, type ValidationMessage, warnValidationMessage} from "~/models";
+import {
+  type Area, type DataDevice, type Device,
+  type ValidationMessage,
+  warnValidationMessage
+} from "~/models";
 import {useAreaStore} from "~/stores/areaStore";
-import {defineStore} from 'pinia'
 
 export const useDeviceStore = defineStore('DeviceStore', () => {
 
@@ -11,11 +14,12 @@ export const useDeviceStore = defineStore('DeviceStore', () => {
 
   const load = async () => {
     validation.value = []
-    const data: DataDevice[] = await loadCsvData('floors.csv')
+    const data: DataDevice[] = await loadCsvData('devices.csv')
     list.value = data.map<Device>((el) => {
       return {
         id: el.id,
         label: el.id,
+        type: el.type,
         area: areaStore.index[el.area_id]
       }
     })
@@ -29,7 +33,12 @@ export const useDeviceStore = defineStore('DeviceStore', () => {
     }, {} as { [id: string]: Device })
   }
 
-  const devicesForAreas = (areaIds: string[]) => list.value.filter((el) => el.area?.id && areaIds.includes(el.area.id))
+  // const devicesForAreas = (areaIds: string[]) => list.value
+  const devicesForAreas = (areaIds: string[]) => {
+    let out = list.value.filter((el) => el.area?.id && areaIds.includes(el.area.id));
+    // console.log("Devices for area", areaIds, out);
+    return out;
+  }
 
   return {load, list, index, devicesForAreas}
 })

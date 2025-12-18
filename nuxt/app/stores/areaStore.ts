@@ -4,7 +4,6 @@ import {
   warnValidationMessage
 } from "~/models";
 import {useFloorStore} from "~/stores/floorStore";
-import {defineStore} from 'pinia'
 
 
 export const useAreaStore = defineStore('AreaStore', () => {

@@ -1,31 +1,30 @@
 <script setup lang="ts">
-console.log('Init topology')
 import {ref, onMounted, watch} from 'vue'
-import ELK, {type ElkExtendedEdge} from 'elkjs/lib/elk.bundled.js'
 import {VueFlow, useVueFlow, type Node, type Edge, type NodeComponent} from '@vue-flow/core'
 import {Background} from '@vue-flow/background'
 import {Controls} from '@vue-flow/controls'
 import {MiniMap} from '@vue-flow/minimap'
 import ResizableNode from '@/components/ResizableNode.vue'
-import type {Area} from "~/models";
+import type {Area, Floor} from "~/models";
 import {useFloorStore} from "~/stores/floorStore";
 import {useAreaStore} from "~/stores/areaStore";
 import {useDeviceStore} from "~/stores/deviceStore";
-import type {ElkNode} from "elkjs/lib/elk-api";
+import {useTopologyStore} from "~/stores/topologyStore";
+import {elk_layout} from "~/utils/topologyLayout";
 
 const floorStore = useFloorStore()
 const areaStore = useAreaStore()
 const deviceStore = useDeviceStore()
+const topologyStore = useTopologyStore()
 
-const elk = new ELK()
-const {fitView, toObject} = useVueFlow()
+const {fitView, toObject, onConnect, addEdges} = useVueFlow()
 const nodes = ref<Node[]>([])
 const edges = ref<Edge[]>([])
 const floorsItems = computed(() => {
   return floorStore.list;
 })
-const floorsValue = ref(floorsItems.value)
-const floorsSelected = computed(() => floorsValue.value)
+const floorsValue = ref<Floor[]>([])
+const floorsSelected = computed<Floor[]>(() => floorsValue.value)
 const layersItems = ref([
   {value: 'physical', label: 'Physical', icon: 'i-lucide-share-2'},
   {value: 'logical', label: 'Logical', icon: 'i-lucide-link-2'}
@@ -62,145 +61,30 @@ const directionItems = ref([
 ])
 const directionValue = ref(directionItems.value[0])
 
-/**
- * ELK graph with nesting
- */
 
-const nodes2 = computed(() => {
-  return floorsSelected.value
-    .map(floor => {
-      const areasForFloor = areaSelected.value.filter(area => area.floor?.id === floor.id)
-      return {
-        id: `floor_${floor.id}`,
-        data: {
-          label: floor.label
-        },
-        layoutOptions: {
-          'elk.padding': '[top=40,left=40,bottom=40,right=40]',
-        },
-        children: areasForFloor.map(area => {
-          const devicesForArea = deviceStore.devicesForAreas([area.id])
-          return {
-            id: `area_${area.id}`,
-            data: {
-              label: area.label
-            },
-            layoutOptions: {
-              'elk.padding': '[top=40,left=40,bottom=40,right=40]',
-            },
-            children: devicesForArea.map(device => {
-              return {
-                id: `device_${device.id}`,
-                width: 50,
-                height: 50
-              }
-            })
-          }
-        })
-      }
-    })
-})
-
-const elkGraph = computed(() => {
-
-  console.log(nodes2.value)
-  return {
-    id: 'root',
-    layoutOptions: {
-      // 'elk.algorithm': 'layered',
-      'elk.direction': directionValue.value?.value ?? 'DOWN',
-      'elk.hierarchyHandling': 'INCLUDE_CHILDREN',
-      'elk.spacing.nodeNode': '5',
-    },
-    children: [
-      {
-        id: 'group-1',
-        children: [
-          {id: 'a', width: 150, height: 50},
-          {id: 'b', width: 150, height: 50},
-        ],
-      },
-      {
-        id: 'c',
-        width: 150,
-        height: 50,
-      },
-      ...nodes2.value
-    ],
-    edges: [
-      {id: 'e1', sources: ['a'], targets: ['b']},
-      {id: 'e2', sources: ['b'], targets: ['c']},
-      {id: 'e3', sources: ['c'], targets: ['a']},
-    ],
-  }
-})
-
-/**
- * Flatten ELK tree → Vue Flow nodes
- */
-function flatten(node: ElkNode, parent: string | undefined = undefined, acc: Node[] = []) {
-  if (node.id !== 'root') {
-    acc.push({
-      id: node.id,
-      type: 'resizable',
-      position: {x: node.x || 0, y: node.y || 0},
-      width: node.width,
-      height: node.height,
-      parentNode: parent,
-      extent: parent ? 'parent' : undefined,
-      data: {
-        label: node.id,
-        width: node.width,
-        height: node.height,
-      },
-      draggable: true,
-      style: parent
-        ? {}
-        : {
-          // background: '#f3f4f6',
-          // border: '1px solid #d1d5db',
-        },
-    })
-  }
-
-  node.children?.forEach((c) =>
-    flatten(c, node.id === 'root' ? undefined : node.id, acc)
+const render = async () => {
+  const raw_nodes = topologyStore.nodes(
+      levelsSelected.value.map(el => el.value),
+      floorsSelected.value,
+      areaSelected.value
   )
-
-  return acc
-}
-
-function buildEdges(elkEdges: ElkExtendedEdge[]) {
-  return elkEdges
-    .filter((e) => e.sources.length > 0 && e.targets.length > 0)
-    .flatMap<Edge>((e) => {
-      const out: Edge = {
-        id: e.id,
-        source: e.sources[0] || 'UNKNOWN',
-        target: e.targets[0] || 'UNKNOWN',
-        type: pathTypeValue.value?.value ?? 'smoothstep',
-      }
-      return [out]
-    })
-}
-
-async function layout() {
-  console.log('layout init')
-  const res: ElkNode = await elk.layout(elkGraph.value)
-  nodes.value = flatten(res)
-  edges.value = buildEdges(res.edges || [])
+  nodes.value = await elk_layout(undefined, raw_nodes)
   requestAnimationFrame(() => fitView())
-  console.log('layout end')
+  console.log('rendered', nodes.value)
 }
+
+onConnect((params) => addEdges([params]));
 
 onMounted(async () => {
+  const indexStore = useIndexStore()
+  await indexStore.ensureLoaded()
   floorsValue.value = floorsItems.value
   areaValue.value = areaItems.value
-  await layout()
+  await render()
 })
 
-watch([pathTypeValue, directionValue], async () => {
-  await layout()
+watch([levelsSelected, pathTypeValue, directionValue, deviceStore.list, floorsSelected, areaSelected], async () => {
+  await render()
 })
 
 const save = () => {
@@ -210,29 +94,28 @@ const save = () => {
 </script>
 
 <template>
+
   <ClientOnly>
     <VueFlow
       :nodes="nodes"
       :edges="edges"
-      :node-types="{ resizable: markRaw(ResizableNode) as NodeComponent}"
-      @nodes-initialized="layout()"
     >
-
+      <template #node-resizable="resizableNodeProps">
+        <ResizableNode :data="resizableNodeProps.data" />
+      </template>
       <Background/>
       <MiniMap
         :node-color="(n) => (n.type === 'group' ? '#c7d2fe' : '#93c5fd')"
         :node-stroke-width="2"
       />
       <Controls position="top-left" class="flex gap-2">
-
         <UPopover>
           <UButton icon="i-lucide-eye"/>
           <template #content>
             <div class="flex flex-col gap-3 p-3">
               <UFormField label="Levels">
                 <UChip :text="levelsValue.length" size="2xl">
-                  <USelectMenu v-model="levelsValue" multiple :items="levelsItems"
-                               class="w-48"/>
+                  <USelectMenu v-model="levelsValue" multiple :items="levelsItems" class="w-48"/>
                 </UChip>
               </UFormField>
 
@@ -276,7 +159,8 @@ const save = () => {
           </template>
         </UPopover>
         <UButton icon="i-lucide-save" :on-click="save"/>
-        <UButton icon="i-lucide-refresh" :on-click="save"/>
+        <UButton icon="i-lucide-refresh-ccw" :on-click="() => render()"/>
+        <UButton icon="i-lucide-delete" :on-click="() => nodes = []"/>
 
       </Controls>
 
@@ -290,5 +174,6 @@ const save = () => {
 
 /* import the default theme, this is optional but generally recommended */
 @import '@vue-flow/core/dist/theme-default.css';
-
+@import '@vue-flow/controls/dist/style.css';
+@import '@vue-flow/node-resizer/dist/style.css';
 </style>

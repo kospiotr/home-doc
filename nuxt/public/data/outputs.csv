@@ -1,0 +1,109 @@
+device_type,area,location_description,location_id
+Light,Entrance,Main,A1
+Light,Entrance,Aside,A2
+Light,Entrance,Hanger,A3
+Light,Entrance,Wardrobe,A4
+Light,Front,Main,Ao
+Light,Front,Aside,Ax
+Light,Garage,Aside,B1
+Light,Garage,Ceiling,B2
+Light,Garage,Alcove,B3
+Light,Boiler Room,Main,C1
+Light,Boiler Room,Aside,C2
+Light,Dining Room,Main,D1
+Light,Dining Room,Aside,D2
+Light,Living Room,Main,D3
+Light,Living Room,TV Wall,D4
+Light,Terrace,Living Room Main,Do
+Light,Terrace,Dining Room Garden,Dp
+Light,Terrace,Dining Room Main,Du
+Light,Terrace,Dining Room Aside,Dw
+Light,Terrace,Stairs,Dx
+,Terrace,Power wire ??,Dy
+Light,Terrace,Living Room Aside,Dz
+Light,Library,Main,E1
+Light,Library,Aside,E2
+Light,Terrace,Library,Eo
+Light,Kitchen,Island,F1
+Light,Kitchen,Main,F2
+Light,Kitchen,Aside,F3
+Light,Kitchen,Ambient,G1
+Light,Hall,Ambient,G2
+Light,Office,Main,H1
+Light,Office,Aside,H2
+Light,Office,Desk,H3
+Light,Office,Bed,H4
+Light,Toilet,Ceiling,I1
+Light,Toilet,Fan,I2
+Light,Toilet,Aside,I3
+Light,Toilet,Sink,I4
+Light,Hall,Main,J1
+Light,Hall,Aside,J2
+Light,Hall,Hatch,J3
+Light,Balcony,Hall,Jx
+Light,Balcony,Bathroom,Jy
+Light,Bathroom,Main,K1
+Light,Bathroom,Ambient,K2
+Light,Bathroom,Sink,K3
+Light,Bathroom,Desk,K4
+Light,Bedroom 1,Bed,L1
+Light,Bedroom 1,Main,L2
+Light,Bedroom 1,Aside,L3
+Light,Bedroom 1,Wardrobe,L4
+Light,Balcony,Bedroom,Lo
+Light,Bedroom 2,Main,M1
+Light,Bedroom 2,Bed,M2
+Light,Bedroom 2,Aside,M3
+Light,Bedroom 3,Main,N1
+Light,Bedroom 3,Bed,N2
+Light,Bedroom 3,Aside,N3
+Light,Roof,Podbitka,
+Light,Front,Gate,
+Spare,Garage,Spare 1,
+Spare,Garage,Spare 2,
+Plug switch,Balcony,Bedroom,L-plug
+Plug switch,Balcony,Hall,J-plug
+Plug switch,Terrace,Living Room,D-plug
+Plug switch,Front,Garage,A-plug
+Shade,Dining Room,1,D-shade-1
+Shade,Dining Room,1,D-shade-1
+Shade,Dining Room,2,D-shade-2
+Shade,Dining Room,2,D-shade-2
+Shade,Living Room,1,D-shade-3
+Shade,Living Room,1,D-shade-3
+Shade,Living Room,2,D-shade-4
+Shade,Living Room,2,D-shade-4
+Shade,Living Room,3,D-shade-5
+Shade,Living Room,3,D-shade-5
+Shade,Library,1,E-shade-1
+Shade,Library,1,E-shade-1
+Shade,Kitchen,1,F-shade-1
+Shade,Kitchen,1,F-shade-1
+Shade,Kitchen,2,F-shade-2
+Shade,Kitchen,2,F-shade-2
+Shade,Kitchen,3,F-shade-3
+Shade,Kitchen,3,F-shade-3
+Shade,Office,1,H-shade-1
+Shade,Office,1,H-shade-1
+Shade,Toilet,1,I-shade-1
+Shade,Toilet,1,I-shade-1
+Shade,Hall,Door,J-shade-door-1
+Shade,Hall,Door,J-shade-door-1
+Shade,Hall,Window,J-shade-window-1
+Shade,Hall,Window,J-shade-window-1
+Shade,Bathroom,1,K-shade-1
+Shade,Bathroom,1,K-shade-1
+Shade,Bathroom,2,K-shade-2
+Shade,Bathroom,2,K-shade-2
+Shade,Bedroom 1,1,L-shade-1
+Shade,Bedroom 1,1,L-shade-1
+Shade,Bedroom 2,1,M-shade-1
+Shade,Bedroom 2,1,M-shade-1
+Shade,Bedroom 3,1,N-shade-1
+Shade,Bedroom 3,1,N-shade-1
+Gate,Garage,Main,B-gate
+Gate,Garage,Main,B-gate
+Gate,Front,Main,A-gate
+Gate,Front,Main,A-gate
+Door,Front,Door,Aa-door
+Door,Entrance,Door,Ab-door
