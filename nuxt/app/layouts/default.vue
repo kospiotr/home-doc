@@ -60,6 +60,54 @@ const links = [[{
       open.value = false
     }
   }]
+},
+  {
+    label: 'Areas',
+    to: '/areas',
+    icon: 'i-lucide-pin',
+    exact: true,
+    onSelect: () => {
+      open.value = false
+    }
+  },
+  {
+    label: 'Controllers',
+    to: '/areas',
+    icon: 'i-lucide-keyboard',
+    exact: true,
+    onSelect: () => {
+      open.value = false
+    }
+  },
+  {
+    label: 'Devices',
+    to: '/areas',
+    icon: 'i-lucide-tv',
+    exact: true,
+    onSelect: () => {
+      open.value = false
+    }
+  },
+  {
+  label: 'Topology',
+  icon: 'i-lucide-map',
+  defaultOpen: true,
+  type: 'trigger',
+  children: [{
+    label: 'Physical',
+    to: '/topology/physical',
+    exact: true,
+    onSelect: () => {
+      open.value = false
+    }
+  }, {
+    label: 'Logical',
+    to: '/topology/logical',
+    exact: true,
+    onSelect: () => {
+      open.value = false
+    }
+  }]
 }], [{
   label: 'Feedback',
   icon: 'i-lucide-message-circle',

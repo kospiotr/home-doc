@@ -16,10 +16,10 @@ export const elk_layout = async (direction: string | undefined, nodes: Node[]) =
     children: buildElkNodes(nodes, undefined),
     edges: [],
   } as ElkNode
-  console.log('graph', graph)
+  console.log('layout input', nodes, graph)
   const res: ElkNode = await elk.layout(graph)
   updateNodes(res.children, nodes)
-  console.log('layout', res)
+  console.log('layout output', res)
   return nodes
 }
 

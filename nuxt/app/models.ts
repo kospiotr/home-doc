@@ -36,8 +36,8 @@ export interface DeviceType {
   width: number
   height: number
   ico?: string
-  inputs: number
-  outputs: number
+  inputs: string[]
+  outputs: string[]
 }
 export interface Device {
   id: string;

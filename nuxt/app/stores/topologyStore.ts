@@ -1,6 +1,7 @@
 import {type Area, type Floor} from "~/models";
 import type {ElkNode} from "elkjs/lib/elk-api";
 import {useDeviceStore} from "~/stores/deviceStore";
+import {useDeviceTypeStore} from "~/stores/deviceTypeStore";
 import type {Node} from "@vue-flow/core";
 import {useFloorStore} from "~/stores/floorStore";
 import {useAreaStore} from "~/stores/areaStore";
@@ -10,6 +11,7 @@ export const useTopologyStore = defineStore('TopologyStore', () => {
     const floorStore = useFloorStore()
     const areaStore = useAreaStore()
     const deviceStore = useDeviceStore()
+    const deviceTypeStore = useDeviceTypeStore()
 
     const nodes = (selectedLevels: string[], selectedFloors: Floor[], selectedAreas: Area[]) => {
       return floorNodes(selectedLevels, selectedFloors, selectedAreas)
@@ -25,8 +27,8 @@ export const useTopologyStore = defineStore('TopologyStore', () => {
             id: id,
             data: {label: floor.label},
             position: {x: 0, y: 0},
-            width: 400,
-            height: 400,
+            width: -1,
+            height: -1,
             type: `resizable`,
           }, ...areaNodes(selectedLevels, id, floorAreas)]
         } else {
@@ -45,8 +47,8 @@ export const useTopologyStore = defineStore('TopologyStore', () => {
             id: id,
             data: {label: area.label},
             position: {x: 0, y: 0},
-            width: 200,
-            height: 200,
+            width: -1,
+            height: -1,
             type: `resizable`,
             parentNode: parentNodeId,
             extent: parentNodeId ? 'parent' : undefined,
@@ -60,12 +62,14 @@ export const useTopologyStore = defineStore('TopologyStore', () => {
       }
       const devicesForArea = deviceStore.devicesForAreas([area.id])
       return devicesForArea.map<Node>(device => {
+
+        const deviceType = deviceTypeStore.configByType(device.type)
         return {
           id: `devide_${device.id}`,
           data: {label: '', type: device.type},
           position: {x: 0, y: 0},
-          width: 50,
-          height: 50,
+          width: deviceType.width,
+          height: deviceType.height,
           type: `device`,
           parentNode: parentNodeId,
           extent: parentNodeId ? 'parent' : undefined,

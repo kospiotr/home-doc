@@ -1,109 +1,109 @@
-device_type,area,location_description,location_id
-Light,Entrance,Main,A1
-Light,Entrance,Aside,A2
-Light,Entrance,Hanger,A3
-Light,Entrance,Wardrobe,A4
-Light,Front,Main,Ao
-Light,Front,Aside,Ax
-Light,Garage,Aside,B1
-Light,Garage,Ceiling,B2
-Light,Garage,Alcove,B3
-Light,Boiler Room,Main,C1
-Light,Boiler Room,Aside,C2
-Light,Dining Room,Main,D1
-Light,Dining Room,Aside,D2
-Light,Living Room,Main,D3
-Light,Living Room,TV Wall,D4
-Light,Terrace,Living Room Main,Do
-Light,Terrace,Dining Room Garden,Dp
-Light,Terrace,Dining Room Main,Du
-Light,Terrace,Dining Room Aside,Dw
-Light,Terrace,Stairs,Dx
-,Terrace,Power wire ??,Dy
-Light,Terrace,Living Room Aside,Dz
-Light,Library,Main,E1
-Light,Library,Aside,E2
-Light,Terrace,Library,Eo
-Light,Kitchen,Island,F1
-Light,Kitchen,Main,F2
-Light,Kitchen,Aside,F3
-Light,Kitchen,Ambient,G1
-Light,Hall,Ambient,G2
-Light,Office,Main,H1
-Light,Office,Aside,H2
-Light,Office,Desk,H3
-Light,Office,Bed,H4
-Light,Toilet,Ceiling,I1
-Light,Toilet,Fan,I2
-Light,Toilet,Aside,I3
-Light,Toilet,Sink,I4
-Light,Hall,Main,J1
-Light,Hall,Aside,J2
-Light,Hall,Hatch,J3
-Light,Balcony,Hall,Jx
-Light,Balcony,Bathroom,Jy
-Light,Bathroom,Main,K1
-Light,Bathroom,Ambient,K2
-Light,Bathroom,Sink,K3
-Light,Bathroom,Desk,K4
-Light,Bedroom 1,Bed,L1
-Light,Bedroom 1,Main,L2
-Light,Bedroom 1,Aside,L3
-Light,Bedroom 1,Wardrobe,L4
-Light,Balcony,Bedroom,Lo
-Light,Bedroom 2,Main,M1
-Light,Bedroom 2,Bed,M2
-Light,Bedroom 2,Aside,M3
-Light,Bedroom 3,Main,N1
-Light,Bedroom 3,Bed,N2
-Light,Bedroom 3,Aside,N3
-Light,Roof,Podbitka,
-Light,Front,Gate,
-Spare,Garage,Spare 1,
-Spare,Garage,Spare 2,
-Plug switch,Balcony,Bedroom,L-plug
-Plug switch,Balcony,Hall,J-plug
-Plug switch,Terrace,Living Room,D-plug
-Plug switch,Front,Garage,A-plug
-Shade,Dining Room,1,D-shade-1
-Shade,Dining Room,1,D-shade-1
-Shade,Dining Room,2,D-shade-2
-Shade,Dining Room,2,D-shade-2
-Shade,Living Room,1,D-shade-3
-Shade,Living Room,1,D-shade-3
-Shade,Living Room,2,D-shade-4
-Shade,Living Room,2,D-shade-4
-Shade,Living Room,3,D-shade-5
-Shade,Living Room,3,D-shade-5
-Shade,Library,1,E-shade-1
-Shade,Library,1,E-shade-1
-Shade,Kitchen,1,F-shade-1
-Shade,Kitchen,1,F-shade-1
-Shade,Kitchen,2,F-shade-2
-Shade,Kitchen,2,F-shade-2
-Shade,Kitchen,3,F-shade-3
-Shade,Kitchen,3,F-shade-3
-Shade,Office,1,H-shade-1
-Shade,Office,1,H-shade-1
-Shade,Toilet,1,I-shade-1
-Shade,Toilet,1,I-shade-1
-Shade,Hall,Door,J-shade-door-1
-Shade,Hall,Door,J-shade-door-1
-Shade,Hall,Window,J-shade-window-1
-Shade,Hall,Window,J-shade-window-1
-Shade,Bathroom,1,K-shade-1
-Shade,Bathroom,1,K-shade-1
-Shade,Bathroom,2,K-shade-2
-Shade,Bathroom,2,K-shade-2
-Shade,Bedroom 1,1,L-shade-1
-Shade,Bedroom 1,1,L-shade-1
-Shade,Bedroom 2,1,M-shade-1
-Shade,Bedroom 2,1,M-shade-1
-Shade,Bedroom 3,1,N-shade-1
-Shade,Bedroom 3,1,N-shade-1
-Gate,Garage,Main,B-gate
-Gate,Garage,Main,B-gate
-Gate,Front,Main,A-gate
-Gate,Front,Main,A-gate
-Door,Front,Door,Aa-door
-Door,Entrance,Door,Ab-door
+location_id,area,device_type,location_description,operation,cabinet_socket,cabinet_relay,controller_id,controller_pin,debug_id,duration
+A1,Entrance,Light,Main,,1,1,controller01,64,OUT_64_mcp23017_hub_4_0,
+A2,Entrance,Light,Aside,,2,2,controller01,65,OUT_65_mcp23017_hub_4_1,
+A3,Entrance,Light,Hanger,,3,3,controller01,,,
+A4,Entrance,Light,Wardrobe,,4,4,controller01,,,
+Ao,Front,Light,Main,,5,5,controller01,68,OUT_68_mcp23017_hub_4_4,
+Ax,Front,Light,Aside,,6,6,controller01,69,OUT_69_mcp23017_hub_4_5,
+B1,Garage,Light,Aside,,7,7,controller01,70,OUT_70_mcp23017_hub_4_6,
+B2,Garage,Light,Ceiling,,8,8,controller01,71,OUT_71_mcp23017_hub_4_7,
+B3,Garage,Light,Alcove,,9,9,controller01,72,,
+C1,Boiler Room,Light,Main,,10,10,controller01,73,,
+C2,Boiler Room,Light,Aside,,11,11,controller01,74,,
+D1,Dining Room,Light,Main,,12,12,controller02,32,,
+D2,Dining Room,Light,Aside,,13,13,controller02,33,,
+D3,Living Room,Light,Main,,14,14,controller03,32,,
+D4,Living Room,Light,TV Wall,,15,15,controller03,33,,
+Do,Terrace,Light,Living Room Main,,16,16,controller03,34,,
+Dp,Terrace,Light,Dining Room Garden,,,,,,,
+Du,Terrace,Light,Dining Room Main,,17,17,controller03,36,,
+Dw,Terrace,Light,Dining Room Aside,,18,18,controller03,37,,
+Dx,Terrace,Light,Stairs,,19,19,controller03,38,,
+Dy,Terrace,,Power wire ??,,,,,,,
+Dz,Terrace,Light,Living Room Aside,,20,20,controller03,40,,
+E1,Library,Light,Main,,21,21,controller03,41,,
+E2,Library,Light,Aside,,22,22,controller03,42,,
+Eo,Terrace,Light,Library,,23,23,controller03,43,,
+F1,Kitchen,Light,Island,,24,24,controller02,34,,
+F2,Kitchen,Light,Main,,25,25,controller02,35,,
+F3,Kitchen,Light,Aside,,26,26,controller02,36,,
+G1,Kitchen,Light,Ambient,,27,27,controller02,37,,
+G2,Hall,Light,Ambient,,28,28,controller03,44,,
+H1,Office,Light,Main,,29,29,controller02,38,,
+H2,Office,Light,Aside,,30,30,controller02,39,,
+H3,Office,Light,Desk,,31,31,controller02,40,,
+H4,Office,Light,Bed,,32,32,controller02,41,,
+I1,Toilet,Light,Ceiling,,33,33,controller01,75,,
+I2,Toilet,Light,Fan,,34,34,controller01,76,,
+I3,Toilet,Light,Aside,,35,35,controller01,77,,
+I4,Toilet,Light,Sink,,36,36,controller01,78,,
+J1,Hall,Light,Main,,37,37,controller03,45,,
+J2,Hall,Light,Aside,,38,38,controller03,46,,
+J3,Hall,Light,Hatch,,39,39,controller04,GPIO15,,
+Jx,Balcony,Light,Hall,,40,40,controller03,47,,
+Jy,Balcony,Light,Bathroom,,41,41,controller03,48,,
+K1,Bathroom,Light,Main,,42,42,controller04,GPIO2,,
+K2,Bathroom,Light,Ambient,,43,43,controller04,GPIO0,,
+K3,Bathroom,Light,Sink,,44,44,controller04,GPIO4,,
+K4,Bathroom,Light,Desk,,45,45,controller04,GPIO16,,
+L1,Bedroom 1,Light,Bed,,46,46,controller05,GPIO15,,
+L2,Bedroom 1,Light,Main,,47,47,controller05,GPIO2,,
+L3,Bedroom 1,Light,Aside,,48,48,controller05,GPIO0,,
+L4,Bedroom 1,Light,Wardrobe,,49,49,controller05,GPIO4,,
+Lo,Balcony,Light,Bedroom,,50,50,controller05,GPIO16,,
+M1,Bedroom 2,Light,Main,,51,51,controller06,GPIO15,,
+M2,Bedroom 2,Light,Bed,,52,52,controller06,GPIO2,,
+M3,Bedroom 2,Light,Aside,,53,53,controller06,GPIO0,,
+N1,Bedroom 3,Light,Main,,54,54,controller06,GPIO4,,
+N2,Bedroom 3,Light,Bed,,55,55,controller06,GPIO16,,
+N3,Bedroom 3,Light,Aside,,56,56,controller06,GPIO17,,
+,Roof,Light,Podbitka,,57,57,,,,
+,Front,Light,Gate,,58,58,controller01,79,,
+,Spare,,,,59,59,,,,
+,Spare,,,,60,60,,,,
+L-plug,Balcony,Plug switch,Bedroom,,61,61,controller05,GPIO17,,
+J-plug,Balcony,Plug switch,Hall,,62,62,controller03,49,,
+D-plug,Terrace,Plug switch,Living Room,,63,63,controller03,50,,
+A-plug,Front,Plug switch,Garage,,64,64,controller01,80,,
+D-shade-1,Dining Room,Shade,1,Open,65,65,controller01,81,,31
+D-shade-1,Dining Room,Shade,1,Close,65,66,controller01,82,,29
+D-shade-2,Dining Room,Shade,2,Open,66,65,controller01,81,,31
+D-shade-2,Dining Room,Shade,2,Close,66,66,controller01,82,,29
+D-shade-3,Living Room,Shade,1,Open,67,67,controller01,83,,31
+D-shade-3,Living Room,Shade,1,Close,67,68,controller01,84,,29
+D-shade-4,Living Room,Shade,2,Open,68,67,controller01,83,,31
+D-shade-4,Living Room,Shade,2,Close,68,68,controller01,84,,29
+D-shade-5,Living Room,Shade,3,Open,69,67,controller01,83,,31
+D-shade-5,Living Room,Shade,3,Close,69,68,controller01,84,,29
+E-shade-1,Library,Shade,1,Open,75,75,controller01,91,,35
+E-shade-1,Library,Shade,1,Close,75,76,controller01,92,,33
+F-shade-1,Kitchen,Shade,1,Open,70,69,controller01,85,,19
+F-shade-1,Kitchen,Shade,1,Close,70, 70,controller01,86,,18
+F-shade-2,Kitchen,Shade,2,Open,71,69,controller01,85,,19
+F-shade-2,Kitchen,Shade,2,Close,71, 70,controller01,86,,18
+F-shade-3,Kitchen,Shade,3,Open,72,69,controller01,85,,19
+F-shade-3,Kitchen,Shade,3,Close,72, 70,controller01,86,,18
+H-shade-1,Office,Shade,1,Open,73,71,controller01,87,,22
+H-shade-1,Office,Shade,1,Close,73,72,controller01,88,,19
+I-shade-1,Toilet,Shade,1,Open,74,73,controller01,89,,16
+I-shade-1,Toilet,Shade,1,Close,74,74,controller01,90,,15
+J-shade-door-1,Hall,Shade,Door,Open,77,77,controller01,93,,28
+J-shade-door-1,Hall,Shade,Door,Close,77,78,controller01,94,,28
+J-shade-window-1,Hall,Shade,Window,Open,76,77,controller01,93,,28
+J-shade-window-1,Hall,Shade,Window,Close,76,78,controller01,94,,28
+K-shade-1,Bathroom,Shade,1,Open,78,79,controller01,95,,20
+K-shade-1,Bathroom,Shade,1,Close,78,80,controller01,96,,18
+K-shade-2,Bathroom,Shade,2,Open,79,79,controller01,95,,20
+K-shade-2,Bathroom,Shade,2,Close,79,80,controller01,96,,18
+L-shade-1,Bedroom 1,Shade,1,Open,80,81,controller01,97,,32
+L-shade-1,Bedroom 1,Shade,1,Close,80,82,controller01,98,,31
+M-shade-1,Bedroom 2,Shade,1,Open,81,83,controller01,99,,21
+M-shade-1,Bedroom 2,Shade,1,Close,81,84,controller01,100,,20
+N-shade-1,Bedroom 3,Shade,1,Open,82,85,controller01,101,,21
+N-shade-1,Bedroom 3,Shade,1,Close,82,86,controller01,102,,21
+B-gate,Garage,Gate,Main,Open,97,92,controller01,108,,1
+B-gate,Garage,Gate,Main,Close,98,93,controller01,109,,1
+A-gate,Front,Gate,Main,Open,93,89,controller01,105,,1
+A-gate,Front,Gate,Main,Close,94,90,controller01,106,,1
+Aa-door,Front,Door,Door,Switch,95,90,controller01,66,OUT_65_mcp23017_hub_4_1,8
+Ab-door,Entrance,Door,Door,Switch,96,89,controller01,67,OUT_65_mcp23017_hub_4_1,8

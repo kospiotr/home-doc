@@ -68,7 +68,7 @@ const render = async () => {
       floorsSelected.value,
       areaSelected.value
   )
-  await elk_layout(undefined, raw_nodes)
+  await elk_layout(directionValue.value?.value ?? 'DOWN', raw_nodes)
   nodes.value = raw_nodes
   requestAnimationFrame(() => fitView())
   console.log('rendered', nodes.value)
