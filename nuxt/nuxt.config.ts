@@ -5,7 +5,8 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@vueuse/nuxt',
     '@pinia/nuxt',
-    'nuxt-svg-sprite-icon'
+    'nuxt-svg-sprite-icon',
+    'nuxt-auth-utils'
   ],
 
   devtools: {
