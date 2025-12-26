@@ -6,7 +6,8 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@pinia/nuxt',
     'nuxt-svg-sprite-icon',
-    'nuxt-auth-utils'
+    'nuxt-auth-utils',
+    'pinia-plugin-persistedstate/nuxt',
   ],
 
   devtools: {
@@ -30,5 +31,10 @@ export default defineNuxtConfig({
         braceStyle: '1tbs'
       }
     }
-  }
+  },
+
+  piniaPluginPersistedstate: {
+    storage: 'localStorage',
+    debug: true,
+  },
 })

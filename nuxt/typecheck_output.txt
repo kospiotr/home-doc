@@ -1,0 +1,14 @@
+npm warn Unknown project config "shamefully-hoist". This will stop working in the next major version of npm.
+
+> typecheck
+> nuxt typecheck
+
+[nuxt-svg-sprite-icon] ℹ Input path resolved to: /Users/prki/WebstormProjects/home-doc/nuxt/app/assets/svg
+[nuxt-svg-sprite-icon] ℹ Output path resolved to: /Users/prki/WebstormProjects/home-doc/nuxt/app/assets/sprite/gen
+[nuxt-svg-sprite-icon] ℹ Nuxt compatibility version: 4
+[nuxt-svg-sprite-icon] ℹ Attempting to generate sprites from: /Users/prki/WebstormProjects/home-doc/nuxt/app/assets/svg
+[nuxt-svg-sprite-icon] ✔ Generated 1 sprite(s)
+ℹ Nuxt Icon server bundle mode is set to local
+✔ Nuxt Icon discovered local-installed 2 collections: lucide, simple-icons
+[nuxt-svg-sprite-icon] ℹ Attempting to generate sprites from: /Users/prki/WebstormProjects/home-doc/nuxt/app/assets/svg
+[nuxt-svg-sprite-icon] ✔ Generated 1 sprite(s)

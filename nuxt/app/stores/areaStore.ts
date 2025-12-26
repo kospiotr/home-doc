@@ -3,7 +3,7 @@ import {
   type ValidationMessage,
   warnValidationMessage
 } from "~/models";
-import {useFloorStore} from "~/stores/floorStore";
+import { useFloorStore } from "~/stores/floorStore";
 
 
 export const useAreaStore = defineStore('AreaStore', () => {
@@ -32,13 +32,16 @@ export const useAreaStore = defineStore('AreaStore', () => {
       acc[el.id] = el
       return acc;
     }, {} as { [id: string]: Area })
+    console.log('AreaStore loaded', list.value)
   }
 
   const findForFloors = (floorIds: string[]) => {
     return list.value.filter(el => el.floor?.id && floorIds.includes(el.floor.id))
   }
 
-  return {load, list, index, findForFloors}
+  return { load, list, index, findForFloors }
+}, {
+  persist: true
 })
 
 
