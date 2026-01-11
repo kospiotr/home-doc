@@ -103,7 +103,9 @@ N-shade-1,Bedroom 3,Shade,1,Open,82,85,controller01,101,,21
 N-shade-1,Bedroom 3,Shade,1,Close,82,86,controller01,102,,21
 B-gate,Garage,Gate,Main,Open,97,92,controller01,108,,1
 B-gate,Garage,Gate,Main,Close,98,93,controller01,109,,1
+gate_front,Front,Gate,,,,,,,,1
 A-gate,Front,Gate,Main,Open,93,89,controller01,105,,1
 A-gate,Front,Gate,Main,Close,94,90,controller01,106,,1
+gate_garage,Garage,Gate,,,,,,,,1
 Aa-door,Front,Door,Door,Switch,95,90,controller01,66,OUT_65_mcp23017_hub_4_1,8
 Ab-door,Entrance,Door,Door,Switch,96,89,controller01,67,OUT_65_mcp23017_hub_4_1,8

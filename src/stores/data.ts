@@ -25,6 +25,7 @@ interface Data {
   actions: Action[];
   shades: Shade[];
 }
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function parseCsvData(csv: string = ""): any[] {
   const lines = csv.split('\n')
@@ -128,7 +129,9 @@ export const useDataStore = defineStore('data',
       return (data.value.outputs || []).map(output => {
         let id = output.device_type
         id = id + '_' + output.area;
-        id = id + '_' + output.location_description;
+        if (output.location_description) {
+          id = id + '_' + output.location_description;
+        }
         if (output.operation) {
           id = id + '_' + output.operation;
         }

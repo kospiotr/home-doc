@@ -104,7 +104,7 @@ interface Action {
   source_location_slot: string
   trigger: "on_press" | "on_short_press" | "on_long_press"
   action: "light.toggle" | "switch.toggle" | "on_long_press"
-  target_location_id: string
+  target_location_id?: string
 }
 
 interface Shade {

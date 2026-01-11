@@ -198,13 +198,13 @@ class EspBuilder {
   }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  addWarning(msg: string, details: any = ''){
-    this.validation_errors.push({type: 'WARN', msg:msg, details:JSON.stringify(details)});
+  addWarning(msg: string, details: any = '') {
+    this.validation_errors.push({type: 'WARN', msg: msg, details: JSON.stringify(details)});
   }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  addError(msg: string, details: any = ''){
-    this.validation_errors.push({type: 'WARN', msg:msg, details:JSON.stringify(details)})
+  addError(msg: string, details: any = '') {
+    this.validation_errors.push({type: 'WARN', msg: msg, details: JSON.stringify(details)})
   }
 
   build() {
@@ -256,14 +256,14 @@ class EspBuilder {
           continue
         }
         const action_action = action.action
-        if(!['light.toggle', 'switch.toggle', 'cover.toggle'].includes(action_action)){
+        if (!['light.toggle', 'switch.toggle', 'cover.toggle'].includes(action_action)) {
           this.addWarning(`Unsupported action: ${action_action}`, action)
           continue
         }
 
         let output_id = output.id
 
-        if(action_action === 'switch.toggle') {
+        if (action_action === 'switch.toggle') {
           output_id = `switch_${output_id}`
         }
 
@@ -305,7 +305,7 @@ class EspBuilder {
             })
           }
         } else {
-          this.addWarning(`Sensor Action - unsupported target device type: ${output.device_type}`,action)
+          this.addWarning(`Sensor Action - unsupported target device type: ${output.device_type}`, action)
         }
       }
     }
@@ -376,7 +376,7 @@ class EspBuilder {
       pin: pin,
     }
 
-    if(duration){
+    if (duration) {
       out.on_turn_on = [
         {delay: `${duration}s`},
         {'switch.turn_off': output_id}
@@ -454,6 +454,25 @@ class EspBuilder {
         {"switch.turn_on": close_switch.id},
         {"delay": "1s"},
         {"switch.turn_off": close_switch.id}
+      ],
+      toggle_action: [
+        {
+          "if":
+            {
+              condition: {
+                lambda: 'return id('+shade_id+').position == COVER_CLOSED;'
+              },
+              then: [
+                {'cover.open': `${shade_id}`}
+              ],
+              else: [
+                {
+                  'cover.close': `${shade_id}`
+                }
+              ]
+            }
+
+        }
       ]
     })
     this.data.cover = covers
@@ -468,8 +487,9 @@ const toEscapedYaml = (obj: any) => {
     return value;
   };
 
-  let yaml = stringify(obj, replacer);
+  let yaml = stringify(obj, replacer, {doubleQuotedAsJSON: true});
   yaml = yaml.replace(/"!secret (.*)"/gi, "!secret $1");
+  yaml = yaml.replace(/lambda: (.*)/gi, "lambda: '$1'");
   return yaml;
 }
 
@@ -489,7 +509,7 @@ export const buildEspDeviceOfType = (device: DeviceModel) => {
   } else if (device.type.id === 'esp64') {
     builder = buildEspDevice(deviceId, 64)
   } else {
-  builder = buildEspDevice(deviceId, 0)
+    builder = buildEspDevice(deviceId, 0)
   }
   return builder.build()
 }
@@ -520,8 +540,8 @@ const buildEspDevice = (controller_id: string, pins: number) => {
       output.controller_id == controller_id && output.device_type == 'Shade'
     )
     .reduce((acc, value) => {
-      let shade = acc.find((el) => el.area  === value.area && el.controller_id === value.controller_id)
-      if (!shade){
+      let shade = acc.find((el) => el.area === value.area && el.controller_id === value.controller_id)
+      if (!shade) {
         shade = {
           area: value.area,
           controller_id: value.controller_id,
@@ -532,13 +552,13 @@ const buildEspDevice = (controller_id: string, pins: number) => {
         }
         acc.push(shade)
       }
-      if(value.operation == 'Open') {
+      if (value.operation == 'Open') {
         shade.controller_pin_open = value.controller_pin
         shade.open_duration = value.duration
-      } else if(value.operation == 'Close'){
+      } else if (value.operation == 'Close') {
         shade.controller_pin_close = value.controller_pin
         shade.close_duration = value.duration
-      } else{
+      } else {
         builder.addWarning(`Unknow operation for the Shade: ${value.operation}`, shade)
       }
       return acc;
@@ -575,8 +595,8 @@ const buildEspDevice = (controller_id: string, pins: number) => {
       output.controller_id == controller_id && output.device_type == 'Gate'
     )
     .reduce((acc, value) => {
-      let shade = acc.find((el) => el.area  === value.area && el.controller_id === value.controller_id)
-      if (!shade){
+      let shade = acc.find((el) => el.area === value.area && el.controller_id === value.controller_id)
+      if (!shade) {
         shade = {
           area: value.area,
           controller_id: value.controller_id,
@@ -587,13 +607,13 @@ const buildEspDevice = (controller_id: string, pins: number) => {
         }
         acc.push(shade)
       }
-      if(value.operation == 'Open') {
+      if (value.operation == 'Open') {
         shade.controller_pin_open = value.controller_pin
         shade.open_duration = value.duration
-      } else if(value.operation == 'Close'){
+      } else if (value.operation == 'Close') {
         shade.controller_pin_close = value.controller_pin
         shade.close_duration = value.duration
-      } else{
+      } else {
         builder.addWarning(`Unknow operation for the Shade: ${value.operation}`, shade)
       }
       return acc;

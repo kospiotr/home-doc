@@ -37,4 +37,11 @@ export default defineNuxtConfig({
     storage: 'localStorage',
     debug: true,
   },
+  runtimeConfig: {
+    oauth: {
+      github: {
+        scope: ['read:user', 'user:email', 'repo']
+      }
+    }
+  }
 })

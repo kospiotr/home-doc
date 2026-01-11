@@ -1,12 +1,12 @@
 const baseUrl = 'https://api.github.com'
 
-export interface Options{
+export interface Options {
   url: string
   headers?: Record<string, string>
   token?: string
 }
 
-export const request = async (options: Options | string) =>{
+export const request = async (options: Options | string) => {
   if (typeof options === 'string') {
     options = {
       url: options
@@ -22,7 +22,7 @@ export const request = async (options: Options | string) =>{
   }, options.headers)
 
   if (options.token) {
-    options.headers.Authorization = `Bearer ${options.token}`
+    options.headers.Authorization = `token ${options.token}`
   }
 
   const response = await $fetch(options.url, options.headers)

@@ -1,14 +1,12 @@
 declare module '#auth-utils' {
-  interface User {
-    // Add your own fields
-  }
+  interface User {}
 
   interface UserSession {
-    // Add your own fields
+    secure: SecureSessionData
   }
 
   interface SecureSessionData {
-    // Add your own fields
+    githubToken: string
   }
 }
 
